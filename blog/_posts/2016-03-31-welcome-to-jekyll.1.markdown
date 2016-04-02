@@ -11,31 +11,31 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+<pre><code class="language-javascript">
+var elements = document.getElementsByTagName('script')
 
-{% highlight js %}
-// count to ten
-for (var i = 1; i <= 10; i++) {
-    console.log(i);
-}
+Array.prototype.forEach.call(elements, function(element) {
+    if (element.type.indexOf('math/tex') != -1) {
+        // Extract math markdown
+        var textToRender = element.innerText || element.textContent;
 
-// count to twenty
-var j = 0;
-while (j < 20) {
-    j++;
-    console.log(j);
-}
-{% endhighlight %}
+        // Create span for KaTeX
+        var katexElement = document.createElement('span');
 
-{% highlight html %}
-<a href="#"></a>
-{% endhighlight %}
+        // Support inline and display math
+        if (element.type.indexOf('mode=display') != -1){
+        katexElement.className += "math-display";
+        textToRender = '\\displaystyle {' + textToRender + '}';
+        } else {
+        katexElement.className += "math-inline";
+        }
+
+        katex.render(textToRender, katexElement);
+        element.parentNode.insertBefore(katexElement, element);
+    }
+});
+// prints 'Hi, Tom' to STDOUT.
+</code></pre>
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
