@@ -1,8 +1,43 @@
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .navbar {
     border-radius: 0 !important;
-    height: 112px !important;
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .navbar .navbar-collapse ul li {
-    padding: 33px !important;
+    padding: 30px !important;
+}
+
+.navbar-brand {
+    margin-left: 20px !important;
+}
+
+button.navbar-toggle {
+    margin: 18px
+}
+
+.navbar-brand > img {
+    width: 100px;
+}
+
+@media (min-width: 267px) {
+    .navbar-brand > img {
+        width: 150px;
+    }
+}
+
+@media (min-width: 767px) {
+    .navbar {
+        height: 111px !important;
+    }
+    
+    .navbar-brand > img {
+        width: auto;
+    }
 }

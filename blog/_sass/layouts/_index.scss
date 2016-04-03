@@ -1,17 +1,19 @@
 // Header text feature
 .call-out {
-  @extend %padding-regular;
-  display: inline-block;
-  width: 100%;
-  background-color:$header-desc-background-color;
-  background-size: cover;
-  font-size: 1.2em;
-  text-align: center;
-  color: $header-desc-text-color;
+    @extend %padding-regular;
+    display: inline-block;
+    width: 100%;
+    background-image: url(../img/squared-paper.jpg);
+    //background-color: $header-desc-background-color;
+    font-size: 1.2em;
+    text-align: center;
+    color: $header-desc-text-color;
+    border-top: solid 1px #ccc;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
+    box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
 }
-.call-out p:last-child {
-  margin-bottom: 0;
-}
+
 // Post listing
 .posts {
   .post-teaser {
@@ -29,6 +31,7 @@
     margin-top: 1em;
   }
 }
+
 // Pagination
 .pagination .button {
   margin: 0 1.5em;
@@ -36,6 +39,7 @@
     vertical-align: middle;
   }
 }
+
 .pagination {
   padding: $padding-small $padding-large 0 $padding-large;
   text-align: center;
