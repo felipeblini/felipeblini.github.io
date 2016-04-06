@@ -10,19 +10,64 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/{% if page.lang != 'pt' %}{{ page.lang }}{% endif %}">
                     <img src="/img/logo.png" alt="">
                 </a>
                 <!--<a href="{{ my_page.url | prepend: site.baseurl }}" class="navbar-brand">Felipe Blini</a>-->
             </div>
             <div class="navbar-collapse collapse" id="mainMenu">
-                <ul class="navbar-nav nav navbar-right">
-                    {% for my_page in site.pages %}
-                        {% if my_page.title %}
-                            <li><a href="{{ my_page.url }}">{{ my_page.title }}</a></li>
+                <ul class="navbar-nav nav">
+                    {% for menu in site.t[page.lang].pages %}
+                        {% if menu[1].name %}
+                            <li><a href="{{ menu[1].url }}">{{ menu[1].name }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
+            
+                {% assign duplicatedPosts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+                {% assign duplicatedPages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+                
+                <div class="navbar-nav nav navbar-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-large">
+                            <span class="flag-icon flag-icon-{{ page.country || post.ountry }}"></span> {{ page.lang || post.lang }}</span>
+                        </button>
+                        <button type="button" class="btn btn-default byn-large dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                            {% if duplicatedPosts.size > 1 %}
+                                {% for item in duplicatedPosts %}
+                                    {% if item.lang != page.lang %}
+                                        <li>
+                                            <a href="{{ item.url }}" class="{{ item.lang }}"><span class="flag-icon flag-icon-{{ item.country }}"></span> {{ item.lang }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            
+                            {% elsif duplicatedPages.size > 1 %}
+                                {% for item in duplicatedPages %}
+                                    {% if item.lang != page.lang %}
+                                        <li>
+                                            <a href="{{ item.url }}" class="{{ item.lang }}"><span class="flag-icon flag-icon-{{ item.country }}"></span> {{ item.lang }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                            {% else %}
+                                {% for item in site.t %}
+                                    {% if item[1].lang != page.lang %}
+                                        <li>
+                                            <a href="#" class="disabled"><span class="flag-icon flag-icon-{{ item[1].country }}-desactivate"></span> {{ item[1].lang }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                 {% endfor %}   
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>

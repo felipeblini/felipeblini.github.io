@@ -2,22 +2,28 @@
 ---
 @charset "utf-8";
 
+@import "base/custom-variables";
+
 /* External libs*/
-@import "external/_custom-bootstrap";
-@import "external/_reset";
-@import "external/_prism";
+@import "external/bootstrap/custom-bootstrap";
+@import "external/prism";
+@import "external/flag-icons/variables";
+@import "external/flag-icons/flag-icon-base";
+@import "external/flag-icons/flag-icon-list";
+@import "external/flag-icons/flag-icon-more";
 
 /* Base */
-@import "base/_custom-variables";
-@import "base/_custom-mixins";
-@import "base/_custom-utility";
-@import "base/_global";
+
+@import "base/custom-mixins";
+@import "base/custom-utility";
+@import "base/global";
 
 /* Includes */
-@import "includes/_navbar";
+@import "includes/navbar";
 
 /*Layouts*/
-@import "layouts/_posts";
-@import 'layouts/index';    
+@import "layouts/posts";
+@import 'layouts/index'; 
+  
 
 

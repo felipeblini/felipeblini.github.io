@@ -10,8 +10,8 @@
     margin-bottom: 0;
 }
 
-.navbar .navbar-collapse ul li {
-    padding: 30px !important;
+.navbar .navbar-collapse > ul > li {
+    padding: 15px !important;
 }
 
 .navbar-brand {
@@ -26,6 +26,23 @@ button.navbar-toggle {
     width: 100px;
 }
 
+.navbar-right {
+    padding: 20px !important;
+}
+
+.navbar-right > a {
+    border: solid 1px #ccc;
+    padding: 8px !important;
+    border-radius: 3px
+}
+
+.navbar-right .fa-custom {
+    color: #333;
+    position: relative;
+    margin-right: 5px;
+    top: -3px;
+}
+
 @media (min-width: 267px) {
     .navbar-brand > img {
         width: 150px;
@@ -33,11 +50,30 @@ button.navbar-toggle {
 }
 
 @media (min-width: 767px) {
+    
+    .navbar {
+        height: 88px !important;
+    }
+    
+    .navbar-brand > img {
+        width: 180px
+    }
+}
+
+@media (min-width: 855px) {
     .navbar {
         height: 111px !important;
     }
     
     .navbar-brand > img {
-        width: auto;
+        width: auto
+    }
+    
+    .navbar-right {
+        padding: 35px !important;
+    }
+    
+    .navbar .navbar-collapse > ul > li {
+        padding: 30px !important;
     }
 }

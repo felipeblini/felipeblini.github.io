@@ -15,6 +15,29 @@ description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
+  
+# for to build the multilanguage menu
+t:
+  pt:
+    country: br
+    lang: pt
+    pages:
+        about:
+            name: "Sobre"
+            url: "/about/"
+        treinamentos:
+            name: "Treinamentos"
+            url: "/treinamentos"
+  en:
+    country: us
+    lang: en
+    pages:
+        about:
+            name: "About"
+            url: "/en/about/"
+        trainnings:
+            name: "Trainnings"
+            url: "/en/treinamentos"
 
 theme:
     # Icons
@@ -43,6 +66,7 @@ theme:
     google_analytics: # Tracking ID, e.g. "UA-000000-01"
     disqus_shortname: felipeblini
     katex: false # Enable if using math markup
+    fontawesome: false
 
     # Localization strings
     str_follow_on: "Follow on"
