@@ -66,7 +66,7 @@ theme:
     google_analytics: # Tracking ID, e.g. "UA-000000-01"
     disqus_shortname: felipeblini
     katex: false # Enable if using math markup
-    fontawesome: false
+    fontawesome: true
 
     # Localization strings
     str_follow_on: "Follow on"

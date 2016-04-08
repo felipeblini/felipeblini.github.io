@@ -149,5 +149,14 @@ a.disabled, a.disabled:hover, a.disabled:focus {
 
 .site-footer {
     @extend %padding-small;
-    background-color: #333
+    background-color: #333;
+    float: left;
+    width: 100%;
+    color: #ccc !important;
+    border-bottom: solid 3px $link-color;
+    
+    .social li {
+        float: left;
+    }
+    
 }

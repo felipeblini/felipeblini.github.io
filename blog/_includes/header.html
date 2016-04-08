@@ -2,7 +2,7 @@
 
     <a class="site-title" href="{{ site.baseurl }}/"></a>
     
-    <nav class="navbar navbar-default">
+    <nav class="navbar nav-pills navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button class="navbar-toggle menu-icon" data-toggle="collapse" data-target="#mainMenu">
@@ -22,12 +22,47 @@
                             <li><a href="{{ menu[1].url }}">{{ menu[1].name }}</a></li>
                         {% endif %}
                     {% endfor %}
+                    
+                    {% assign duplicatedPosts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+                    {% assign duplicatedPages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+                            
+                    <li role="presentation" class="dropdown visible-xs-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="flag-icon flag-icon-{{ page.country || post.ountry }}"></span> {{ page.lang || post.lang }}</span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            
+                            {% if duplicatedPosts.size > 1 %}
+                                {% for item in duplicatedPosts %}
+                                    {% if item.lang != page.lang %}
+                                        <li>
+                                            <a href="{{ item.url }}" class="{{ item.lang }}"><span class="flag-icon flag-icon-{{ item.country }}"></span> {{ item.lang }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            
+                            {% elsif duplicatedPages.size > 1 %}
+                                {% for item in duplicatedPages %}
+                                    {% if item.lang != page.lang %}
+                                        <li>
+                                            <a href="{{ item.url }}" class="{{ item.lang }}"><span class="flag-icon flag-icon-{{ item.country }}"></span> {{ item.lang }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                            {% else %}
+                                {% for item in site.t %}
+                                    {% if item[1].lang != page.lang %}
+                                        <li>
+                                            <a href="#" class="disabled"><span class="flag-icon flag-icon-{{ item[1].country }}-desactivate"></span> {{ item[1].lang }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                 {% endfor %}   
+                            {% endif %}
+                        </ul>
                 </ul>
             
-                {% assign duplicatedPosts=site.posts | where:"ref", page.ref | sort: 'lang' %}
-                {% assign duplicatedPages=site.pages | where:"ref", page.ref | sort: 'lang' %}
-                
-                <div class="navbar-nav nav navbar-right">
+                <div class="navbar-nav nav navbar-right hidden-xs">
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-large">
                             <span class="flag-icon flag-icon-{{ page.country || post.ountry }}"></span> {{ page.lang || post.lang }}</span>
@@ -37,7 +72,6 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                            
                             {% if duplicatedPosts.size > 1 %}
                                 {% for item in duplicatedPosts %}
                                     {% if item.lang != page.lang %}
