@@ -1,0 +1,127 @@
+$background-color: #333;
+
+.site-footer {
+    @extend %padding-small;
+    background-color: $background-color;
+    float: left;
+    width: 100%;
+    color: #ccc !important;
+    border-bottom: solid 3px $link-color;
+    
+    .social li {
+        float: left;
+    }
+}
+
+/* SVG social icons 
+================================== */
+
+$svg-color: #828282;
+
+.clip {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.svg--source {
+    display: none
+}
+
+.svg--icon {
+    width: 100%;
+    max-width: 5rem;
+    height: 100%;
+    max-height: 5rem;
+    display: block;
+    margin: 0 auto;
+    fill: currentColor
+}
+
+.svg--icon-smaller {
+    width: 60%;
+}
+
+.share {
+    float: left;
+    margin: .5rem 1rem .5rem 0;
+    color: $svg-color;
+    border: .125rem solid #828282;
+    border-radius: 10%;
+    transition: 250ms;
+    
+    &:last-child {
+        margin-right: 0
+    }
+  
+    &:hover,
+    &:focus {
+        background: #f1f1f1;
+        border-color: $background-color;
+        border-radius: 15%;
+    }
+  
+    &:focus {
+        outline-color: inherit;
+    }
+}
+
+.twitter {
+    &:hover,
+    &:focus {
+        color: #00ACED;
+    }
+}
+
+.github {
+    &:hover,
+    &:focus {
+        color: #4183c4;
+    }
+}
+
+.youtube {
+    &:hover,
+    &:focus {
+        color: #cd201f;
+    }
+}
+
+.facebook {
+    &:hover,
+    &:focus {
+        color: #3b5998;
+    }
+}
+
+.stackoverflow {
+    &:hover,
+    &:focus {
+      .svg--icon-st {
+        fill: #F68A1F
+      }
+    }
+}
+
+.linkedin {
+    &:hover,
+    &:focus {
+      color: rgb(29,135,190);
+    }
+}
+
+#svg--codepen {
+  stroke: $svg-color;
+}
+
+.rss  {
+    &:hover,
+    &:focus {
+      color: #D95B29;
+    }
+}

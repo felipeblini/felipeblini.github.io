@@ -138,25 +138,11 @@ img[align=right] {
   margin-left: 3%;
 }
 
-h1 > a:hover {
+h1 > a:hover, h1 > a:active, h1 > a:visited {
     color: inherit;
     text-decoration: none;
 }
 
 a.disabled, a.disabled:hover, a.disabled:focus {
     cursor: $cursor-disabled;
-}
-
-.site-footer {
-    @extend %padding-small;
-    background-color: #333;
-    float: left;
-    width: 100%;
-    color: #ccc !important;
-    border-bottom: solid 3px $link-color;
-    
-    .social li {
-        float: left;
-    }
-    
 }
