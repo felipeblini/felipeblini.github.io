@@ -2,5 +2,5 @@ _site
 .sass-cache
 .jekyll-metadata
 _bower_components
-_posts
-pages
+'_posts
+'pages

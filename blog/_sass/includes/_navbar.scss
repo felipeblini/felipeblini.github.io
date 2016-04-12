@@ -8,6 +8,7 @@
     border-radius: 0 !important;
     border-bottom: none;
     margin-bottom: 0;
+    overflow: hidden;
 }
 
 .navbar .navbar-collapse > ul > li {
@@ -36,11 +37,8 @@ button.navbar-toggle {
     border-radius: 3px
 }
 
-.navbar-right .fa-custom {
-    color: #333;
-    position: relative;
-    margin-right: 5px;
-    top: -3px;
+.menu-icon {
+    margin-right: 25px !important;
 }
 
 @media (min-width: 267px) {

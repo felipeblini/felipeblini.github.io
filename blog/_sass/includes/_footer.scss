@@ -3,13 +3,71 @@ $background-color: #333;
 .site-footer {
     @extend %padding-small;
     background-color: $background-color;
-    float: left;
+    
     width: 100%;
     color: #ccc !important;
     border-bottom: solid 3px $link-color;
+    text-align: center;
+    overflow: hidden;
     
-    .social li {
+    .social-icons-wrapper {
         float: left;
+        margin: 0 auto;
+        width: 100%;
+        
+        .social-icons {
+            width: 243px;
+            margin: 0 auto;
+            padding-top: 20px;
+            
+            @media (min-width: 341px) {
+                width: 304px;
+            }
+            
+            @media (min-width: 515px) {
+                width: 366px;
+            }
+            
+            @media (min-width: 870px) {
+                float: right;
+                width: auto;
+                padding-top: 0;
+            }
+        }
+        
+        .svg--icon {
+            max-width: 3rem;
+            max-height: 3rem;
+            
+            @media (min-width: 341px) {
+                max-width: 4rem;
+                max-height: 4rem;
+            }
+            
+            @media (min-width: 515px) {
+                max-width: 5rem;
+                max-height: 5rem;
+            }
+        }
+        
+        @media (min-width: 870px) {
+            float: right !important;
+            width: auto !important;
+        }
+    }
+    
+    @media (min-width: 870px) {       
+        div:nth-child(1) {
+            float: left;
+        }
+    }
+    
+    @media (min-width: 870px) {       
+        div.msg-after-social-icons {
+            text-align: right;
+            width: 100%;
+            clear: both;
+        }
     }
 }
 
@@ -35,9 +93,7 @@ $svg-color: #828282;
 
 .svg--icon {
     width: 100%;
-    max-width: 5rem;
     height: 100%;
-    max-height: 5rem;
     display: block;
     margin: 0 auto;
     fill: currentColor
