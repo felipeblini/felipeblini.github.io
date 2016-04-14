@@ -8,11 +8,23 @@
     border-radius: 0 !important;
     border-bottom: none;
     margin-bottom: 0;
-    overflow: hidden;
+}
+
+li.language-control {
+    padding: 20px !important;
+}
+
+li.language-control .btn:first-child {
+    outline: none;
+    cursor: default;
+}
+
+li.language-control .btn:first-child:hover {
+    background-color: white;
 }
 
 .navbar .navbar-collapse > ul > li {
-    padding: 15px !important;
+    padding: 15px;
 }
 
 .navbar-brand {
@@ -25,16 +37,6 @@ button.navbar-toggle {
 
 .navbar-brand > img {
     width: 100px;
-}
-
-.navbar-right {
-    padding: 20px !important;
-}
-
-.navbar-right > a {
-    border: solid 1px #ccc;
-    padding: 8px !important;
-    border-radius: 3px
 }
 
 .menu-icon {
@@ -67,11 +69,13 @@ button.navbar-toggle {
         width: auto
     }
     
-    .navbar-right {
-        padding: 35px !important;
-    }
-    
     .navbar .navbar-collapse > ul > li {
         padding: 30px !important;
+    }
+    
+    .navbar .navbar-collapse > ul > li.language-control {
+        padding: 35px !important;
+        position: relative;
+        z-index: 9999;
     }
 }

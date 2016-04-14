@@ -25,9 +25,6 @@ t:
         about:
             name: "Sobre"
             url: "/about/"
-        treinamentos:
-            name: "Treinamentos"
-            url: "/treinamentos"
   en:
     country: us
     lang: en
@@ -35,10 +32,6 @@ t:
         about:
             name: "About"
             url: "/en/about/"
-        trainnings:
-            name: "Trainnings"
-            url: "/en/treinamentos"
-
 theme:
     # Icons
     rss: true

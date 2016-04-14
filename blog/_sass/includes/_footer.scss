@@ -1,4 +1,10 @@
 $background-color: #333;
+$total-icons: 7;
+$icon-width-xxs: 35px;
+$icon-width-xs: 42px;
+$icon-width-s: 51px;
+$icon-width-m: 61px;
+$icon-width-b: auto;
 
 .site-footer {
     @extend %padding-small;
@@ -16,32 +22,46 @@ $background-color: #333;
         width: 100%;
         
         .social-icons {
-            width: 243px;
+            width: $icon-width-xxs * $total-icons;
             margin: 0 auto;
             padding-top: 20px;
             
             @media (min-width: 341px) {
-                width: 304px;
+                width: $icon-width-xs * $total-icons;
+            }
+            
+            @media (min-width: 410px) {
+                width: $icon-width-s * $total-icons;
             }
             
             @media (min-width: 515px) {
-                width: 366px;
+                width: $icon-width-m * $total-icons;
             }
             
             @media (min-width: 870px) {
                 float: right;
-                width: auto;
+                width: $icon-width-b;
                 padding-top: 0;
             }
         }
         
         .svg--icon {
-            max-width: 3rem;
-            max-height: 3rem;
+            max-width: 2rem;
+            max-height: 2rem;
+            
+            @media (min-width: 258px) {
+                max-width: 2.3rem;
+                max-height: 2.3rem;
+            }
             
             @media (min-width: 341px) {
-                max-width: 4rem;
-                max-height: 4rem;
+                max-width: 3rem;
+                max-height: 3rem;
+            }
+            
+            @media (min-width: 410px) {
+                max-width: 3.8rem;
+                max-height: 3.8rem;
             }
             
             @media (min-width: 515px) {

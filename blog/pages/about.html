@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 ref: about
 lang: pt
 country: br
@@ -13,30 +13,118 @@ além de diversos projetos que não vingarem mas me deram muita experiência.</p
 <p>Trabalhei como desenvolvedor em vários países como Chile, Hungria e Austrália,
 tenho experiência de trabalho com equipes na Espanha e Alemanha também.</p>
 
-<h2>Qualificações</h2>
+<div class="col-md-6">
+    <h2>Qualificações</h2>
+    
+    {% include components/progress-bar.html skill='HTML5' percent='100' color='success' %}
 
-<pre><code class="language-javascript">
-var elements = document.getElementsByTagName('skills')
+    {% include components/progress-bar.html skill='CSS3' percent='100' color='success' %}
 
-Array.prototype.forEach.call(elements, function(element) {
-    if (element.type.indexOf('math/tex') != -1) {
-        // Extract math markdown
-        var textToRender = element.innerText || element.textContent;
+    {% include components/progress-bar.html skill='JavaScript' percent='100' color='success' %}
+    
+    {% include components/progress-bar.html skill='JQuery' percent='90' color='success' %}
 
-        // Create span for KaTeX
-        var katexElement = document.createElement('span');
+    {% include components/progress-bar.html skill='Node' percent='80' color='primary' %}
+    
+    {% include components/progress-bar.html skill='Angular' percent='80' color='warning' %}
 
-        // Support inline and display math
-        if (element.type.indexOf('mode=display') != -1){
-        katexElement.className += "math-display";
-        textToRender = '\\displaystyle {' + textToRender + '}';
-        } else {
-        katexElement.className += "math-inline";
-        }
+    {% include components/progress-bar.html skill='Ionic' percent='80' color='warnning' %}
 
-        katex.render(textToRender, katexElement);
-        element.parentNode.insertBefore(katexElement, element);
-    }
-});
-// prints 'Hi, Tom' to STDOUT.
-</code></pre>
+    {% include components/progress-bar.html skill='.Net' percent='95' color='info' %}
+    
+    {% include components/progress-bar.html skill='C#' percent='100' color='success' %}
+    
+    {% include components/progress-bar.html skill='Java' percent='80' color='success' %}
+    
+    {% include components/progress-bar.html skill='Ruby' percent='50' color='warnning' %}
+
+    {% include components/progress-bar.html skill='PHP' percent='70' color='primary' %}
+    
+    {% include components/progress-bar.html skill='Bootstrap' percent='95' color='success' %}
+    
+    {% include components/progress-bar.html skill='Material Design' percent='45' color='warnning' %}
+
+    {% include components/progress-bar.html skill='MySql' percent='75' color='info' %}
+    
+    {% include components/progress-bar.html skill='MongoDB' percent='80' color='info' %}
+    
+    {% include components/progress-bar.html skill='Sql Server' percent='95' color='success' %}
+
+    {% include components/progress-bar.html skill='WordPress' percent='95' color='success' %}
+    
+    {% include components/progress-bar.html skill='Git/GitHub' percent='90' color='success' %}
+    
+    {% include components/progress-bar.html skill='PhoneGap/Cordova' percent='60' color='warnning' %}
+    
+    {% include components/progress-bar.html skill='Processadores CSS' percent='90' color='primary' %}
+
+    {% include components/progress-bar.html skill='Processadores HTML' percent='60' color='primary' %}
+    
+    {% include components/progress-bar.html skill='TypeScript' percent='70' color='primary' %}
+    
+    {% include components/progress-bar.html skill='Jekyll' percent='80' color='info' %}
+    
+    {% include components/progress-bar.html skill='Beber Café' percent='100' color='danger' %}
+    
+    {% include components/progress-bar.html skill='Estudar e aprender coisas novas' percent='100' color='danger' %}
+</div>
+
+<div class="col-md-6">
+    <h2>Últimos Projetos</h2>
+    
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <div class="card">
+                <img class="card-img" src="/img/responsive-websites-s.jpg" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">Zsofi's House Website</h4>
+                    <xsmall>Freelancer - Budapeste, Hungria</xsmall>
+                    <p><small>Correção de bugs de design responsivo e ajustes de performance no front-end</small></p>
+                    <a href="#" class="btn btn-primary">Video 1</a>
+                    <a href="#" class="btn btn-primary">Video 2</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <img class="card-img negative" src="/img/sneak-b.jpg" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">Sneak</h4>
+                    <xsmall>Projeto Pessoal</xsmall>
+                    <p><small>Sneak é um gerador de site estático com pré-processadores centrado em performance feito com <a href="http://gruntjs.com/" target="_blank">Grunt</a> e baseado no <a href="https://html5boilerplate.com/" target="_blank">HTML5Boilerplaite</a></small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <img class="card-img negative" src="/img/bizubuzu.jpg" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">BizúBuzu</h4>
+                    <xsmall>Projeto Pessoal</xsmall>
+                    <p><small>Sneak é um gerador de site estático com pré-processadores centrado em performance feito com <a href="http://gruntjs.com/" target="_blank">Grunt</a> e baseado no <a href="https://html5boilerplate.com/" target="_blank">HTML5Boilerplaite</a></small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <img class="card-img negative" src="/img/imobicar.jpg" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">Imobicar</h4>
+                    <xsmall>Projeto Pessoal</xsmall>
+                    <p><small>Sneak é um gerador de site estático com pré-processadores centrado em performance feito com <a href="http://gruntjs.com/" target="_blank">Grunt</a> e baseado no <a href="https://html5boilerplate.com/" target="_blank">HTML5Boilerplaite</a></small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <img class="card-img negative" src="/img/epsj.jpg" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">EPSJ</h4>
+                    <xsmall>Projeto Pessoal</xsmall>
+                    <p><small>Sneak é um gerador de site estático com pré-processadores centrado em performance feito com <a href="http://gruntjs.com/" target="_blank">Grunt</a> e baseado no <a href="https://html5boilerplate.com/" target="_blank">HTML5Boilerplaite</a></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
