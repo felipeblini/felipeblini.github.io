@@ -2,8 +2,8 @@
 layout: post
 ref: Angular-e-Ionic-Directives
 lang: en
-country: br
-title: "Angular e Ionic Directives"
+country: us
+title: "Angular and Ionic Directives"
 date: 2016-04-02 13:25:41 -0300
 categories: jekyll update
 feature-img: "img/sample_feature_img.png"

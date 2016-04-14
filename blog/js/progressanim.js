@@ -8,8 +8,6 @@
     });
     
     function fillBars() {
-        console.log('size', $(".progressanim").length);
-        
         $(".progressanim").each(function() {
             var pos = $(this).offset().top;
             var winTop = $(window).scrollTop();

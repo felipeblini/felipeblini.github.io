@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 ref: about
 lang: en
 country: us
@@ -7,36 +7,153 @@ title:  "About"
 permalink: /en/about/
 feature-img: "img/hero-smaller.jpg"
 ---
-<p>Olá, sou desenvolvedor web com 12 anos de experiência, e sou apaixonado pelo que faço
-já particiei de projetos de pequeno e médio porte, de startups em expansão a multi-nacionais,
-além de diversos projetos que não vingarem mas me deram muita experiência.</p>
-<p>Trabalhei como desenvolvedor em vários países como Chile, Hungria e Austrália,
-tenho experiência de trabalho com equipes na Espanha e Alemanha também.</p>
+<h2>About Me</h2>
+<p>
+    Hi, I'm Felipe from Brazil, I'm a software developer and entrepreneur for 12 years, I've worked on various projects, from small and innovative startups to multinational companies with legacies softwares.
+    I've started my career with PHP and MySql, I went through several years eveloping in .NET Framework and C#, I've worked as a Java Developer in Europe and Australia and now I came back to my favourite language,
+    in which I learned how to develop systems 12 years ago in the university: JavaScript. I am a MEAN Stack and entrepreneurship enthusiastic. I develop in front-en and back-end. You can fell free and <a href="#contact-me">contact me</a> if you are in need ;)
+</p>
 
-<h2>Qualificações</h2>
+<div class="row">
+    <!-- Skills -->
+    <div class="col-md-4 col-sm-5">
+        <h2>Skills</h2>
+        
+        {% include components/progress-bar.html skill='HTML5' percent='100' color='success' %}
 
-<pre><code class="language-javascript">
-var elements = document.getElementsByTagName('skills')
+        {% include components/progress-bar.html skill='CSS3' percent='100' color='success' %}
 
-Array.prototype.forEach.call(elements, function(element) {
-    if (element.type.indexOf('math/tex') != -1) {
-        // Extract math markdown
-        var textToRender = element.innerText || element.textContent;
+        {% include components/progress-bar.html skill='JavaScript' percent='100' color='success' %}
+        
+        {% include components/progress-bar.html skill='JQuery' percent='90' color='success' %}
 
-        // Create span for KaTeX
-        var katexElement = document.createElement('span');
+        {% include components/progress-bar.html skill='Node' percent='80' color='primary' %}
+        
+        {% include components/progress-bar.html skill='Angular' percent='80' color='warning' %}
 
-        // Support inline and display math
-        if (element.type.indexOf('mode=display') != -1){
-        katexElement.className += "math-display";
-        textToRender = '\\displaystyle {' + textToRender + '}';
-        } else {
-        katexElement.className += "math-inline";
-        }
+        {% include components/progress-bar.html skill='Ionic' percent='80' color='warnning' %}
 
-        katex.render(textToRender, katexElement);
-        element.parentNode.insertBefore(katexElement, element);
-    }
-});
-// prints 'Hi, Tom' to STDOUT.
-</code></pre>
+        {% include components/progress-bar.html skill='.Net' percent='95' color='info' %}
+        
+        {% include components/progress-bar.html skill='C#' percent='100' color='success' %}
+        
+        {% include components/progress-bar.html skill='Java' percent='80' color='success' %}
+        
+        {% include components/progress-bar.html skill='Ruby' percent='50' color='warnning' %}
+
+        {% include components/progress-bar.html skill='PHP' percent='70' color='primary' %}
+        
+        {% include components/progress-bar.html skill='Bootstrap' percent='95' color='success' %}
+        
+        {% include components/progress-bar.html skill='Material Design' percent='45' color='warnning' %}
+
+        {% include components/progress-bar.html skill='MySql' percent='75' color='info' %}
+        
+        {% include components/progress-bar.html skill='MongoDB' percent='80' color='info' %}
+        
+        {% include components/progress-bar.html skill='Sql Server' percent='95' color='success' %}
+
+        {% include components/progress-bar.html skill='WordPress' percent='95' color='success' %}
+        
+        {% include components/progress-bar.html skill='Git/GitHub' percent='90' color='success' %}
+        
+        {% include components/progress-bar.html skill='PhoneGap/Cordova' percent='60' color='warnning' %}
+        
+        {% include components/progress-bar.html skill='Processadores CSS' percent='90' color='primary' %}
+
+        {% include components/progress-bar.html skill='Processadores HTML' percent='60' color='primary' %}
+        
+        {% include components/progress-bar.html skill='TypeScript' percent='70' color='primary' %}
+        
+        {% include components/progress-bar.html skill='Jekyll' percent='80' color='info' %}
+        
+        {% include components/progress-bar.html skill='Beber Café' percent='100' color='danger' %}
+        
+        {% include components/progress-bar.html skill='Estudar e aprender coisas novas' percent='100' color='danger' %}
+    </div>
+
+    <!-- Last Projects -->
+    <div class="col-md-8 col-sm-7">
+        <h2>Last Projects</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card slideanim">
+                    <img class="card-img negative" src="/img/responsive-websites-s.jpg" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">Zsofi's House Website</h4>
+                        <xsmall>Freelancer - Budapest, Hungary</xsmall>
+                        <p><small>It was a front-end performance optimization I've made for a hostel when I eas in Budapest, I also have ajusted the responsive layout and created the mobile version</small></p>
+                        <a href="https://vimeo.com/157547302" target="_blank" class="btn btn-primary"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Video 1</a>
+                        <a href="https://vimeo.com/157547329" target="_blank" class="btn btn-primary"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Video 2</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card slideanim">
+                    <img class="card-img negative" src="/img/sneak-b.jpg" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">Sneak</h4>
+                        <xsmall>Personal Project</xsmall>
+                        <p><small>Sneak is a staic website generator with html/css/js pre-processors, it is focused in generating performatic code based on <a href="https://html5boilerplate.com/" target="_blank">HTML5Boilerplaite</a>
+                        and made with <a href="http://gruntjs.com/" target="_blank">Grunt</a></small></p>
+                        <a class="btn btn-default" target="_blank" href="https://github.com/felipeblini/sneak"><i class="fa fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card slideanim">
+                    <img class="card-img negative" src="/img/bizubuzu.jpg" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">BizúBuzu</h4>
+                        <xsmall>Startup, Co-founder</xsmall>
+                        <p><small>Awardee startup in Brazil and accelerated in Chile where I was the respnsable to develop MVP's, Landing Pages and colaborate with the team to build the Business Model</small></p>
+                        <a class="btn btn-default" target="_blank" href="http://www.bizubuzu.com"><i class="fa fa-globe"></i></a>
+                        <a class="btn btn-default" target="_blank" href="https://www.facebook.com/bizubuzu"><i class="fa fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card slideanim">
+                    <img class="card-img negative" src="/img/imobicar.png" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">Imobicar</h4>
+                        <xsmall>Co-founder</xsmall>
+                        <p><small>Real state and vehicles classified website in the country-side of estate os São Paulo - Brazil</small></p>
+                        <a class="btn btn-default disabled" target="_blank" href=""><i class="fa fa-globe"></i></a>
+                        <a class="btn btn-default disabled" target="_blank" href="https://www.facebook.com/imobicar"><i class="fa fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card slideanim">
+                    <img class="card-img negative" src="/img/epsj.jpg" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title">EPSJ</h4>
+                        <xsmall class="del">Startup, Co-founder</xsmall>
+                        <p><small>Website that connects laweyers with other lawyers for hiring services in the legal market and improve the judicial quality in Brazil</small></p>
+                        <a class="btn btn-default disabled" target="_blank" href="http://www.epsj.com.br"><i class="fa fa-globe"></i></a>
+                        <a class="btn btn-default" target="_blank" href="https://www.facebook.com/epsjface"><i class="fa fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact me -->
+    <div class="col-sm-12 contact-me" id="contact-me">
+        <h2>Contact me</h2>
+        You can find me in the following ways:
+        <ul class="list-unstyled" style="margin-top: 10px">
+            <li><i class="fa fa-envelope" aria-hidden="true"></i> felipe@felipeblini.net</li>
+            <li><i class="fa fa-whatsapp" aria-hidden="true"></i> +61 0 431 159 469</li>
+            <li><i class="fa fa-skype" aria-hidden="true"></i> blini_bra</li>
+        </ul>
+    </div>
+</div>

@@ -152,18 +152,27 @@ a.disabled, a.disabled:hover, a.disabled:focus {
     -webkit-transition: 2s;
 }
 
+$card-border-radious: .25rem;
+
 .card {
     position: relative;
     display: block;
-    margin-bottom: .75rem;
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: .25rem;
+    margin: .75rem auto;
+    background-color: #fafafa;
+    border: 1px solid #aaa;
+    border-radius: $card-border-radious;
+    max-width: 466px;
+    
+    -webkit-box-shadow: 10px 10px 0px -3px rgba(0,0,0,0.1o);
+    -moz-box-shadow: 10px 10px 0px -3px rgba(0,0,0,0.10);
+    box-shadow: 10px 10px 0px -3px rgba(0,0,0,0.10);
 
     > .card-img {
         //border-top: solid 1px #ccc;
         border-bottom: solid 1px #ccc;
         padding: 10px;
+        border-top-left-radius: $card-border-radious;
+        border-top-right-radius: $card-border-radious;
         
         &.negative {
             padding: 0;
@@ -171,9 +180,7 @@ a.disabled, a.disabled:hover, a.disabled:focus {
     }
     
     &:hover {
-        -webkit-box-shadow: 2px 3px 24px 2px rgba(0,0,0,0.56);
-        -moz-box-shadow: 2px 3px 24px 2px rgba(0,0,0,0.56);
-        box-shadow: 2px 3px 24px 2px rgba(0,0,0,0.56);
+        border-color: #333;
     }
 
     > .card-block {
@@ -192,6 +199,47 @@ a.disabled, a.disabled:hover, a.disabled:focus {
             color: #ccc;
             font-size: 15.5px;
         }
+    }
+}
+
+.contact-me ul li {
+    padding: 6px;
+}
+
+.slideanim {
+    visibility:hidden;
+}
+
+.slide {
+    /* The name of the animation */
+    animation-name: slide;
+    -webkit-animation-name: slide; 
+    /* The duration of the animation */
+    animation-duration: 1s; 
+    -webkit-animation-duration: 1s;
+    /* Make the element visible */
+    visibility: visible; 
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    } 
+}
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
     }
 }
 
