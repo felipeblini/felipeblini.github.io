@@ -7,7 +7,7 @@
 
 # Site settings
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://felipeblini,net" # the base hostname & protocol for your site
+url: "http://felipeblini.net" # the base hostname & protocol for your site
 
 title:  Felipe Blini - Angular Developer and Consultant
 email: contato@felipeblini.net
@@ -16,7 +16,7 @@ description: > # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
   
-# for to build the multilanguage menu
+# for build the multilanguage menu
 t:
   pt:
     country: br
@@ -32,49 +32,30 @@ t:
         about:
             name: "About"
             url: "/en/about/"
-theme:
-    # Icons
-    rss: true
-    email_address: # Full email address, e.g. "sam@example.com"
-    behance:
-    bitbucket:
-    dribbble:
-    facebook:
-    flickr:
-    github: "felipeblini"
-    google_plus:
-    instagram:
-    linkedin:  # Full URL
-    pinterest:
-    reddit:
-    soundcloud:
-    stack_exchange:  # Full URL
-    steam:
-    tumblr:
-    twitter: "blini3"
-    wordpress:
-    youtube:
+            
+resources:
+    pt:
+        footer_text_below_icons: "Veja como esse icones foram feitos no"
+        source_code: "código fonte:"
+        and: "e"
+        made_with: "feito com"
+        call_out_img: "/img/angular-javascript-ionic-node-v3.png"
+    en:
+        footer_text_below_icons: "See how this icons was made in"
+        source_code: "source code:"
+        and: "and"
+        made_with: "made with"
+        call_out_img: "/img/angular-javascript-ionic-node-v3.png"
 
+theme:
     # Scripts
-    google_analytics: # Tracking ID, e.g. "UA-000000-01"
     disqus_shortname: felipeblini
     katex: false # Enable if using math markup
     fontawesome: true
 
-    # Localization strings
-    str_follow_on: "Follow on"
-    str_rss_follow: "Follow RSS feed"
-    str_email: "Email"
-    str_next: "Next"
-    str_prev: "Prev"
-    str_continue_reading: "Continue reading"
-
     # Colours, typography and padding
     # Open the "_sass > base" folder, and open "_variables.scss"
     google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
-
-    # Post navigation
-    post_navigation: true
 
 # PAGINATION
 # paginate: 5

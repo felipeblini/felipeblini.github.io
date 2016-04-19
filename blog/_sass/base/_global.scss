@@ -4,8 +4,19 @@
   box-sizing: border-box;
 }
 
-html {
-  background: $background-color;
+html, body {
+	height: 100%;
+    background: $background-color;
+}
+
+body {
+	height: 100%;
+}
+
+.wrap-all {
+	min-height: 100%;
+    position: relative;
+    padding-bottom: 211px;
 }
 
 // Typography
@@ -243,3 +254,15 @@ $card-border-radious: .25rem;
     }
 }
 
+.quote {
+    display: block;
+    margin-right: 10px;
+    color: #DECFB8;
+    float: left;
+    font-size: 24px !important;
+}
+
+
+.blockquote p {
+    font-size: 32px !important;
+}

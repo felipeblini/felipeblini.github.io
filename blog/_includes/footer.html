@@ -1,7 +1,9 @@
 <footer class="site-footer">
     <div>
-        <p>feito com <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank" href="https://pages.github.com/">GitHub Pages</a> e ❤
-        <br />código fonte: <a target="_blank" href="https://github.com/felipeblini/blog-src">github.com/felipeblini/blog-src</a></p>
+        <p>
+            {{ site.resources[page.lang].made_with }} <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank" href="https://pages.github.com/">GitHub Pages</a> {{ site.resources[page.lang].and }} ❤
+            <br />{{ site.resources[page.lang].source_code }} <a target="_blank" href="https://github.com/felipeblini/blog-src">github.com/felipeblini/blog-src</a>
+        </p>
     </div>
 
     {% include icons/svg/svg-source.html %}
@@ -76,6 +78,6 @@
         </div>
     </div>
     <div class="msg-after-social-icons">
-        <small>Veja como esse icones foram feitos no <a target="_blank" href="http://codepen.io/felipeblini/pen/JXpopW">Codepen</a></small>
+        <small>{{ site.resources[page.lang].footer_text_below_icons }} <a target="_blank" href="http://codepen.io/felipeblini/pen/JXpopW">Codepen</a></small>
     </div>
 </footer>

@@ -8,12 +8,14 @@ permalink: /en/
 ---
 
 <div class="call-out">
-    <img src="/img/angular-ionic-node.png" alt="">
+    <img src="{{ site.resources[page.lang].call_out_img}}" alt="">
 </div>
 
 {% assign posts=site.posts | where:"lang", page.lang %}
 
-<div class="posts">
+<p style="padding: 30px">No articles available yet.. <a href="/sobre">Find more about this blog</a> or <a href="/sobre#contactme">contact me</a></p>
+
+<!--<div class="posts">
     {% for post in posts %}
     <div class="post-teaser">
         <header>
@@ -36,7 +38,7 @@ permalink: /en/
         </div>
     </div>
     {% endfor %}
-</div>
+</div>-->
 <!--<div class="container">
     <p class="rss-subscribe">subscribe <a href="{{ " /feed.xml " | prepend: site.baseurl }}">via RSS</a></p>
 </div>-->

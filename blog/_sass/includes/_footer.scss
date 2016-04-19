@@ -10,6 +10,9 @@ $icon-width-b: auto;
     @extend %padding-small;
     background-color: $background-color;
     
+    position: absolute;
+    bottom: 0;
+    
     width: 100%;
     color: #ccc !important;
     border-bottom: solid 3px $link-color;
