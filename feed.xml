@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Felipe Blini - Angular Developer and Consultant</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://felipeblini.net/</link>
+    <atom:link href="http://felipeblini.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 19 Apr 2016 23:00:59 -0300</pubDate>
+    <lastBuildDate>Tue, 19 Apr 2016 23:00:59 -0300</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Angular e Ionic Directives</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Prism.js:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+var elements = document.getElementsByTagName(&#39;script&#39;)
+
+Array.prototype.forEach.call(elements, function(element) {
+    if (element.type.indexOf(&#39;math/tex&#39;) != -1) {
+        // Extract math markdown
+        var textToRender = element.innerText || element.textContent;
+
+        // Create span for KaTeX
+        var katexElement = document.createElement(&#39;span&#39;);
+
+        // Support inline and display math
+        if (element.type.indexOf(&#39;mode=display&#39;) != -1){
+        katexElement.className += &quot;math-display&quot;;
+        textToRender = &#39;\\displaystyle {&#39; + textToRender + &#39;}&#39;;
+        } else {
+        katexElement.className += &quot;math-inline&quot;;
+        }
+
+        katex.render(textToRender, katexElement);
+        element.parentNode.insertBefore(katexElement, element);
+    }
+});
+// prints &#39;Hi, Tom&#39; to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 02 Apr 2016 13:25:41 -0300</pubDate>
+        <link>http://felipeblini.net/ion-view-ion-pane-ion-header-ion-navbar-header-Qual-a-diferen%C3%A7a-e-quando-usar</link>
+        <guid isPermaLink="true">http://felipeblini.net/ion-view-ion-pane-ion-header-ion-navbar-header-Qual-a-diferen%C3%A7a-e-quando-usar</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Angular and Ionic Directives</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Prism.js:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+var elements = document.getElementsByTagName(&#39;script&#39;)
+
+Array.prototype.forEach.call(elements, function(element) {
+    if (element.type.indexOf(&#39;math/tex&#39;) != -1) {
+        // Extract math markdown
+        var textToRender = element.innerText || element.textContent;
+
+        // Create span for KaTeX
+        var katexElement = document.createElement(&#39;span&#39;);
+
+        // Support inline and display math
+        if (element.type.indexOf(&#39;mode=display&#39;) != -1){
+        katexElement.className += &quot;math-display&quot;;
+        textToRender = &#39;\\displaystyle {&#39; + textToRender + &#39;}&#39;;
+        } else {
+        katexElement.className += &quot;math-inline&quot;;
+        }
+
+        katex.render(textToRender, katexElement);
+        element.parentNode.insertBefore(katexElement, element);
+    }
+});
+// prints &#39;Hi, Tom&#39; to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 02 Apr 2016 13:25:41 -0300</pubDate>
+        <link>http://felipeblini.net/ion-view-ion-pane-ion-header-ion-navbar-header-Qual-a-diferen%C3%A7a-e-quando-usar.eng</link>
+        <guid isPermaLink="true">http://felipeblini.net/ion-view-ion-pane-ion-header-ion-navbar-header-Qual-a-diferen%C3%A7a-e-quando-usar.eng</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Performance on Wordpress</title>
+        <description>&lt;script src=&quot;https://gist.github.com/felipeblini/62e3eb2a251d71ac969b.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul class=&quot;list-unstyled&quot;&gt;
+    &lt;li&gt;
+        &lt;h4&gt;Wordpress website performane optimization&lt;/h4&gt;
+        &lt;iframe src=&quot;https://player.vimeo.com/video/157547302&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h4&gt;Wordpress website performane optimization - Mobile Version&lt;/h4&gt;
+        &lt;iframe src=&quot;https://player.vimeo.com/video/157547329&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h4&gt;Sneak&lt;/h4&gt;
+        &lt;p&gt;Sneak is a static website generator based in &lt;a href=&quot;https://html5boilerplate.com/&quot; target=&quot;_blank&quot;&gt;html5boilerplate&lt;/a&gt; with preprocessors.
+        It supports Less, Sass, Stylus, TypeScript, CoffeScripr, Flow, Jade, EJS, Handlebars, you can write anything and it will build you a performatic front-end for your website.&lt;/p&gt;
+        &lt;a href=&quot;https://github.com/felipeblini/static-website-generator&quot; target=&quot;_blank&quot;&gt;Sneak on GitHub&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 31 Mar 2016 13:25:41 -0300</pubDate>
+        <link>http://felipeblini.net/performance-no-wordpress</link>
+        <guid isPermaLink="true">http://felipeblini.net/performance-no-wordpress</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Performance no Wordpress</title>
+        <description>&lt;script src=&quot;https://gist.github.com/felipeblini/62e3eb2a251d71ac969b.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul class=&quot;list-unstyled&quot;&gt;
+    &lt;li&gt;
+        &lt;h4&gt;Wordpress website performane optimization&lt;/h4&gt;
+        &lt;iframe src=&quot;https://player.vimeo.com/video/157547302&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h4&gt;Wordpress website performane optimization - Mobile Version&lt;/h4&gt;
+        &lt;iframe src=&quot;https://player.vimeo.com/video/157547329&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h4&gt;Sneak&lt;/h4&gt;
+        &lt;p&gt;Sneak is a static website generator based in &lt;a href=&quot;https://html5boilerplate.com/&quot; target=&quot;_blank&quot;&gt;html5boilerplate&lt;/a&gt; with preprocessors.
+        It supports Less, Sass, Stylus, TypeScript, CoffeScripr, Flow, Jade, EJS, Handlebars, you can write anything and it will build you a performatic front-end for your website.&lt;/p&gt;
+        &lt;a href=&quot;https://github.com/felipeblini/static-website-generator&quot; target=&quot;_blank&quot;&gt;Sneak on GitHub&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 31 Mar 2016 13:25:41 -0300</pubDate>
+        <link>http://felipeblini.net/performance-no-wordpress.1</link>
+        <guid isPermaLink="true">http://felipeblini.net/performance-no-wordpress.1</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>
