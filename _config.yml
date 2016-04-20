@@ -39,7 +39,7 @@ resources:
         source_code: "código fonte:"
         and: "e"
         made_with: "feito com"
-        call_out_img: "/img/angular-javascript-ionic-node-v3.png"
+        call_out_img: "/img/angular-javascript-ionic-node-v5.png"
     en:
         footer_text_below_icons: "See how this icons was made in"
         source_code: "source code:"
@@ -56,6 +56,10 @@ theme:
     # Colours, typography and padding
     # Open the "_sass > base" folder, and open "_variables.scss"
     google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
+    
+    email: "felipeblini@felipeblini.net"
+    whatsapp: "+61 0 431 159 469"
+    skype: "blini_bra"
 
 # PAGINATION
 # paginate: 5
