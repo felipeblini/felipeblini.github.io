@@ -11,13 +11,12 @@ $icon-width-b: auto;
     background-color: $background-color;
     
     position: absolute;
-    bottom: 0;
+    bottom: 0 !important;
     
     width: 100%;
     color: #ccc !important;
     border-bottom: solid 3px $link-color;
     text-align: center;
-    overflow: hidden;
     
     .social-icons-wrapper {
         float: left;

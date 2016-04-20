@@ -13,32 +13,33 @@ permalink: /
 
 {% assign posts=site.posts | where:"lang", page.lang %}
 
-<p style="padding: 30px">Nenhum post disponível ainda.. <a href="/sobre">Saiba mais sobre o blog</a> ou <a href="/sobre#contactme">contate-me</a></p>
+<!--<p style="padding: 30px">Nenhum post disponível ainda.. <a href="/sobre">Saiba mais sobre o blog</a> ou <a href="/sobre#contactme">contate-me</a></p>-->
 
-<!--<div class="posts container-fluid">
+<div class="posts container-fluid">
     {% for post in posts %}
     <div class="post-teaser">
         <header>
             <h1>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-                {{ post.title }}
-            </a>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+                    {{ post.title }}
+                </a>
             </h1>
             <p class="meta">
                 {% include date.html date=post.date %}
             </p>
         </header>
+        
         <div class="excerpt">
             <p>{{ post.excerpt }}</p>
 
-
             <a class="button" href="{{ post.url | prepend: site.baseurl }}">
-                    Continue lendo
-                </a>
+                Continue lendo
+            </a>
         </div>
     </div>
     {% endfor %}
-</div>-->
+</div>
+
 <!--<div class="container">
     <p class="rss-subscribe">subscribe <a href="{{ " /feed.xml " | prepend: site.baseurl }}">via RSS</a></p>
 </div>-->
