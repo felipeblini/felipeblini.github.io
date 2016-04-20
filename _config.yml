@@ -45,7 +45,7 @@ resources:
         source_code: "source code:"
         and: "and"
         made_with: "made with"
-        call_out_img: "/img/angular-javascript-ionic-node-v3.png"
+        call_out_img: "/img/angular-javascript-ionic-node-v5.png"
 
 theme:
     # Scripts
