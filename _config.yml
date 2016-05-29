@@ -38,13 +38,13 @@ resources:
         source_code: "código fonte:"
         and: "e"
         made_with: "feito com"
-        call_out_img: "/img/angular-javascript-ionic-node-v5.png"
+        call_out_img: "/img/angular-javascript-ionic-node-v6.png"
     en:
         footer_text_below_icons: "See how this icons was made in"
         source_code: "source code:"
         and: "and"
         made_with: "made with"
-        call_out_img: "/img/angular-javascript-ionic-node-v5.png"
+        call_out_img: "/img/angular-javascript-ionic-node-v6.png"
 
 theme:
     # Scripts
