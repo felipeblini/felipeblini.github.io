@@ -9,18 +9,24 @@ permalink: /en/
 
 <div class="call-out">
     <div class="row">
-        <div class="col-sm-12 col-md-3">
-            <img src="{{ site.resources[page.lang].call_out_img}}" alt="">
+        <div class="col-sm-12">
+            <h1>{}</h1>
         </div>
-        <div class="col-sm-12 col-md-9">
-            <h1>Web and Mobile Development with Javascript</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            Web and Mobile Development with Javascript
         </div>
-    </div>    
+    </div>
 </div>
 
 {% assign posts=site.posts | where:"lang", page.lang %}
 
 <p style="padding: 30px">No articles available yet.. <a href="/en/about">Find out more about this blog</a> or <a href="/en/about#contact-me">contact me</a></p>
+
+<!--{% if posts.lenght == 0 %}
+    <p style="padding: 30px">No articles available yet.. <a href="/en/about">Find out more about this blog</a> or <a href="/en/about#contact-me">contact me</a></p>
+{% else %}-->
 
 <!--<div class="posts container-fluid">
     {% for post in posts %}
@@ -32,7 +38,7 @@ permalink: /en/
                 </a>
             </h1>
             <p class="meta">
-                {% include date.html date=post.date %}
+                {% include post-date.html date=post.date %}
             </p>
         </header>
         
@@ -47,6 +53,4 @@ permalink: /en/
     {% endfor %}
 </div>-->
 
-<!--<div class="container">
-    <p class="rss-subscribe">subscribe <a href="{{ " /feed.xml " | prepend: site.baseurl }}">via RSS</a></p>
-</div>-->
+{% endif %}

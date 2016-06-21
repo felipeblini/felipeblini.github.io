@@ -12,6 +12,7 @@ a.button:hover {
   border: 1px solid $link-color;
   color: $background-color;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 // States

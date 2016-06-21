@@ -9,20 +9,24 @@ permalink: /
 
 <div class="call-out">
     <div class="row">
-        <div class="col-sm-12 col-md-3">
-            <img src="{{ site.resources[page.lang].call_out_img}}" alt="">
+        <div class="col-sm-12">
+            <h1>{}</h1>
         </div>
-        <div class="col-sm-12 col-md-9">
-            <h1>Desenvolvimento Web e Mobile com Javascript</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            Desenvolvimento Web e Mobile com Javascript
         </div>
-    </div>    
+    </div>
 </div>
 
 {% assign posts=site.posts | where:"lang", page.lang %}
 
-<p style="padding: 30px">Nenhum post disponível ainda.. <a href="/about">Saiba mais sobre o blog</a> ou <a href="/about#contact-me">contate-me</a></p>
+{% if posts.lenght == 0 %}
+    <p style="padding: 30px">Nenhum post disponível ainda.. <a href="/about">Saiba mais sobre o blog</a> ou <a href="/about#contact-me">contate-me</a></p>
+{% else %}
 
-<!--<div class="posts container-fluid">
+<div class="posts container-fluid">
     {% for post in posts %}
     <div class="post-teaser">
         <header>
@@ -32,7 +36,8 @@ permalink: /
                 </a>
             </h1>
             <p class="meta">
-                {% include date.html date=post.date %}
+                {% include post-date.html date=post.date %}
+                {% include post-minutes-to-read.html %}
             </p>
         </header>
         
@@ -45,8 +50,5 @@ permalink: /
         </div>
     </div>
     {% endfor %}
-</div>-->
-
-<!--<div class="container">
-    <p class="rss-subscribe">subscribe <a href="{{ " /feed.xml " | prepend: site.baseurl }}">via RSS</a></p>
-</div>-->
+</div>
+{% endif %}

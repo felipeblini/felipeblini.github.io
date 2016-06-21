@@ -1,34 +1,56 @@
 // Header text feature
 .call-out {
-    @extend %padding-small;
-    display: inline-block;
-    width: 100%;
-    background-image: url(../img/squared-paper.jpg);
-    //background-color: $header-desc-background-color;
-    font-size: 1.2em;
-    text-align: center;
-    color: $header-desc-text-color;
-    border-top: solid 1px #ccc;
-    -webkit-box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
-    box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
-    
-    h1 {
-      color: #333;
-    }
+  @extend %padding-small;
+  display: inline-block;
+  width: 100%;
+  //background-image: url(../img/squared-paper.jpg);
+  //background-color: $header-desc-background-color;
+  font-size: 2em;
+  text-align: center;
+  color: $header-text-color;
+  //border-top: solid 1px #ccc;
+  //-webkit-box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
+  //-moz-box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
+  //box-shadow: 0px 3px 5px 0px rgba(247,147,8,1);
+  
+  //margin-top: -113px;
+
+  background: rgba(255,150,0,1);
+  background: -moz-linear-gradient(-45deg, rgba(255,150,0,1) 0%, rgba(254,230,10,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,150,0,1)), color-stop(100%, rgba(254,230,10,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(255,150,0,1) 0%, rgba(254,230,10,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(255,150,0,1) 0%, rgba(254,230,10,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(255,150,0,1) 0%, rgba(254,230,10,1) 100%);
+  background: linear-gradient(135deg, rgba(255,150,0,1) 0%, rgba(254,230,10,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9600', endColorstr='#fee60a', GradientType=1 );
+
+  h1 {
+    font-size: 5em;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 // Post listing
 .posts {
   .post-teaser {
-    @extend %padding-small;
+    @extend %padding-regular;
     width: 100%;
     margin-bottom: 0;
     display: inline-block;
     background-size: $feature-image-size;
     border-bottom: 1px solid $border-color;
     p a:hover {
+      text-decoration: underline;
       @extend %link-hover;
+    }
+
+    h1 .post-link {
+     color: $title-color;
+    }
+
+    h1 .post-link:hover {
+     @extend %link-title-hover ;
     }
   }
   .excerpt {
