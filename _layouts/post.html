@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article {% if page.feature-img %}class="feature-image"{% endif %}>
+<article {% if page.feature-img %} class="feature-image" {% endif %}>
   <header style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
     <h1 class="title">{{ page.title }}</h1>
     <p class="meta">
@@ -18,6 +18,14 @@ layout: default
   </header>
   <section class="post-content container-fluid">{{ content }}</section>
 </article>
+
+<div class="signature">
+  <img src="img/avatar3.jpg?v=0.0.0" class="img-responsive img-circle img-avatar">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+      <h6>Felipe Blini</h6>
+      <span>Full Stack JavaScript Developer</span>
+    </div>
+</div>
 
 <!-- Disqus -->
 {{ disqus_shortname }}
