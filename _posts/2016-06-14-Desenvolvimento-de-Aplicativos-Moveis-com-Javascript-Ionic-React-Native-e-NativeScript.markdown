@@ -8,7 +8,7 @@ date:   2016-06-14 19:48 -0300
 categories: ionic, javascript, nativescript, react native
 ---
 
-O mundo dos aplicativos móveis é muito diferente do mundo Web, para nós desenvolvedores Web que quisermos entrar nesse mundo precisamos estar concientes dessas diferenças e algumas complexidades como gerenciamento de memória, concorrências entre threads, deploy nas lojas de aplicativos, experiência do usuário na hora do download/instalação, capacidades de cada plataforma mobile e experiência do usuário são uma delas.
+O mundo dos aplicativos móveis é muito diferente do mundo Web. Para nós desenvolvedores Web que quisermos entrar nesse mundo precisamos estar concientes dessas diferenças e algumas complexidades como gerenciamento de memória, concorrências entre threads, deploy nas lojas de aplicativos, experiência do usuário na hora do download/instalação, capacidades de cada plataforma mobile e experiência do usuário são uma delas.
 
 Felizmente no mundo dos Aplicativos Web Modernos temos visto o surgimento de vários frameworks que nos permitem abstrair todas essas complexidades, focarmos no código e desenvolvermos aplicativos móveis com o que já está em nossa caixa de ferramentas: HTML/XML, CSS e JavaScript. E o PhoneGap/Cordova também está ai pra nos ajudar.
 
