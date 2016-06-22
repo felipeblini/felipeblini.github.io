@@ -6,13 +6,13 @@
 </description>
     <link>http://felipeblini.net/</link>
     <atom:link href="http://felipeblini.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Jun 2016 01:12:54 -0300</pubDate>
-    <lastBuildDate>Wed, 22 Jun 2016 01:12:54 -0300</lastBuildDate>
+    <pubDate>Wed, 22 Jun 2016 01:20:37 -0300</pubDate>
+    <lastBuildDate>Wed, 22 Jun 2016 01:20:37 -0300</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Desenvolvimento de Aplicativos Móveis com Javascript: Ionic, React Native e NativeScript. Qual escolher?</title>
-        <description>&lt;p&gt;O mundo dos aplicativos móveis é muito diferente do mundo Web, para nós desenvolvedores Web que quisermos entrar nesse mundo precisamos estar concientes dessas diferenças e algumas complexidades como gerenciamento de memória, concorrências entre threads, deploy nas lojas de aplicativos, experiência do usuário na hora do download/instalação, capacidades de cada plataforma mobile e experiência do usuário são uma delas.&lt;/p&gt;
+        <description>&lt;p&gt;O mundo dos aplicativos móveis é muito diferente do mundo Web. Para nós desenvolvedores Web que quisermos entrar nesse mundo precisamos estar concientes dessas diferenças e algumas complexidades como gerenciamento de memória, concorrências entre threads, deploy nas lojas de aplicativos, experiência do usuário na hora do download/instalação, capacidades de cada plataforma mobile e experiência do usuário são uma delas.&lt;/p&gt;
 
 &lt;p&gt;Felizmente no mundo dos Aplicativos Web Modernos temos visto o surgimento de vários frameworks que nos permitem abstrair todas essas complexidades, focarmos no código e desenvolvermos aplicativos móveis com o que já está em nossa caixa de ferramentas: HTML/XML, CSS e JavaScript. E o PhoneGap/Cordova também está ai pra nos ajudar.&lt;/p&gt;
 
