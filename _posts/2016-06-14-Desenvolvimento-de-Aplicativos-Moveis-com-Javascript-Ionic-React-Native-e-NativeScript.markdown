@@ -5,7 +5,11 @@ ref: post-001
 lang: pt
 country: br
 date:   2016-06-14 19:48 -0300
-categories: ionic, javascript, nativescript, react native
+categories:
+    - ionic
+    - javascript
+    - nativescript
+    - react native
 ---
 
 O mundo dos aplicativos móveis é muito diferente do mundo Web. Para nós desenvolvedores Web que quisermos entrar nesse mundo precisamos estar concientes dessas diferenças e algumas complexidades como gerenciamento de memória, concorrências entre threads, deploy nas lojas de aplicativos, experiência do usuário na hora do download/instalação, capacidades de cada plataforma mobile e experiência do usuário são uma delas.

@@ -126,3 +126,21 @@ article {
     vertical-align: middle;
   }
 }
+
+.inline-mark, .inline-code, .inline-cmd {
+  background: #F8F8F8;
+  border: solid 1px #DDD;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+code.inline-cmd
+{
+  width: auto;
+  float: none;
+}
+
+.inline-cmd
+{
+  font-family: Consolas, "Courier New", Courier, "Liberation Mono", monospace;
+}

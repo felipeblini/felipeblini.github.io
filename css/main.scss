@@ -6,21 +6,26 @@
 
 /* External libs*/
 @import "external/bootstrap/custom-bootstrap";
+/* Code Highlights alternative of default jekyll highlighters*/
 @import "external/prism";
+@import "external/syntax-highlighting.scss";
+/* Flags for multilanguage stuff*/
 @import "external/flag-icons/variables";
 @import "external/flag-icons/flag-icon-base";
 @import "external/flag-icons/flag-icon-list";
 @import "external/flag-icons/flag-icon-more";
 
-/* Base */
 
+/* Base */
 @import "base/custom-mixins";
 @import "base/custom-utility";
 @import "base/global";
 
+
 /* Includes */
 @import "includes/navbar";
 @import "includes/footer";
+
 
 /*Layouts*/
 @import "layouts/posts";
