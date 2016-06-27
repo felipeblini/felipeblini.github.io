@@ -5,7 +5,7 @@ ref: post-002
 lang: pt
 country: br
 date:   2016-06-22 21:27 -0300
-categories: 
+categories:
     - ionic
     - javascript
     - mobile
@@ -153,6 +153,10 @@ O Ionic possui 3 templates para você iniciar uma aplicação:
 
 - **Side Menu**: Mesma aplicação de exemplo do Tabs porém, ao invés de abas, um sistema de navegação em menu lateral deslizante.
 
+- **Maps**: Template com apenas uma página com um mapa renderizado e Geo Localização pronta.
+
+- **Sales Force**: Template com com código integrado à API do CRM da ForceSales.
+
 Para fazer o scaffolding da sua primeira app e rodá-la é muito simples, abra o terminal e digite:
 
 <span class="inline-cmd">ionic start -a "Minha App" -i minhaapp minha-app blank</span>
@@ -161,11 +165,20 @@ Para fazer o scaffolding da sua primeira app e rodá-la é muito simples, abra o
 
 - <span class="inline-cmd">-a "Minha App"</span> é o nome amigável do seu aplicativo
 
-- <span class="inline-cmd">-i minhaapp</span> é o nome do módulo principal, ou do domínio do aplicativo
+- <span class="inline-cmd">-i minhaapp</span> é o ID aplicativo
 
 - <span class="inline-cmd">minha-app</span> é o nome da pasta ou o local onde o aplicativo com o template escolhido será gerado
 
-- <span class="inline-cmd">blank</span> é o template escolhido entre as opções _blank_, _tabs_ e _sidemenu_
+- <span class="inline-cmd">blank</span> é o template escolhido entre as opções _blank_, _tabs_, _sidemenu_, _maps_ e _salesforce_
+
+Ou use a forma reduzida: <span class="inline-cmd">ionic start minha-app blank</span>
+
+####Onde:
+
+- <span class="inline-cmd">minha-app</span> é o ID aplicativo
+
+- <span class="inline-cmd">blank</span> é o template escolhido entre as opções _blank_, _tabs_, _sidemenu_, _maps_ e _salesforce_
+
 
 ![Inicializando a aplicação sidemenu do Ionic](img/initializing-cordova-project.jpg)
 
