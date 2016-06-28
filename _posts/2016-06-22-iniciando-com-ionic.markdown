@@ -145,7 +145,7 @@ ___
 
 ##Iniciando a Aplicação
 
-O Ionic possui 3 templates para você iniciar uma aplicação:
+O Ionic possui 5 templates disponíveis no GitHub para você iniciar uma aplicação:
 
 - **Blank**: um template vazio, sem pacotes pré-instalados e com apenas uma página.
 
