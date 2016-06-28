@@ -147,15 +147,15 @@ ___
 
 O Ionic possui 5 templates disponíveis no GitHub para você iniciar uma aplicação:
 
-- **Blank**: um template vazio, sem pacotes pré-instalados e com apenas uma página.
+- **Blank**: Template vazio com apenas uma página.
 
 - **Tabs**: Aplicação de exemplo usando o sistema de navegação em abas do Ionic.
 
 - **Side Menu**: Mesma aplicação de exemplo do Tabs porém, ao invés de abas, um sistema de navegação em menu lateral deslizante.
 
-- **Maps**: Template com apenas uma página com um mapa renderizado e Geo Localização pronta.
+- **Maps**: Template com apenas uma página com um mapa renderizado e Geo Localização codificada.
 
-- **Sales Force**: Template com com código integrado à API do CRM da ForceSales.
+- **Sales Force**: Template com com código integrado à API do CRM da _Sales Force_.
 
 Para fazer o scaffolding da sua primeira app e rodá-la é muito simples, abra o terminal e digite:
 
