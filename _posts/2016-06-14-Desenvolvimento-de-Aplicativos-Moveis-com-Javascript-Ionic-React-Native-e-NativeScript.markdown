@@ -21,7 +21,7 @@ O Ionic é um framework baseado no Angular (um dos mais fortes frameworks de Jav
 
 Os aplicativos desenvolvidos com Ionic não são nativos mas se parecem e agem como tal, o que o Ionic faz é estilizar o HTML que você escreve para se parecer com os componentes UI nativos de cada plataforma móvel e usa o Apache Cordova para fazer tais componentes se comportarem como nativos comunicando-se com as APIs nativas.
 
-O ionic foi criado em 2013 pela Drifty, empresa criada por 2 amigos de infância com a missão de facilitar o desenvolvimento Web e mobile e mais tarde viram a grande oportunidade de ajudar desenvolvedores a criar aplicativos móveis cross-platform usando padrões Web modernos, criaram o Ionic e receberam um investimento inicial de $1 milhão pra continuarem o desenvolvimento e hoje o Ionic é mais popular framework de desenvolvimento de aplicativos móveis do mercado com, segundo um dos fundadores, 200 apps sendo criadas com Ionic todos os dias. A comunidade realmente é gigante e você encontra suporte pra qualquer dúvida e bug que surgir durante o desenvolvimento da sua app com uma simples e rápida busca no Google.
+O ionic foi criado em 2013 pela Drifty, empresa criada por 2 amigos de infância com a missão de facilitar o desenvolvimento Web e mobile e mais tarde viram a grande oportunidade de ajudar desenvolvedores a criar aplicativos móveis <i>Cross-Platform</i> usando padrões Web modernos, criaram o Ionic e receberam um investimento inicial de $1 milhão pra continuarem o desenvolvimento e hoje o Ionic é mais popular framework de desenvolvimento de aplicativos móveis do mercado com, segundo um dos fundadores, 200 apps sendo criadas com Ionic todos os dias. A comunidade realmente é gigante e você encontra suporte pra qualquer dúvida e bug que surgir durante o desenvolvimento da sua app com uma simples e rápida busca no Google.
 
 
 ###Vantagens:
@@ -35,7 +35,7 @@ O ionic foi criado em 2013 pela Drifty, empresa criada por 2 amigos de infância
 - Plano de suporte para times e empresas que ajuda no desenvolvimento, testes, empacotamento, publicacão e distribuição
 - Manutenção de código centralizada já que o código que roda no Android é o mesmo que roda no iOS e Windows Phone
 - Mais leve
-- Ecosistema de ferramentas e serviços como Inonic View, Push Notification, User Authentication, Live Deployment, Native App Package, Ionic Creator, Analytics Service e um CLI para scaffoldind de templates e comandos extremamente úteis na hora do desenvolvimento, testes e distribuição
+- Ecossistema de ferramentas e serviços como Inonic View, Push Notification, User Authentication, Live Deployment, Native App Package, Ionic Creator, Analytics Service e um CLI para scaffoldind de templates e comandos extremamente úteis na hora do desenvolvimento, testes e distribuição
 
 
 ###Desvantagens
@@ -86,7 +86,7 @@ Não é uma plataforma de desenvolvimento de aplicativos híbridos. Diferente do
 
 ###Conclusão:
 
-O React Native é uma excelente opção, eu o recomendo para aplicativos mais complexos no qual performance é extremamente importante. O getting start dele não é tão simples como o Ionic, a curva de aprendizado é maior, você terá que se esforçar mais dedicando mais tempo no desenvolvimento e aprendizado e instalando SDK’s e configurando o ambiente que ele requer para emular e testar aplicativos no seu computador. Além disso se o seu aplicativo precisa rodar no Android e iOS você terá que escrever dois códigos e depois manter esses dois códigos, na minha opnião isso é o que mais fere a proposta dos aplicativos modernos: O mantra Cross-Platform “write once, run anywhere”. O react Native ao contrário divulga a proposta “learn once, write anywhere”. O que também não é um grande problema já que não temos muito o que fazer se quisermos aplicativos extremamente otimizados e performáticos para a plataforma alvo.
+O React Native é uma excelente opção, eu o recomendo para aplicativos mais complexos no qual performance é extremamente importante. O getting start dele não é tão simples como o Ionic, a curva de aprendizado é maior, você terá que se esforçar mais dedicando mais tempo no desenvolvimento e aprendizado e instalando SDK’s e configurando o ambiente que ele requer para emular e testar aplicativos no seu computador. Além disso se o seu aplicativo precisa rodar no Android e iOS você terá que escrever dois códigos e depois manter esses dois códigos, na minha opnião isso é o que mais fere a proposta dos aplicativos modernos: O mantra <i>Cross-Platform</i> “write once, run anywhere”. O react Native ao contrário divulga a proposta “learn once, write anywhere”. O que também não é um grande problema já que não temos muito o que fazer se quisermos aplicativos extremamente otimizados e performáticos para a plataforma alvo.
 
 Uma introdução do React Native (em inglês): [https://www.youtube.com/watch?v=KVZ-P-ZI6W4](https://www.youtube.com/watch?v=KVZ-P-ZI6W4)
 
@@ -101,7 +101,7 @@ Site oficial: [https://facebook.github.io/react-native/](https://facebook.github
 NativeScript
 ======================================
 
-O NativeScript é um framework cross-platform que une, na minha opnião, o melhor dos dois concorrentes acima: O mantra “write once, run anywhere” do Ionic e a compilação pra código nativo do React Native. Isso significa que com o NativeScript você escreverá um único código com tecnologias Web e ele compilará esse único código para código nativo para iOS, Android e Windows Phone. Ele oferece todas as vantagens de ter um app nativo como performance e experiência do usuário escrevendo e mantendo um único código com JavaScript! Mazing!
+O NativeScript é um framework <i>Cross-Platform</i> que une, na minha opnião, o melhor dos dois concorrentes acima: O mantra “write once, run anywhere” do Ionic e a compilação pra código nativo do React Native. Isso significa que com o NativeScript você escreverá um único código com tecnologias Web e ele compilará esse único código para código nativo para iOS, Android e Windows Phone. Ele oferece todas as vantagens de ter um app nativo como performance e experiência do usuário escrevendo e mantendo um único código com JavaScript! Mazing!
 
 A única diferença que pode ser um ponto negativo é que ele não usam HTML, ao invés disso você terá que escrever suas views em XML. O que mais uma vez não é um grande problema pois as tags XML são tags parecidas com as do HTML e nós como desenvolvedores estamos acostumados com XML.
 
