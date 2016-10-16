@@ -12,6 +12,8 @@
 }
 %link-hover {
   color: darken($link-color, 15%);
+  text-decoration: none;
+  border-bottom: 0;
 }
 %link-title-hover {
   transition: 0.5s;

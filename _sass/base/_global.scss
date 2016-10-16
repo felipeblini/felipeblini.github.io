@@ -100,7 +100,14 @@ samp {
   box-sizing: content-box;
 }
 
-code, pre { width: 100%; position: relative; float: left}
+//code, pre { width: 100%; position: relative; float: left}
+code {
+    color: #d14;
+    padding: .25em;
+    word-wrap: break-word;
+    background: #F7F7F7;
+    border-radius: 3px;
+}
 
 dt {
   font-weight: bold;
@@ -133,6 +140,7 @@ hr {
 
 a {
   color: $link-color;
+  border-bottom: 1px dashed $link-color;
   text-decoration: none;
 }
 
@@ -265,4 +273,11 @@ $card-border-radious: .25rem;
 
 .blockquote p {
     font-size: 32px !important;
+}
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
 }

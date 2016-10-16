@@ -1,0 +1,61 @@
+// ---
+// layout: post
+// title:  "Desafio: faturar R$1000,00 em vendas online em um Domingo. Done!"
+// ref: post-004
+// lang: pt
+// country: br
+// date: 2016-09-08 21:27 -0300
+// categories:
+//     - wordpress
+//     - performance
+// ---
+
+Este foi um trabalho que eu fiz para um hostel em Budapeste - Hungria.
+
+O site do hostel foi feito com Wordpress e apresentava extrema lentidão no carregamento da página,
+outro problema detectado foi discrepâcias e erros na responsividade do layout quanto visitado em telas pequenas.
+
+O site nao tinha nenhum tipo de otimização, o desenvolvedor apenas instalou o Wordpess, adicionou o template Nice Hostel e entregou
+o site com um page load de incríveis 1m e 09s. Muito tempo pra esperar o site abrir pra quem está viajando e quer
+reservar um quarto não?
+
+A missão dada foi diminuir esse carregamento para no máximo 15 segundos em uma conexão de 1mbps, com o cache desabilitado,
+ou seja, quando o usuário estiver visitando o site pela primeira. Outra tarefa era melhorar a reponsividade do site.
+
+Eis o resultado:
+
+[video]
+- Missão dada é missão cumprida
+
+Concordam que agora ficou muito mais rápido pra um viajante recém chegado em Budapeste, com pressa
+em arrumar um local pra dormir, acessar o site e reservar um quarto certo?
+
+Enquanto no novo site, o cara está navegando pelos quartos, vendo fotos e até já reservou um quarto,
+no site antigo o usuário ainda estaria esperano a página ser carregada, tédio!
+
+E ficou claro que a taxa de desistência do site diminuiu de 80% pra quase 0 e o hostel agora
+não está perdendo mais nenhuma visita e faturando muito mais.
+
+##Agora como foi feito tamanha melhoroa em um page load?
+
+Primeiro, nenhum arquivo Javascript e CSS deve ser entregue no servidor sem antes ser minificado e uglificado.
+Existem diversas maneiras de se fazer isso e vários plugins no Wordpress que faz isso pra gente.
+A maneira que eu prefiro é baixar e abrir o tema  usado no Wordpress e identificar todos os arquivos usados,
+analizá-los e eliminar código desnecessário e depois minificar, uglificar e concatenar com qualquer
+ferramenta, se as alterações no tema forem frequêntes eu recomendo automatizar com o Grunt ou Gulp,
+no caso deste projeto eu minifiquei e concatenei com ferramentas online mesmo e preservei o original (muito importante)
+já que alterações neste tema são muito pontuais. A concatenação do arquivos (junção dos css em um css só e dos js em um js só)
+é recomendado pois os navegadores carregam os arquivos em grupos, e até que um grupo inteiro deja carregados
+os outros arquivos ficam na fila de espera e isso atrasa o carregamento. Então se você tem 3 CSS é uma boa prática
+juntá-los em um único CSS, assim o navegador carrega os 3 de uma vez só e dá a oportunidades pra outros 2 arquivos serem
+carregados no mesmo grupo, diminuindo drasticamente o carregamento em alguns casos.
+
+Depois devemos ajudar o navegador a carregar o site mais rápido, e o usuário a perceber um carregamento
+mais rápido. Fazemos isso referenciando os aruivos nos lugares certos no HTML. Stilos CSS dentro da
+tag head e scripts JavaScript no final da página pois scripts devem ser carregados e executados e isso
+bloqueia o carregamento da página até o browser finaliza essa tarefa. Colocando no final da página
+o browser vai carregar tudo e quando estiver executando os sripts a página já vai estar carregada.
+
+
+
+
