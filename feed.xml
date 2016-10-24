@@ -6,29 +6,39 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Oct 2016 09:55:04 -0300</pubDate>
-    <lastBuildDate>Mon, 24 Oct 2016 09:55:04 -0300</lastBuildDate>
+    <pubDate>Mon, 24 Oct 2016 12:21:30 -0300</pubDate>
+    <lastBuildDate>Mon, 24 Oct 2016 12:21:30 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
         <title>O Que não é Permitido no ‘Strict Mode’ do Javascript?</title>
-        <description>&lt;p&gt;A diretiva &lt;code class=&quot;inline&quot;&gt;&quot;use strict&quot;;&lt;/code&gt; do JavaScript foi incluída no &lt;em&gt;ECMAScript 5&lt;/em&gt; e define
-que o código JavaScript será executado em &lt;em&gt;Strict Mode&lt;/em&gt; (modo estrito), o que nos obriga a
+        <description>&lt;p&gt;A diretiva &lt;code class=&quot;inline&quot;&gt;&quot;use strict&quot;;&lt;/code&gt; do JavaScript foi incluída no &lt;strong&gt;ECMAScript 5&lt;/strong&gt; e define
+que o código JavaScript será executado em &lt;em&gt;Strict Mode&lt;/em&gt; (modo restrito), o que nos obriga a
 seguir algumas regras de codificação para escrevermos um código mais “seguro”.&lt;/p&gt;
 
-&lt;h2 id=&quot;porqu-strict-mode&quot;&gt;Porquê Strict Mode?&lt;/h2&gt;
+&lt;h2 id=&quot;porqu-strict-mode&quot;&gt;Porquê &lt;em&gt;Strict Mode&lt;/em&gt;?&lt;/h2&gt;
 
-&lt;p&gt;O JavaScript é uma linguagem muito dinâmica e “liberal”, o que nos permite escrever código sem convenção nenhuma e fazer coisas muito estranhas que em qualquer outra linguagem nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.&lt;/p&gt;
+&lt;p&gt;O JavaScript é uma linguagem muito dinâmica e flexível, o que nos permite escrever código
+sem seguir nenhuma convenção e fazer coisas muito estranhas que em qualquer outra linguagem
+nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.&lt;/p&gt;
 
-&lt;p&gt;O problema é que essa liberdade pode causar comportamentos estranhos e de difícil identificação e correção.&lt;/p&gt;
+&lt;p&gt;O problema é que essa liberdade toda pode causar comportamentos estranhos do código podendo
+se as vezes de difícil identificação e correção.&lt;/p&gt;
 
-&lt;p&gt;Com o Strict Mode ativado o interpretador do JavaScript irá sempre retornar um erro e travar a execução do código sempre que encontrar alguma dessas “coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas” em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o esperado.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;Strict Mode&lt;/em&gt; ativado o JavaScript fica menos flexível e o interpretador irá sempre
+retornar um erro e travar a execução do código sempre que encontrar alguma dessas
+“coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas”
+em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o
+esperado.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-e-onde-declarar-o-stric-mode&quot;&gt;Como e Onde Declarar o Stric Mode?&lt;/h2&gt;
 
-&lt;p&gt;O &lt;strong&gt;stric mode&lt;/strong&gt; é ativado adicionando &lt;code class=&quot;inline&quot;&gt;“strict mode”;&lt;/code&gt; no começo do script ou de uma função e se aplica apenas ao contexto onde foi inserido. Caso seja inserido no começo do script, será aplicado em todo o código. Caso for incluído no começo de uma função será aplicado apenas no contexto da função.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Strict Mode&lt;/em&gt; é ativado adicionando o literal &lt;code class=&quot;inline&quot;&gt;“strict mode”;&lt;/code&gt;
+no começo de scripts ou de funções e se aplica apenas ao contexto onde foi inserido.
+Caso seja inserido no começo do script, será aplicado a todo o código.
+Caso for incluído no começo de uma função será aplicado apenas no contexto da função.&lt;/p&gt;
 
-&lt;h2 id=&quot;as-coisas-estranhas-que-o-strict-mode-no-permite&quot;&gt;As “Coisas Estranhas” que o &lt;strong&gt;Strict Mode&lt;/strong&gt; não permite&lt;/h2&gt;
+&lt;h2 id=&quot;as-coisas-estranhas-que-o-strict-mode-no-permite&quot;&gt;As “Coisas Estranhas” que o &lt;em&gt;Strict Mode&lt;/em&gt; não permite&lt;/h2&gt;
 
 &lt;h4 id=&quot;utilizar-varivel-sem-declarar&quot;&gt;Utilizar variável sem declarar&lt;/h4&gt;
 
@@ -525,7 +535,7 @@ aplicativo diretamente no celular e usar o &lt;em&gt;Ionic View&lt;/em&gt; para 
       </item>
     
       <item>
-        <title>Desenvolvimento de Aplicativos Móveis com Javascript: Ionic, React Native e NativeScript. Qual escolher?</title>
+        <title>Aplicativos Móveis com JavaScript: Ionic, React Native e NativeScript. Qual escolher?</title>
         <description>&lt;p&gt;O mundo dos aplicativos móveis é muito diferente do mundo Web. Para nós desenvolvedores Web que quisermos entrar nesse mundo precisamos estar concientes dessas diferenças e algumas complexidades como gerenciamento de memória, concorrências entre threads, deploy nas lojas de aplicativos, experiência do usuário na hora do download/instalação, capacidades de cada plataforma mobile e experiência do usuário são uma delas.&lt;/p&gt;
 
 &lt;p&gt;Felizmente no mundo dos Aplicativos Web Modernos temos visto o surgimento de vários frameworks que nos permitem abstrair todas essas complexidades, focarmos no código e desenvolvermos aplicativos móveis com o que já está em nossa caixa de ferramentas: HTML/XML, CSS e JavaScript. E o PhoneGap/Cordova também está ai pra nos ajudar.&lt;/p&gt;
