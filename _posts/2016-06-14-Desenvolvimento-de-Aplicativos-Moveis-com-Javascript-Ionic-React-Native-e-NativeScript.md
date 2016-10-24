@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Desenvolvimento de Aplicativos Móveis com Javascript: Ionic, React Native e NativeScript. Qual escolher?"
+title:  "Aplicativos Móveis com JavaScript: Ionic, React Native e NativeScript. Qual escolher?"
 ref: post-001
 lang: pt
 country: br
 date:   2016-06-14 19:48 -0300
+feature-img: "img/mobile_js.jpg"
 categories:
     - ionic
     - javascript

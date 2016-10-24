@@ -78,6 +78,7 @@ article {
 
   header {
     color: $feature-image-text-color;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     background-size: $feature-image-size;
     margin-bottom: 0;
     padding: $padding-large/2.5 $padding-large;

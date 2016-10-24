@@ -5,6 +5,7 @@ ref: post-003
 lang: pt
 country: br
 date: 2016-09-08 21:27 -0300
+feature-img: "img/motorcycle-696027_1280.jpg"
 categories:
     - wordpress
     - performance

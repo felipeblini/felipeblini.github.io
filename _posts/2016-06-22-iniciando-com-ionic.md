@@ -5,6 +5,7 @@ ref: post-002
 lang: pt
 country: br
 date:   2016-06-22 21:27 -0300
+feature-img: "img/seo-1616306_1280.jpg"
 categories:
     - ionic
     - javascript

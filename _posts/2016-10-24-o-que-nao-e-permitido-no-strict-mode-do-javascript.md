@@ -9,25 +9,36 @@ tags:
 ref: post-004
 lang: pt
 country: br
+feature-img: "img/black-164164_1280.jpg"
 ---
 
-A diretiva <code class="inline">"use strict";</code> do JavaScript foi incluída no *ECMAScript 5* e define
-que o código JavaScript será executado em _Strict Mode_ (modo estrito), o que nos obriga a
+A diretiva <code class="inline">"use strict";</code> do JavaScript foi incluída no **ECMAScript 5** e define
+que o código JavaScript será executado em _Strict Mode_ (modo restrito), o que nos obriga a
 seguir algumas regras de codificação para escrevermos um código mais “seguro”.
 
-##Porquê Strict Mode?
+##Porquê _Strict Mode_?
 
-O JavaScript é uma linguagem muito dinâmica e “liberal”, o que nos permite escrever código sem convenção nenhuma e fazer coisas muito estranhas que em qualquer outra linguagem nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.
+O JavaScript é uma linguagem muito dinâmica e flexível, o que nos permite escrever código
+sem seguir nenhuma convenção e fazer coisas muito estranhas que em qualquer outra linguagem
+nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.
 
-O problema é que essa liberdade pode causar comportamentos estranhos e de difícil identificação e correção.
+O problema é que essa liberdade toda pode causar comportamentos estranhos do código podendo
+se as vezes de difícil identificação e correção.
 
-Com o Strict Mode ativado o interpretador do JavaScript irá sempre retornar um erro e travar a execução do código sempre que encontrar alguma dessas “coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas” em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o esperado.
+Com o _Strict Mode_ ativado o JavaScript fica menos flexível e o interpretador irá sempre
+retornar um erro e travar a execução do código sempre que encontrar alguma dessas
+“coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas”
+em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o
+esperado.
 
 ##Como e Onde Declarar o Stric Mode?
 
-O __stric mode__ é ativado adicionando <code class="inline">“strict mode”;</code> no começo do script ou de uma função e se aplica apenas ao contexto onde foi inserido. Caso seja inserido no começo do script, será aplicado em todo o código. Caso for incluído no começo de uma função será aplicado apenas no contexto da função.
+O _Strict Mode_ é ativado adicionando o literal <code class="inline">“strict mode”;</code>
+no começo de scripts ou de funções e se aplica apenas ao contexto onde foi inserido.
+Caso seja inserido no começo do script, será aplicado a todo o código.
+Caso for incluído no começo de uma função será aplicado apenas no contexto da função.
 
-##As “Coisas Estranhas” que o __Strict Mode__ não permite
+##As “Coisas Estranhas” que o _Strict Mode_ não permite
 
 ####Utilizar variável sem declarar
 
