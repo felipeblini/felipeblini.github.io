@@ -89,7 +89,7 @@ Podemos fazer isso manualmente, porém existem plugins no WordPress como o
 ajudam com isso e foi usado neste caso para esse propósito.
 
 E para as bibliotecas JavaScript de terceiros é recomendado configurar execução assíncrona
-com o atributo <code>async</code> que também pode ser feita com o <code>defer</code>, exemplo:
+com o atributo <code class="inline">async</code> que também pode ser feita com o <code class="inline">defer</code>, exemplo:
 
 <pre><code class="language-markup">&lt;script async src="https://third-party.com/resource.js" />
 </code></pre>

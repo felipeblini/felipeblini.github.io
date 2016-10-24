@@ -127,20 +127,20 @@ article {
   }
 }
 
-.inline-mark, .inline-code, .inline-cmd {
-  background: #F8F8F8;
-  border: solid 1px #DDD;
-  border-radius: 4px;
-  padding: 4px;
+//code, pre { width: 100%; position: relative; float: left}
+code {
+    color: #d14;
+    padding: .10em;
+    word-wrap: break-word;
+    background: #F7F7F7;
+    font-family: Consolas, "Courier New", Courier, "Liberation Mono", monospace;
 }
 
-code.inline-cmd
-{
-  width: auto;
-  float: none;
+code.inline {
+    border: solid 1px #DDD;
+    border-radius: 3px;
 }
 
-.inline-cmd
-{
-  font-family: Consolas, "Courier New", Courier, "Liberation Mono", monospace;
+code.gray {
+  color: #000
 }

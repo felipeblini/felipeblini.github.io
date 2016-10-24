@@ -1,14 +1,14 @@
-// ---
-// layout: post
-// title:  "Desafio: faturar R$1000,00 em vendas online em um Domingo. Done!"
-// ref: post-004
-// lang: pt
-// country: br
-// date: 2016-09-08 21:27 -0300
-// categories:
-//     - wordpress
-//     - performance
-// ---
+---
+layout: post
+title:  "Desafio: faturar R$1000,00 em vendas online em um Domingo. Done!"
+ref: post-004
+lang: pt
+country: br
+date: 2016-09-08 21:27 -0300
+categories:
+    - wordpress
+    - performance
+---
 
 Este foi um trabalho que eu fiz para um hostel em Budapeste - Hungria.
 
