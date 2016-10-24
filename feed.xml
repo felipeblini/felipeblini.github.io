@@ -1,80 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Felipe Blini - Angular Developer and Consultant</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>Felipe Blini - JavaScript Developer, Teacher and Consultant</title>
+    <description>blini.io - Desenvolvimento Web e Mobile com Javascript
 </description>
-    <link>http://felipeblini.net/</link>
-    <atom:link href="http://felipeblini.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Oct 2016 15:11:04 -0300</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 15:11:04 -0300</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <link>http://blini.io/</link>
+    <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 24 Oct 2016 09:55:04 -0300</pubDate>
+    <lastBuildDate>Mon, 24 Oct 2016 09:55:04 -0300</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
     
       <item>
-        <title>Faturar Mil Reais Em Um Domingo</title>
-        <description>&lt;p&gt;// —
-// layout: post
-// title:  “Desafio: faturar R$1000,00 em vendas online em um Domingo. Done!”
-// ref: post-004
-// lang: pt
-// country: br
-// date: 2016-09-08 21:27 -0300
-// categories:
-//     - wordpress
-//     - performance
-// —&lt;/p&gt;
+        <title>O Que não é Permitido no ‘Strict Mode’ do Javascript?</title>
+        <description>&lt;p&gt;A diretiva &lt;code class=&quot;inline&quot;&gt;&quot;use strict&quot;;&lt;/code&gt; do JavaScript foi incluída no &lt;em&gt;ECMAScript 5&lt;/em&gt; e define
+que o código JavaScript será executado em &lt;em&gt;Strict Mode&lt;/em&gt; (modo estrito), o que nos obriga a
+seguir algumas regras de codificação para escrevermos um código mais “seguro”.&lt;/p&gt;
 
-&lt;p&gt;Este foi um trabalho que eu fiz para um hostel em Budapeste - Hungria.&lt;/p&gt;
+&lt;h2 id=&quot;porqu-strict-mode&quot;&gt;Porquê Strict Mode?&lt;/h2&gt;
 
-&lt;p&gt;O site do hostel foi feito com Wordpress e apresentava extrema lentidão no carregamento da página,
-outro problema detectado foi discrepâcias e erros na responsividade do layout quanto visitado em telas pequenas.&lt;/p&gt;
+&lt;p&gt;O JavaScript é uma linguagem muito dinâmica e “liberal”, o que nos permite escrever código sem convenção nenhuma e fazer coisas muito estranhas que em qualquer outra linguagem nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.&lt;/p&gt;
 
-&lt;p&gt;O site nao tinha nenhum tipo de otimização, o desenvolvedor apenas instalou o Wordpess, adicionou o template Nice Hostel e entregou
-o site com um page load de incríveis 1m e 09s. Muito tempo pra esperar o site abrir pra quem está viajando e quer
-reservar um quarto não?&lt;/p&gt;
+&lt;p&gt;O problema é que essa liberdade pode causar comportamentos estranhos e de difícil identificação e correção.&lt;/p&gt;
 
-&lt;p&gt;A missão dada foi diminuir esse carregamento para no máximo 15 segundos em uma conexão de 1mbps, com o cache desabilitado,
-ou seja, quando o usuário estiver visitando o site pela primeira. Outra tarefa era melhorar a reponsividade do site.&lt;/p&gt;
+&lt;p&gt;Com o Strict Mode ativado o interpretador do JavaScript irá sempre retornar um erro e travar a execução do código sempre que encontrar alguma dessas “coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas” em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o esperado.&lt;/p&gt;
 
-&lt;p&gt;Eis o resultado:&lt;/p&gt;
+&lt;h2 id=&quot;como-e-onde-declarar-o-stric-mode&quot;&gt;Como e Onde Declarar o Stric Mode?&lt;/h2&gt;
 
-&lt;p&gt;[video]
-- Missão dada é missão cumprida&lt;/p&gt;
+&lt;p&gt;O &lt;strong&gt;stric mode&lt;/strong&gt; é ativado adicionando &lt;code class=&quot;inline&quot;&gt;“strict mode”;&lt;/code&gt; no começo do script ou de uma função e se aplica apenas ao contexto onde foi inserido. Caso seja inserido no começo do script, será aplicado em todo o código. Caso for incluído no começo de uma função será aplicado apenas no contexto da função.&lt;/p&gt;
 
-&lt;p&gt;Concordam que agora ficou muito mais rápido pra um viajante recém chegado em Budapeste, com pressa
-em arrumar um local pra dormir, acessar o site e reservar um quarto certo?&lt;/p&gt;
+&lt;h2 id=&quot;as-coisas-estranhas-que-o-strict-mode-no-permite&quot;&gt;As “Coisas Estranhas” que o &lt;strong&gt;Strict Mode&lt;/strong&gt; não permite&lt;/h2&gt;
 
-&lt;p&gt;Enquanto no novo site, o cara está navegando pelos quartos, vendo fotos e até já reservou um quarto,
-no site antigo o usuário ainda estaria esperano a página ser carregada, tédio!&lt;/p&gt;
+&lt;h4 id=&quot;utilizar-varivel-sem-declarar&quot;&gt;Utilizar variável sem declarar&lt;/h4&gt;
 
-&lt;p&gt;E ficou claro que a taxa de desistência do site diminuiu de 80% pra quase 0 e o hostel agora
-não está perdendo mais nenhuma visita e faturando muito mais.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+x = 3.14;  // isso vai retornar um erro
+obj = {p1:10, p2:20}; // também vale para objetos
+var y = 3.14 // ok
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;agora-como-foi-feito-tamanha-melhoroa-em-um-page-load&quot;&gt;Agora como foi feito tamanha melhoroa em um page load?&lt;/h2&gt;
+&lt;h4 id=&quot;deletar-variveis-ou-objeto&quot;&gt;Deletar variáveis ou objeto&lt;/h4&gt;
 
-&lt;p&gt;Primeiro, nenhum arquivo Javascript e CSS deve ser entregue no servidor sem antes ser minificado e uglificado.
-Existem diversas maneiras de se fazer isso e vários plugins no Wordpress que faz isso pra gente.
-A maneira que eu prefiro é baixar e abrir o tema  usado no Wordpress e identificar todos os arquivos usados,
-analizá-los e eliminar código desnecessário e depois minificar, uglificar e concatenar com qualquer
-ferramenta, se as alterações no tema forem frequêntes eu recomendo automatizar com o Grunt ou Gulp,
-no caso deste projeto eu minifiquei e concatenei com ferramentas online mesmo e preservei o original (muito importante)
-já que alterações neste tema são muito pontuais. A concatenação do arquivos (junção dos css em um css só e dos js em um js só)
-é recomendado pois os navegadores carregam os arquivos em grupos, e até que um grupo inteiro deja carregados
-os outros arquivos ficam na fila de espera e isso atrasa o carregamento. Então se você tem 3 CSS é uma boa prática
-juntá-los em um único CSS, assim o navegador carrega os 3 de uma vez só e dá a oportunidades pra outros 2 arquivos serem
-carregados no mesmo grupo, diminuindo drasticamente o carregamento em alguns casos.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+var x = 3.14;
+delete x;  // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Depois devemos ajudar o navegador a carregar o site mais rápido, e o usuário a perceber um carregamento
-mais rápido. Fazemos isso referenciando os aruivos nos lugares certos no HTML. Stilos CSS dentro da
-tag head e scripts JavaScript no final da página pois scripts devem ser carregados e executados e isso
-bloqueia o carregamento da página até o browser finaliza essa tarefa. Colocando no final da página
-o browser vai carregar tudo e quando estiver executando os sripts a página já vai estar carregada.&lt;/p&gt;
+&lt;h4 id=&quot;deletar-funo&quot;&gt;Deletar função&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+function x(p1, p2) {}; 
+delete x;  // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;duplicar-nome-de-parmetros&quot;&gt;Duplicar nome de parâmetros&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+function x(p1, p1) {}; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;nmeros-em-octal&quot;&gt;Números em Octal&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+var x = 010; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;caracteres-de-escape&quot;&gt;Caracteres de Escape&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+var x = \010; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;escrever-em-uma-propriedade-read-only&quot;&gt;Escrever em uma propriedade read-only&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+var obj = {};
+Object.defineProperty(obj, &quot;x&quot;, {value:0, writable:false});
+
+obj.x = 3.14; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;escrever-em-uma-propriedade-get-only&quot;&gt;Escrever em uma propriedade get-only&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+var obj = {get x() {return 0} };
+
+obj.x = 3.14; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;deletar-uma-propriedade-que-no-pode-ser-deletada&quot;&gt;Deletar uma propriedade que não pode ser deletada&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+delete Object.prototype; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;usar-palavras-reservadas-como-arguments-e-eval-em-nome-de-variveis&quot;&gt;Usar palavras reservadas como ‘arguments’ e ‘eval’ em nome de variáveis&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+var eval = 3.14; // isso vai retornar um erro
+
+var arguments = 3.14; // isso também vai retornar um erro
+
+// Isso serve também para as palavras reservadas:
+// implements
+// interface
+// let
+// package
+// private
+// protected
+// public
+// static
+// yield
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;usar-a-declarao-while&quot;&gt;Usar a declaração while&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+with (Math){x = cos(2)}; // isso vai retornar um erro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;restrio-na-funo-eval&quot;&gt;Restrição na função eval()&lt;/h4&gt;
+
+&lt;p&gt;A função &lt;code class=&quot;inline&quot;&gt;eval()&lt;/code&gt; não pode criar variáveis no escopo onde ela é usada&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;use strict&quot;;
+eval (&quot;var x = 2&quot;);
+alert (x); // a variável &#39;x&#39; não existe aqui
+&lt;/code&gt;&lt;/pre&gt;
 
 </description>
-        <pubDate>Sat, 08 Oct 2016 00:00:00 -0300</pubDate>
-        <link>http://felipeblini.net/faturar-mil-reais-em-um-domingo</link>
-        <guid isPermaLink="true">http://felipeblini.net/faturar-mil-reais-em-um-domingo</guid>
+        <pubDate>Mon, 24 Oct 2016 07:09:41 -0300</pubDate>
+        <link>http://blini.io/o-que-nao-e-permitido-no-strict-mode-do-javascript</link>
+        <guid isPermaLink="true">http://blini.io/o-que-nao-e-permitido-no-strict-mode-do-javascript</guid>
         
+        <category>javascript</category>
+        
+        
+        <category>JavaScript</category>
         
       </item>
     
@@ -159,7 +220,7 @@ Podemos fazer isso manualmente, porém existem plugins no WordPress como o
 ajudam com isso e foi usado neste caso para esse propósito.&lt;/p&gt;
 
 &lt;p&gt;E para as bibliotecas JavaScript de terceiros é recomendado configurar execução assíncrona
-com o atributo &lt;code&gt;async&lt;/code&gt; que também pode ser feita com o &lt;code&gt;defer&lt;/code&gt;, exemplo:&lt;/p&gt;
+com o atributo &lt;code class=&quot;inline&quot;&gt;async&lt;/code&gt; que também pode ser feita com o &lt;code class=&quot;inline&quot;&gt;defer&lt;/code&gt;, exemplo:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;script async src=&quot;https://third-party.com/resource.js&quot; /&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -217,8 +278,8 @@ pra todo esse processo de melhoria de performance
 
 </description>
         <pubDate>Thu, 08 Sep 2016 21:27:00 -0300</pubDate>
-        <link>http://felipeblini.net/performance-no-wordpress</link>
-        <guid isPermaLink="true">http://felipeblini.net/performance-no-wordpress</guid>
+        <link>http://blini.io/performance-no-wordpress</link>
+        <guid isPermaLink="true">http://blini.io/performance-no-wordpress</guid>
         
         
         <category>wordpress</category>
@@ -291,7 +352,7 @@ Eu também recomendaria o &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt
 
 &lt;p&gt;Para verificar a instalação, abra o terminal do seu computador e digite:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;node -v&lt;/span&gt; e &lt;span class=&quot;inline-cmd&quot;&gt;npm -v&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;node -v&lt;/code&gt; e &lt;code class=&quot;inline&quot;&gt;npm -v&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Se a instalação foi um sucesso isso retornará a versão instalada de cada um:&lt;/p&gt;
 
@@ -307,7 +368,7 @@ Eu também recomendaria o &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt
 
 &lt;p&gt;Para verificar a instalação do Git, digite no terminal:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;inline-cmd&quot;&gt;git --version&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;git --version&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Isso retornará a versão instalada caso o Git tenha sindo instalado com sucesso.&lt;/p&gt;
 
@@ -319,15 +380,15 @@ Eu também recomendaria o &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt
 
 &lt;p&gt;Para isso precisamos abrir novamente o terminal e digitar o seguinte comando:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;npm install -g bower&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;npm install -g bower&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Esse comando instala o módulo do Node chamado Bower globalmente (&lt;em&gt;-g&lt;/em&gt;). No linux você deve instalar digitando:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;sudo npm install bower&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;sudo npm install bower&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Mais uma vez, verificando a instalação:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;bower -v&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;bower -v&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/bower-version-check.jpg&quot; alt=&quot;Verificando a instalação do Bower no terminal&quot; /&gt;&lt;/p&gt;
 
@@ -338,7 +399,7 @@ o npm mais uma vez.&lt;/p&gt;
 
 &lt;p&gt;Novamente, nada complicado, abra o terminal e digite:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;npm install -g cordova ionic&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;npm install -g cordova ionic&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Isso baixará e instalará globalmente em sua máquina o Cordova e o Ionic CLI no mesmo comando. Pode demorar um pouco
 dependendo da sua conexão.&lt;/p&gt;
@@ -347,13 +408,13 @@ dependendo da sua conexão.&lt;/p&gt;
 
 &lt;p&gt;Verifique a instalação digitando no terminal&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;cordova -v&lt;/span&gt; e &lt;span class=&quot;inline-cmd&quot;&gt;ionic -v&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;cordova -v&lt;/code&gt; e &lt;code class=&quot;inline&quot;&gt;ionic -v&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/cordova-e-ionic-cli-version-check.jpg&quot; alt=&quot;Verificando a instalação do Cordova e Ionic CLI&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Pronto, o Ionic CLI está instalado. Agora podemos digitar ionic no terminal e visualizar os comandos disponíveis para ter uma ideia do que podemos fazer via de linha de comando:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;ionic&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;ionic&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/ionic-cli-commands.jpg&quot; alt=&quot;Visualizando os comandos disponíveis no Ionic CLI&quot; /&gt;&lt;/p&gt;
 
@@ -385,35 +446,35 @@ dependendo da sua conexão.&lt;/p&gt;
 
 &lt;p&gt;Para fazer o scaffolding da sua primeira app e rodá-la é muito simples, abra o terminal e digite:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;ionic start -a “Minha App” -i minhaapp minha-app blank&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;ionic start -a &quot;Minha App&quot; -i minhaapp minha-app blank&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;onde&quot;&gt;Onde:&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;-a “Minha App”&lt;/span&gt; é o nome amigável do seu aplicativo&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;inline&quot;&gt;-a &quot;Minha App&quot;&lt;/code&gt; é o nome amigável do seu aplicativo&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;-i minhaapp&lt;/span&gt; é o ID aplicativo&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;inline&quot;&gt;-i minhaapp&lt;/code&gt; é o ID aplicativo&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;minha-app&lt;/span&gt; é o nome da pasta ou o local onde o aplicativo com o template escolhido será gerado&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;inline&quot;&gt;minha-app&lt;/code&gt; é o nome da pasta ou o local onde o aplicativo com o template escolhido será gerado&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;blank&lt;/span&gt; é o template escolhido entre as opções &lt;em&gt;blank&lt;/em&gt;, &lt;em&gt;tabs&lt;/em&gt;, &lt;em&gt;sidemenu&lt;/em&gt;, &lt;em&gt;maps&lt;/em&gt; e &lt;em&gt;salesforce&lt;/em&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;inline&quot;&gt;blank&lt;/code&gt; é o template escolhido entre as opções &lt;em&gt;blank&lt;/em&gt;, &lt;em&gt;tabs&lt;/em&gt;, &lt;em&gt;sidemenu&lt;/em&gt;, &lt;em&gt;maps&lt;/em&gt; e &lt;em&gt;salesforce&lt;/em&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Ou use a forma reduzida: &lt;span class=&quot;inline-cmd&quot;&gt;ionic start minha-app blank&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Ou use a forma reduzida: &lt;code class=&quot;inline&quot;&gt;ionic start minha-app blank&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;onde-1&quot;&gt;Onde:&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;minha-app&lt;/span&gt; é o ID aplicativo&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;inline&quot;&gt;minha-app&lt;/code&gt; é o ID aplicativo&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;blank&lt;/span&gt; é o template escolhido entre as opções &lt;em&gt;blank&lt;/em&gt;, &lt;em&gt;tabs&lt;/em&gt;, &lt;em&gt;sidemenu&lt;/em&gt;, &lt;em&gt;maps&lt;/em&gt; e &lt;em&gt;salesforce&lt;/em&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;inline&quot;&gt;blank&lt;/code&gt; é o template escolhido entre as opções &lt;em&gt;blank&lt;/em&gt;, &lt;em&gt;tabs&lt;/em&gt;, &lt;em&gt;sidemenu&lt;/em&gt;, &lt;em&gt;maps&lt;/em&gt; e &lt;em&gt;salesforce&lt;/em&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -421,14 +482,14 @@ dependendo da sua conexão.&lt;/p&gt;
 
 &lt;p&gt;Aguarde um pouquinho, o Ionic irá baixar os arquivos hospedados no GitHub para a sua máquina. Depois da aplicação inicializada e o &lt;em&gt;scaffold&lt;/em&gt; do template feito, acesse a pasta onde o app foi gerado digitando no terminnal:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;cd minha-app&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;cd minha-app&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/acessando-a-pasta.jpg&quot; alt=&quot;Acessando a pasta onde reside o aplicativo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Para visualizar o aplicativo é muito simples, lembra que o aplicativo desenvolvido com o Ionic roda embarcado em um navegador?
 Pois é, basta levantar um servidor &lt;em&gt;http&lt;/em&gt; e acessar pelo navegador. O Ionic faz isso pra gente automaticamente, basta digitar no terminal:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;ionic serve&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;ionic serve&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Com esse comando o Ionic irá levanta um servidor &lt;em&gt;http&lt;/em&gt; na porta 8100 e abrir o navegador padrão do sua máquina com o app rodando.&lt;/p&gt;
 
@@ -438,21 +499,21 @@ Pois é, basta levantar um servidor &lt;em&gt;http&lt;/em&gt; e acessar pelo nav
 
 &lt;p&gt;Caso ocorra algum erro, tente rodar em uma porta mais alta, colocando o número da porta no final do comando, assim:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;ionic serve -p 9000&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;ionic serve -p 9000&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/ezgif-1287516005-3.gif&quot; alt=&quot;Aplicativo rodando no navegador web&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Para destruir o servidor e destravar o terminal digite:&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;inline-cmd&quot;&gt;crtl + c&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;crtl + c&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;No próximo artigo vamos ver um pouco sobre a estrutura dos arquivos e arquitetura do projeto gerado pelo &lt;em&gt;scaffolding&lt;/em&gt; do Ionic
 e como personalizar o aplicativo. Assim como configurar as plataformas iOS e Android pra emular nosso aplicativo, rodar o
 aplicativo diretamente no celular e usar o &lt;em&gt;Ionic View&lt;/em&gt; para mostrar o aplicativo para os seus clientes e amigos e receber &lt;em&gt;feedbacks&lt;/em&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 22 Jun 2016 21:27:00 -0300</pubDate>
-        <link>http://felipeblini.net/iniciando-com-ionic</link>
-        <guid isPermaLink="true">http://felipeblini.net/iniciando-com-ionic</guid>
+        <link>http://blini.io/iniciando-com-ionic</link>
+        <guid isPermaLink="true">http://blini.io/iniciando-com-ionic</guid>
         
         
         <category>ionic</category>
@@ -602,8 +663,8 @@ aplicativo diretamente no celular e usar o &lt;em&gt;Ionic View&lt;/em&gt; para 
 &lt;p&gt;Conferência do time do NativeScript na TelerikNEXT: &lt;a href=&quot;https://www.youtube.com/watch?v=HWboi_9aba8&quot;&gt;https://www.youtube.com/watch?v=HWboi_9aba8&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 14 Jun 2016 19:48:00 -0300</pubDate>
-        <link>http://felipeblini.net/Desenvolvimento-de-Aplicativos-Moveis-com-Javascript-Ionic-React-Native-e-NativeScript</link>
-        <guid isPermaLink="true">http://felipeblini.net/Desenvolvimento-de-Aplicativos-Moveis-com-Javascript-Ionic-React-Native-e-NativeScript</guid>
+        <link>http://blini.io/desenvolvimento-de-aplicativos-moveis-com-javascript-ionic-react-native-e-nativescript</link>
+        <guid isPermaLink="true">http://blini.io/desenvolvimento-de-aplicativos-moveis-com-javascript-ionic-react-native-e-nativescript</guid>
         
         
         <category>ionic</category>

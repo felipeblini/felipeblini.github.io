@@ -8,7 +8,6 @@
     });
     
     function slideanim() {
-        console.log('size', $(".slideanim").length);
         
         $(".slideanim").each(function() {
             var pos = $(this).offset().top;

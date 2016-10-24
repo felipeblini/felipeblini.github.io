@@ -10,8 +10,8 @@
     <meta name="description" content="O Ionic é um framework front-end e open-source para desenvolvimento de aplicativos móveis híbridos Cross-Platform escritos em HTM, CSS e JavaScript.">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://felipeblini.net/iniciando-com-ionic">
-    <link rel="alternate" type="application/rss+xml" title="Felipe Blini - Angular Developer and Consultant" href="http://felipeblini.net /feed.xml
+    <link rel="canonical" href="http://blini.io/iniciando-com-ionic">
+    <link rel="alternate" type="application/rss+xml" title="Felipe Blini - JavaScript Developer, Teacher and Consultant" href="http://blini.io /feed.xml
     ">
 
     <!-- Google Fonts -->
@@ -199,7 +199,7 @@ Eu também recomendaria o <a href="https://www.sublimetext.com/">Sublime Text</a
 
 <p>Para verificar a instalação, abra o terminal do seu computador e digite:</p>
 
-<p><span class="inline-cmd">node -v</span> e <span class="inline-cmd">npm -v</span></p>
+<p><code class="inline">node -v</code> e <code class="inline">npm -v</code></p>
 
 <p>Se a instalação foi um sucesso isso retornará a versão instalada de cada um:</p>
 
@@ -215,7 +215,7 @@ Eu também recomendaria o <a href="https://www.sublimetext.com/">Sublime Text</a
 
 <p>Para verificar a instalação do Git, digite no terminal:</p>
 
-<p><code class="inline-cmd">git --version</code></p>
+<p><code class="inline">git --version</code></p>
 
 <p>Isso retornará a versão instalada caso o Git tenha sindo instalado com sucesso.</p>
 
@@ -227,15 +227,15 @@ Eu também recomendaria o <a href="https://www.sublimetext.com/">Sublime Text</a
 
 <p>Para isso precisamos abrir novamente o terminal e digitar o seguinte comando:</p>
 
-<p><span class="inline-cmd">npm install -g bower</span></p>
+<p><code class="inline">npm install -g bower</code></p>
 
 <p>Esse comando instala o módulo do Node chamado Bower globalmente (<em>-g</em>). No linux você deve instalar digitando:</p>
 
-<p><span class="inline-cmd">sudo npm install bower</span></p>
+<p><code class="inline">sudo npm install bower</code></p>
 
 <p>Mais uma vez, verificando a instalação:</p>
 
-<p><span class="inline-cmd">bower -v</span></p>
+<p><code class="inline">bower -v</code></p>
 
 <p><img src="img/bower-version-check.jpg" alt="Verificando a instalação do Bower no terminal" /></p>
 
@@ -246,7 +246,7 @@ o npm mais uma vez.</p>
 
 <p>Novamente, nada complicado, abra o terminal e digite:</p>
 
-<p><span class="inline-cmd">npm install -g cordova ionic</span></p>
+<p><code class="inline">npm install -g cordova ionic</code></p>
 
 <p>Isso baixará e instalará globalmente em sua máquina o Cordova e o Ionic CLI no mesmo comando. Pode demorar um pouco
 dependendo da sua conexão.</p>
@@ -255,13 +255,13 @@ dependendo da sua conexão.</p>
 
 <p>Verifique a instalação digitando no terminal</p>
 
-<p><span class="inline-cmd">cordova -v</span> e <span class="inline-cmd">ionic -v</span></p>
+<p><code class="inline">cordova -v</code> e <code class="inline">ionic -v</code></p>
 
 <p><img src="img/cordova-e-ionic-cli-version-check.jpg" alt="Verificando a instalação do Cordova e Ionic CLI" /></p>
 
 <p>Pronto, o Ionic CLI está instalado. Agora podemos digitar ionic no terminal e visualizar os comandos disponíveis para ter uma ideia do que podemos fazer via de linha de comando:</p>
 
-<p><span class="inline-cmd">ionic</span></p>
+<p><code class="inline">ionic</code></p>
 
 <p><img src="img/ionic-cli-commands.jpg" alt="Visualizando os comandos disponíveis no Ionic CLI" /></p>
 
@@ -293,35 +293,35 @@ dependendo da sua conexão.</p>
 
 <p>Para fazer o scaffolding da sua primeira app e rodá-la é muito simples, abra o terminal e digite:</p>
 
-<p><span class="inline-cmd">ionic start -a “Minha App” -i minhaapp minha-app blank</span></p>
+<p><code class="inline">ionic start -a "Minha App" -i minhaapp minha-app blank</code></p>
 
 <h4 id="onde">Onde:</h4>
 
 <ul>
   <li>
-    <p><span class="inline-cmd">-a “Minha App”</span> é o nome amigável do seu aplicativo</p>
+    <p><code class="inline">-a "Minha App"</code> é o nome amigável do seu aplicativo</p>
   </li>
   <li>
-    <p><span class="inline-cmd">-i minhaapp</span> é o ID aplicativo</p>
+    <p><code class="inline">-i minhaapp</code> é o ID aplicativo</p>
   </li>
   <li>
-    <p><span class="inline-cmd">minha-app</span> é o nome da pasta ou o local onde o aplicativo com o template escolhido será gerado</p>
+    <p><code class="inline">minha-app</code> é o nome da pasta ou o local onde o aplicativo com o template escolhido será gerado</p>
   </li>
   <li>
-    <p><span class="inline-cmd">blank</span> é o template escolhido entre as opções <em>blank</em>, <em>tabs</em>, <em>sidemenu</em>, <em>maps</em> e <em>salesforce</em></p>
+    <p><code class="inline">blank</code> é o template escolhido entre as opções <em>blank</em>, <em>tabs</em>, <em>sidemenu</em>, <em>maps</em> e <em>salesforce</em></p>
   </li>
 </ul>
 
-<p>Ou use a forma reduzida: <span class="inline-cmd">ionic start minha-app blank</span></p>
+<p>Ou use a forma reduzida: <code class="inline">ionic start minha-app blank</code></p>
 
 <h4 id="onde-1">Onde:</h4>
 
 <ul>
   <li>
-    <p><span class="inline-cmd">minha-app</span> é o ID aplicativo</p>
+    <p><code class="inline">minha-app</code> é o ID aplicativo</p>
   </li>
   <li>
-    <p><span class="inline-cmd">blank</span> é o template escolhido entre as opções <em>blank</em>, <em>tabs</em>, <em>sidemenu</em>, <em>maps</em> e <em>salesforce</em></p>
+    <p><code class="inline">blank</code> é o template escolhido entre as opções <em>blank</em>, <em>tabs</em>, <em>sidemenu</em>, <em>maps</em> e <em>salesforce</em></p>
   </li>
 </ul>
 
@@ -329,14 +329,14 @@ dependendo da sua conexão.</p>
 
 <p>Aguarde um pouquinho, o Ionic irá baixar os arquivos hospedados no GitHub para a sua máquina. Depois da aplicação inicializada e o <em>scaffold</em> do template feito, acesse a pasta onde o app foi gerado digitando no terminnal:</p>
 
-<p><span class="inline-cmd">cd minha-app</span></p>
+<p><code class="inline">cd minha-app</code></p>
 
 <p><img src="img/acessando-a-pasta.jpg" alt="Acessando a pasta onde reside o aplicativo" /></p>
 
 <p>Para visualizar o aplicativo é muito simples, lembra que o aplicativo desenvolvido com o Ionic roda embarcado em um navegador?
 Pois é, basta levantar um servidor <em>http</em> e acessar pelo navegador. O Ionic faz isso pra gente automaticamente, basta digitar no terminal:</p>
 
-<p><span class="inline-cmd">ionic serve</span></p>
+<p><code class="inline">ionic serve</code></p>
 
 <p>Com esse comando o Ionic irá levanta um servidor <em>http</em> na porta 8100 e abrir o navegador padrão do sua máquina com o app rodando.</p>
 
@@ -346,13 +346,13 @@ Pois é, basta levantar um servidor <em>http</em> e acessar pelo navegador. O Io
 
 <p>Caso ocorra algum erro, tente rodar em uma porta mais alta, colocando o número da porta no final do comando, assim:</p>
 
-<p><span class="inline-cmd">ionic serve -p 9000</span></p>
+<p><code class="inline">ionic serve -p 9000</code></p>
 
 <p><img src="img/ezgif-1287516005-3.gif" alt="Aplicativo rodando no navegador web" /></p>
 
 <p>Para destruir o servidor e destravar o terminal digite:</p>
 
-<p><span class="inline-cmd">crtl + c</span></p>
+<p><code class="inline">crtl + c</code></p>
 
 <p>No próximo artigo vamos ver um pouco sobre a estrutura dos arquivos e arquitetura do projeto gerado pelo <em>scaffolding</em> do Ionic
 e como personalizar o aplicativo. Assim como configurar as plataformas iOS e Android pra emular nosso aplicativo, rodar o
