@@ -5,7 +5,7 @@ ref: post-001
 lang: pt
 country: br
 date:   2016-06-14 19:48 -0300
-feature-img: "img/mobile_js.jpg"
+feature-img: "img/mobile_js.jpg?v=1"
 categories:
     - ionic
     - javascript
