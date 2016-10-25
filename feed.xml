@@ -6,39 +6,39 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Oct 2016 12:33:40 -0300</pubDate>
-    <lastBuildDate>Mon, 24 Oct 2016 12:33:40 -0300</lastBuildDate>
+    <pubDate>Tue, 25 Oct 2016 16:49:33 -0300</pubDate>
+    <lastBuildDate>Tue, 25 Oct 2016 16:49:33 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
         <title>O Que não é Permitido no ‘Strict Mode’ do Javascript?</title>
         <description>&lt;p&gt;A diretiva &lt;code class=&quot;inline&quot;&gt;&quot;use strict&quot;;&lt;/code&gt; do JavaScript foi incluída no &lt;strong&gt;ECMAScript 5&lt;/strong&gt; e define
 que o código JavaScript será executado em &lt;em&gt;Strict Mode&lt;/em&gt; (modo restrito), o que nos obriga a
-seguir algumas regras de codificação para escrevermos um código mais “seguro”.&lt;/p&gt;
+seguir algumas regras de sintaxe para escrevermos um código mais “seguro”.&lt;/p&gt;
 
 &lt;h2 id=&quot;porqu-strict-mode&quot;&gt;Porquê &lt;em&gt;Strict Mode&lt;/em&gt;?&lt;/h2&gt;
 
-&lt;p&gt;O JavaScript é uma linguagem muito dinâmica e flexível, o que nos permite escrever código
-sem seguir nenhuma convenção e fazer coisas muito estranhas que em qualquer outra linguagem
+&lt;p&gt;O JavaScript é uma linguagem extremamente dinâmica e flexível, o que nos permite escrever código
+sem seguir nenhuma convenção de sintaxe e fazer coisas muito estranhas que em qualquer outra linguagem
 nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.&lt;/p&gt;
 
-&lt;p&gt;O problema é que essa liberdade toda pode causar comportamentos estranhos do código podendo
-se as vezes de difícil identificação e correção.&lt;/p&gt;
+&lt;p&gt;O problema é que essa liberdade toda pode causar comportamentos não esperados no código podendo
+ser as vezes de difícil identificação e correção.&lt;/p&gt;
 
-&lt;p&gt;Com o &lt;em&gt;Strict Mode&lt;/em&gt; ativado o JavaScript fica menos flexível e o interpretador irá sempre
-retornar um erro e travar a execução do código sempre que encontrar alguma dessas
-“coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas”
-em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o
-esperado.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;Strict Mode&lt;/em&gt; ativado o JavaScript fica menos flexível e nos obriga a seguir algumas
+regras. O interpretador do JavaScript irá sempre retornar um erro e travar a execução
+do código sempre que encontrar alguma dessas más sintaxes no código. O que ele
+basicamente faz é converter as más sintaxes, antes permitidas, em erros reais. Isso nos dá
+mais segurança de que nosso código vai se comportar como o esperado.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-e-onde-declarar-o-stric-mode&quot;&gt;Como e Onde Declarar o Stric Mode?&lt;/h2&gt;
 
 &lt;p&gt;O &lt;em&gt;Strict Mode&lt;/em&gt; é ativado adicionando o literal &lt;code class=&quot;inline&quot;&gt;“strict mode”;&lt;/code&gt;
 no começo de scripts ou de funções e se aplica apenas ao contexto onde foi inserido.
 Caso seja inserido no começo do script, será aplicado a todo o código.
-Caso for incluído no começo de uma função será aplicado apenas no contexto da função.&lt;/p&gt;
+Caso for incluído no começo de uma função será aplicado apenas dentro da função.&lt;/p&gt;
 
-&lt;h2 id=&quot;as-coisas-estranhas-que-o-strict-mode-no-permite&quot;&gt;As “Coisas Estranhas” que o &lt;em&gt;Strict Mode&lt;/em&gt; não permite&lt;/h2&gt;
+&lt;h2 id=&quot;as-ms-sintaxes-que-o-strict-mode-no-permite&quot;&gt;As Más Sintaxes que o &lt;em&gt;Strict Mode&lt;/em&gt; não permite&lt;/h2&gt;
 
 &lt;h4 id=&quot;utilizar-varivel-sem-declarar&quot;&gt;Utilizar variável sem declarar&lt;/h4&gt;
 

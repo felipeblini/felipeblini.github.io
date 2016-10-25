@@ -139,31 +139,31 @@ minuto(s) de leitura
   </header>
   <section class="post-content container-fluid"><p>A diretiva <code class="inline">"use strict";</code> do JavaScript foi incluída no <strong>ECMAScript 5</strong> e define
 que o código JavaScript será executado em <em>Strict Mode</em> (modo restrito), o que nos obriga a
-seguir algumas regras de codificação para escrevermos um código mais “seguro”.</p>
+seguir algumas regras de sintaxe para escrevermos um código mais “seguro”.</p>
 
 <h2 id="porqu-strict-mode">Porquê <em>Strict Mode</em>?</h2>
 
-<p>O JavaScript é uma linguagem muito dinâmica e flexível, o que nos permite escrever código
-sem seguir nenhuma convenção e fazer coisas muito estranhas que em qualquer outra linguagem
+<p>O JavaScript é uma linguagem extremamente dinâmica e flexível, o que nos permite escrever código
+sem seguir nenhuma convenção de sintaxe e fazer coisas muito estranhas que em qualquer outra linguagem
 nunca seria permitido. Como por exemplo usar uma variável sem declará-la antes.</p>
 
-<p>O problema é que essa liberdade toda pode causar comportamentos estranhos do código podendo
-se as vezes de difícil identificação e correção.</p>
+<p>O problema é que essa liberdade toda pode causar comportamentos não esperados no código podendo
+ser as vezes de difícil identificação e correção.</p>
 
-<p>Com o <em>Strict Mode</em> ativado o JavaScript fica menos flexível e o interpretador irá sempre
-retornar um erro e travar a execução do código sempre que encontrar alguma dessas
-“coisas estranhas” no código. O que ele basicamente faz então é converter “coisas estranhas”
-em erros reais. Isso nos dá mais segurança de que nosso código vai se comportar como o
-esperado.</p>
+<p>Com o <em>Strict Mode</em> ativado o JavaScript fica menos flexível e nos obriga a seguir algumas
+regras. O interpretador do JavaScript irá sempre retornar um erro e travar a execução
+do código sempre que encontrar alguma dessas más sintaxes no código. O que ele
+basicamente faz é converter as más sintaxes, antes permitidas, em erros reais. Isso nos dá
+mais segurança de que nosso código vai se comportar como o esperado.</p>
 
 <h2 id="como-e-onde-declarar-o-stric-mode">Como e Onde Declarar o Stric Mode?</h2>
 
 <p>O <em>Strict Mode</em> é ativado adicionando o literal <code class="inline">“strict mode”;</code>
 no começo de scripts ou de funções e se aplica apenas ao contexto onde foi inserido.
 Caso seja inserido no começo do script, será aplicado a todo o código.
-Caso for incluído no começo de uma função será aplicado apenas no contexto da função.</p>
+Caso for incluído no começo de uma função será aplicado apenas dentro da função.</p>
 
-<h2 id="as-coisas-estranhas-que-o-strict-mode-no-permite">As “Coisas Estranhas” que o <em>Strict Mode</em> não permite</h2>
+<h2 id="as-ms-sintaxes-que-o-strict-mode-no-permite">As Más Sintaxes que o <em>Strict Mode</em> não permite</h2>
 
 <h4 id="utilizar-varivel-sem-declarar">Utilizar variável sem declarar</h4>
 
