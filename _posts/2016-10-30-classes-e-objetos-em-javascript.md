@@ -5,6 +5,7 @@ date: 2016-10-30 20:29:18
 ref: post-005
 lang: pt
 country: br
+feature-img: "img/js.jpg?v=1"
 categories: 
 - javascript
 - poo
