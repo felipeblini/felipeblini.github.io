@@ -10,6 +10,18 @@
     padding: $padding-small * 1.5 $padding-large / 1.6;
   }
 }
+%padding-regular-p {
+  padding: 0 $padding-large;
+  @media (max-width: 1000px) {
+    padding: 0 $padding-large / 1.6;
+  }
+}
+%padding-small-p {
+  padding: 0 $padding-small;
+  @media (max-width: 1000px) {
+    padding: 0 $padding-small / 1.6;
+  }
+}
 // @mixin link($color) {
 //   color: $color;
 //   border-bottom: 1px dashed $color;

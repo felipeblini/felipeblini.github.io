@@ -34,7 +34,7 @@
 // Post listing
 .posts {
   .post-teaser {
-    @extend %padding-regular;
+    @extend %padding-small;
     width: 100%;
     margin-bottom: 0;
     display: inline-block;

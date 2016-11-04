@@ -1,4 +1,14 @@
-article,
+article p,
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6,
+article ul {
+ @extend %padding-small-p;
+}
+
 .comments {
   @extend %padding-regular;
   border-bottom: 1px solid $border-color;
@@ -36,21 +46,21 @@ article {
     border: solid 1px $border-color;
     margin: 0 auto;
     width: 60px;
-    margin-top: -30px;
+    margin-top: 0;
     
     @media (min-width: 375px) {
       width: 70px;
-      margin-top: -35px;
+      //margin-top: -35px;
     }
 
     @media (min-width: 600px) {
       width: 80px;
-      margin-top: -40px;
+      //margin-top: -40px;
     }
 
     @media (min-width: 920px) {
       width: 90px;
-      margin-top: -45px;
+      //margin-top: -45px;
     }
   }
 
@@ -88,7 +98,8 @@ article {
   }
 
   .post-content {
-    @extend %padding-regular;
+    @extend %padding-small;
+    display: block;
   }
 }
 
@@ -128,7 +139,6 @@ article {
   }
 }
 
-//code, pre { width: 100%; position: relative; float: left}
 code {
     color: #d14;
     padding: .10em;
@@ -138,6 +148,7 @@ code {
 }
 
 code.inline {
+    background: #fff9f9;
     border: solid 1px #DDD;
     border-radius: 3px;
 }
