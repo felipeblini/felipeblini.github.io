@@ -6,9 +6,958 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Oct 2016 16:49:33 -0300</pubDate>
-    <lastBuildDate>Tue, 25 Oct 2016 16:49:33 -0300</lastBuildDate>
+    <pubDate>Fri, 04 Nov 2016 03:01:47 -0300</pubDate>
+    <lastBuildDate>Fri, 04 Nov 2016 03:01:47 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Classes e Objetos em Javascript</title>
+        <description>&lt;p&gt;O ECMAScript 2015 trouxe a implementação da palvara reservada &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt;,
+porém isso não trouxe a capacidade de orientação a objetos ao JavaScript. Essa capacidade já existia desde
+as primórdios da linguagem, tanto é que &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; sempre foi
+uma palavra-chave reservada, mesmo não tendo nenhuma utilidade no passado. Isso também não alterou o sistema
+de orientação a objetos do JavaScript. A palavra-chave &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; é apenas um açucar
+sintático pra fazermos exatamente o que já fazíamos antes: &lt;em&gt;funções construtoras de objetos&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Por isso estudar e entender o jeito antigo de criar classes, objetos e heranças é essencial para um bom
+programador JavaScript pois debaixo dos panos tudo ainda acontece do mesmo jeito.&lt;/p&gt;
+
+&lt;p&gt;Você talvez tenha ouvido falar, no passado, que o JavaScript não é uma linguagem orientada a objetos.
+Mas sim, o JavaScript sempre foi uma linguagem orientada a objetos. A verdade é que ele
+tem uma orientação a objetos completa que é muito mais potente que várias linguagens
+clássicas por aí.&lt;/p&gt;
+
+&lt;p&gt;Sempre houve tipos primitivos e objetos no JavaScript, sendo 5 os tipos primitivos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;undefined&lt;/li&gt;
+  &lt;li&gt;null&lt;/li&gt;
+  &lt;li&gt;boolean&lt;/li&gt;
+  &lt;li&gt;number&lt;/li&gt;
+  &lt;li&gt;string&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sendo que &lt;em&gt;boolean&lt;/em&gt;, &lt;em&gt;number&lt;/em&gt; e &lt;em&gt;string&lt;/em&gt; possuem suas versões em classes, diferenciados pela primeira
+letra em maiúscula:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Boolean&lt;/li&gt;
+  &lt;li&gt;Number&lt;/li&gt;
+  &lt;li&gt;String&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Um objeto base o qual todos os outros objetos herdam&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object&quot;&gt;Object&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;E as 4 capacidades básicas de uma linguagem orientada a objetos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Encapsulamento&lt;/li&gt;
+  &lt;li&gt;Agregação&lt;/li&gt;
+  &lt;li&gt;Herança, e&lt;/li&gt;
+  &lt;li&gt;Polimorfismo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Criar objetos em JavaScript é trivial. Isso pode ser feito de diversas formas.
+A maneira mais simples é com objetos Literais:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var obj = {};
+
+// verificando o tipo da variável obj
+console.log(typeof obj); // &quot;object&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Podemos também criar usando a classe &lt;strong&gt;&lt;em&gt;Object&lt;/em&gt;&lt;/strong&gt; mencionada acima:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var obj = new Object();
+
+// verificando o tipo da variável obj
+console.log(typeof obj); // &quot;object&quot;    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para adicionar propriedades e métodos a um objeto literal é muito simples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// passando as propriedades e métodos na criação do objeto literal
+var obj = {
+    // propriedades
+    nome: &#39;banana&#39;,
+    cor: &#39;amarelo&#39;,
+
+    // métodos
+    toString: function() {
+        console.log(this.nome + &quot;, &quot; + this.cor);
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note que separamos as propriedades e os métodos por vírgula. O JavaScript é uma linguagem muito
+dinâmica, então podemos atachar métodos e propriedades dinamicamente
+em tempo de execução:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var fruta = {};
+
+// propriedades
+fruta.nome = &#39;pêra&#39;;
+fruta.cor = &#39;verde&#39;;
+
+// métodos
+fruta.toString = function() {
+    console.log(this.nome + &quot;, &quot; + this.cor);
+}
+
+fruta.toString(); // &#39;pêra, verde&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note também que usamos a palavra-chave reservada &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt; dentro dos métodos.
+O &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt; nesse caso represent a o dono do método, nesse caso o 
+objeto &lt;code class=&quot;inline&quot;&gt;fruta&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;O &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt; no JavaScript nem sempre é o que esperamos que seja. O valor
+dele depende muito do contexto e estar confortável sobre o valor do &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt;
+no JavaScript é talvez o mais complicado da linguagem.&lt;/p&gt;
+
+&lt;p&gt;Ok, criamos nossos primeiros objetos. Agora vamos criar novas frutas.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var banana = new fruta(); // TypeError: fruta is not a constructor&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ops, deu erro. Os códigos acima criam apenas objetos literais pra uso imediato, para serem passados
+por parâmetro, pra encapsularem dados e/ou funções, entre outos usos, muito útil em programação
+funcional, mas não muito usual em programação orientada a objetos.&lt;/p&gt;
+
+&lt;p&gt;Para criarmos novas instâncias do nosso objeto &lt;code class=&quot;inline&quot;&gt;fruta&lt;/code&gt;,
+com dados diferentes para cada uma, precisamos fazer uso de classes e no JavaScript
+classes são &lt;em&gt;Funções Construtoras&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;funes-construtoras&quot;&gt;Funções Construtoras&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Toda classe em JavaScript é uma função construtora&lt;/strong&gt;. Como qualquer classe em orientação a objetos, elas possuem
+estado (locais para armazenamento de dados) e comportamento (funcionalidades e métodos públicos e privados).&lt;/p&gt;
+
+&lt;p&gt;O estado do objeto são variáveis e os métodos, além das classes, também são funções.
+Podemos verificar isso investigando o objeto &lt;em&gt;String&lt;/em&gt; do JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// o objeto String é uma função
+console.log(typeof String); // &quot;function&quot;
+
+// criando uma instância do objeto String
+var st = new String(&quot;abc&quot;);
+
+// o método split do objeto String também é uma função
+console.log(typeof st.split); // &quot;function&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Com isso comprovamos que classes e métodos em JavaScript são todos funções. Isso é possível
+pois funções no JavaScript são objetos de primeira classe, isso significa que podemos
+tratá-las como qualquer outro objeto, passando-as como parâmetro para outras funções,
+assinalando-as a variáveis e por ai em diante.&lt;/p&gt;
+
+&lt;p&gt;A diferença de funções construtoras é que elas servem para construir e retornar novos objetos.&lt;/p&gt;
+
+&lt;p&gt;É muito simples criar uma função construtora. Basta criar uma função que não retorna nada. Por
+convenção usamos a primeira letra em maiúscula:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta() {};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;E usamos da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var banana = new Fruta();
+var morango = new Fruta();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Muito simples!&lt;/p&gt;
+
+&lt;p&gt;Agora vamos deixá-la mais usual, parecendo-se mais com uma classe.&lt;/p&gt;
+
+&lt;p&gt;Para que possamos instanciar novos objetos com estados e comportamente, precisamos fazer o 
+uso do &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt;, como mostrado a seguir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+    this.toString = function() {
+        console.log(this.nome + &quot;, &quot; + this.cor);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora podemos criar novas instâncias de Fruta com dados:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var banana = new Fruta(&#39;banana&#39;, &#39;amarelo&#39;);
+var pera = new Fruta(&#39;pêra&#39;, &#39;verde&#39;);
+
+banana.toString(); // &quot;banana, amarelo&quot;
+pera.toString(); // &quot;pêra, verde&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Acabamos de criar uma classe em JavaScript e duas instâncias dessa classe.&lt;/p&gt;
+
+&lt;p&gt;A classe que criamos acima é uma função construtora que define propriedades e métodos com o &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt;.
+Com isso conseguimos novas instâncias dessa classe executando a função precedida da palavra-chave
+&lt;code class=&quot;inline&quot;&gt;new&lt;/code&gt; que retornará um novo objeto.&lt;/p&gt;
+
+&lt;p&gt;Todo objeto em JavaScript criado com a palavra-chave &lt;code class=&quot;inline&quot;&gt;new&lt;/code&gt;
+tem uma propriedade extra chamada &lt;code class=&quot;inline&quot;&gt;constructor&lt;/code&gt; que aponta de volta
+para a função construtora usada para construí-lo. Podemos checar isso da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;console.log(banana.constructor);
+/*function Fruta(nome, cor) {
+  this.nome = nome;
+  this.cor = cor;
+  this.toString = function () {
+      window.runnerWindow.proxyConsole.log(this.nome + &quot;, &quot; + this.cor);
+  };
+}*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Podemos até criar novas instâncias da classe com a propriedade &lt;code class=&quot;inline&quot;&gt;constructor&lt;/code&gt;
+através de qualquer instância da classe:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var pera = new banana.constructor(&quot;pera&quot;, &quot;verde&quot;);
+
+pera.toString(); // &quot;pera, verde&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nos exemplos acima estamos usando, além de classes e objetos, um conceito muito básico
+do paradigma de orientação a objetos: &lt;strong&gt;polimorfismo&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Toda função em JavaScript herda
+de &lt;em&gt;Object&lt;/em&gt;. O &lt;em&gt;Object&lt;/em&gt; é uma classe/função construtora e possui um método chamado
+&lt;code class=&quot;inline&quot;&gt;toString()&lt;/code&gt; que está sendo sobrescrito na nossa classe
+construtora Fruta pelo método de mesmo nome &lt;code class=&quot;inline&quot;&gt;toString()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Podemos checar essa herança da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var banana = new Fruta(&#39;banana&#39;, &#39;amarelo&#39;);
+var pera = new Fruta(&#39;pêra&#39;, &#39;verde&#39;);
+
+// verificando se nossos objetos fruta são instâncias de Fruta
+console.log(banana instanceof Fruta); // true
+console.log(pera instanceof Fruta); // true
+
+// verificando se a função construtora Fruta é uma instâcia/herda de Object
+console.log(Fruta instanceof Object); // true
+
+// do mesmo jeito que String, Boolean e Number também são instâncias/herdam de Object
+console.log(String instanceof Object); // true
+console.log(Boolean instanceof Object); // true
+console.log(Number instanceof Object); // true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;we-have-a-problem-captain&quot;&gt;We Have a Problem Captain&lt;/h2&gt;
+
+&lt;p&gt;Criar múltiplas instâncias de objetos usando a estrutura do código anterior
+consome bastante memória pois, nessa abordagem, cada instância de um objeto é
+completamente distinta das outras, ou seja, elas são instâncias do mesmo objeto porém
+não compartilham nada entre si. São completamente independentes.&lt;/p&gt;
+
+&lt;p&gt;Isso significa que as funções usadas nos métodos de cada instância da classe não
+compartilham o mesmo espaço de memória.&lt;/p&gt;
+
+&lt;p&gt;Podemos verificar isso no código abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+    this.toString = function() {
+        console.log(this.nome + &quot;, &quot; + this.cor);
+    }
+}
+
+var banana = new Fruta(&quot;banana&quot;, &quot;amarelo&quot;);
+var banana2 = new Fruta(&quot;banana&quot;, &quot;amarelo&quot;);
+
+// Para cada instância é criada uma nova função diferente para toString()
+console.log(banana.toString === banana2.toString); // false
+
+// O que é um desperdiço de memória já que elas fazem exatamente a mesma coisa
+banana.toString(); // &quot;banana, amarelo&quot;
+banana2.toString(); // &quot;banana, amarelo&quot;
+
+// E se quisermos extender um método em tempo de execução,
+// teremos que alterar instância por instância 
+banana2.toString = function() {
+    console.log(&quot;&quot;);
+}
+
+banana.toString(); // &quot;banana, amarelo&quot;
+banana2.toString(); // &quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Além disso, já que essas instâncias não compartilham nada entre si, não conseguimos extender
+a classe dinamicamente, teremos que alterar cada uma das instâncias da classe unicamente.&lt;/p&gt;
+
+&lt;p&gt;Aterar funcionalidades de uma instância única, sem passar pela classe e sem compartilhar
+com as outras instâncias, é uma característica muito comum em &lt;a href=&quot;https://en.wikipedia.org/wiki/Dynamic_programming_language&quot;&gt;linguagens dinâmicas&lt;/a&gt;
+e é conhecida como &lt;a href=&quot;https://en.wikipedia.org/wiki/Monkey_patch&quot;&gt;Monkey patch&lt;/a&gt;, encontrada também em
+&lt;a href=&quot;https://www.ruby-lang.org/en/&quot;&gt;Ruby&lt;/a&gt;, &lt;a href=&quot;https://www.python.org/&quot;&gt;Phyton&lt;/a&gt;
+e diversas outras linguagens dinâmicas.&lt;/p&gt;
+
+&lt;p&gt;Porém esse comportamento pode nos trazer grandes problemas lidando com programação orientada
+a objetos, por isso é uma má prática, pois em algum momento ficaremos confusos em relação ao que
+cada instância do objeto pode ou não fazer e qual é realmente a responsabilidade
+da classe que os criou, causando muitas vezes comportamentos estranhos. Além de tudo,
+estaremos ferindo os dois primeiros princípios básicos de orientação a objetos definidos
+em &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)&quot;&gt;S.O.L.I.D&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Em alguns casos, como em programação funcional, esse comportamento certamente é de
+bom uso. Porém, em orientação a objetos sempre é uma melhor prática extender a classe.&lt;/p&gt;
+
+&lt;h2 id=&quot;porqu-o-padro-prototypes--o-ideal&quot;&gt;Porquê o Padrão &lt;em&gt;prototypes&lt;/em&gt; é o Ideal?&lt;/h2&gt;
+
+&lt;p&gt;Toda função em JavaScript, e portanto toda função construtora, tem um protótipo. O protótipo
+de uma função é uma propriedade dela que descreve seus métodos e propriedades. Podemos extender esses métodos alterando o
+protótipo da função e/ou herdando o protótipo de outra função.&lt;/p&gt;
+
+&lt;p&gt;Esse protótipo está disponível em uma propriedade chamada &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;.
+Toda função em JavaScript tem essa propriedade.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; é um objeto
+que contém todos os métodos e propriedades associados a uma instância de uma função/classe criada com a palavra-chave &lt;code class=&quot;inline&quot;&gt;new&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;O protótipo de toda função é &lt;em&gt;Object&lt;/em&gt; e pode ser extendido. Vamos analisar nossa função/classe Fruta:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+}
+
+console.log(&#39;Protótipo de Fruta:&#39;, Fruta.prototype); // &quot;Protótipo de Fruta:&quot; [object Object] { ... }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Como esperado o protótipo da nossa função Fruta é o obeto &lt;em&gt;Object&lt;/em&gt; que, como já mencionado, é
+a função construtora de todas as funções no JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Sabendo que o JavaScript é uma linguagem dinâmica e com esse nosso novo conhecimento de que
+funções têm a propriedade &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; e que essa é um objeto,
+podemos adicionar nossas próprias propriedades e métodos nesse objeto.&lt;/p&gt;
+
+&lt;p&gt;Vamos criar a mesma classe Fruta usando &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; e entender
+como que com prototype instânciamos objetos de maneira mais eficiente.&lt;/p&gt;
+
+&lt;h4 id=&quot;mtodos-no-prototype&quot;&gt;Métodos no Prototype&lt;/h4&gt;
+
+&lt;p&gt;Nesse exemplo mostro como adicionar métodos no &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; ao
+invés de colocar direto no &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt; e qual é a diferença.&lt;/p&gt;
+
+&lt;p&gt;Além disso vamos ver que métodos e variáveis privadas são definidos dentro da classe, fora
+do &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+
+    // variável acessível apenas dentro da classe
+    var _variavelPrivada;
+  
+
+    this.metodoPrivilegiado = function () { 
+        // não é acessível externamente e acessa variáveis privadas
+        _variavelPrivada = 0;
+        console.log(_variavelPrivada);
+    };
+}
+
+// adicionando o método toString à nossa classe
+Fruta.prototype.toString = function() {
+    console.log(this.nome + &quot;, &quot; + this.cor);
+}
+
+var banana = new Fruta(&quot;banana&quot;, &quot;amarelo&quot;);
+var pera = new Fruta(&quot;pêra&quot;, &quot;verde&quot;);
+var laranja = new Fruta(&quot;laranja&quot;, &quot;laranja&quot;);
+
+// A definição da função toString() é compartilhada entre as instâncias
+console.log(banana.toString === pera.toString); // true
+
+// O que é um disperdiço de memória já que elas fazem a mesma coisa
+banana.toString(); // &quot;banana, amarelo&quot;
+pera.toString(); // &quot;pêra, verde&quot;
+laranja.toString(); // &quot;laranja, laranja&quot;
+
+// mudanças no prototype afetam todas as instâncias existentes
+// e futuras da classe
+Fruta.prototype.toString = function() {
+    console.log(this.nome.split(&quot;&quot;).reverse().join(&quot;&quot;));
+}
+
+banana.toString(); // &quot;ananab&quot;
+pera.toString(); // &quot;arêp&quot;
+laranja.toString(); // &quot;ajnaral&quot;
+
+// podemos redefinir dinamicamente um método de uma única instância
+// o JavaScript vai criar uma função separada somente pra ele
+pera.toString = function() {
+    console.log(&quot;&quot;);
+}
+
+// pera agora tem o metodo toString independente
+console.log(banana.toString === pera.toString); // false
+
+banana.toString(); // &quot;ananab&quot;
+pera.toString(); // &quot;&quot;
+laranja.toString(); // &quot;ajnaral&quot;
+
+
+// toString de banana e laranja continuam sendo a mesma função
+console.log(banana.toString === laranja.toString); // true
+
+// acessando variável privada
+banana.metodoPrivilegiado(); // 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Como a propriedade &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; é um objeto, podemos também definir
+nossas propriedades e métodos no estilo de objetos literais:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta() {}
+
+// adicionando o método toString à nossa classe
+Fruta.prototype = {
+    nome: &quot;&quot;,
+    cor: &quot;&quot;,
+
+    setNome: function(nome) {
+        this.nome = nome;
+    },
+
+    setCor: function(cor) {
+        this.cor = cor;
+    },
+
+    toString: function() {
+        console.log(this.nome + &quot;, &quot; + this.cor);
+    }
+}
+
+var banana = new Fruta();
+banana.setNome(&quot;banana&quot;);
+banana.setCor(&quot;amarelo&quot;);
+
+var pera = new Fruta();
+pera.setNome(&quot;pêra&quot;);
+pera.setCor(&quot;verde&quot;);
+
+var laranja = new Fruta();
+laranja.setNome(&quot;laranja&quot;);
+laranja.setCor(&quot;laranja&quot;);
+
+banana.toString(); // &quot;banana, amarelo&quot;
+pera.toString(); // &quot;pêra, verde&quot;
+laranja.toString(); // &quot;laranja, laranja&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note que podemos assinalar propriedades e funções no &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;.
+Porém variáveis de instância como &lt;code class=&quot;inline&quot;&gt;nome&lt;/code&gt; e &lt;code class=&quot;inline&quot;&gt;cor&lt;/code&gt;
+são dados específicos de cada instâncias e o JavaScript vai criar referências únicas
+para cada propriedade de qualquer forma, não tendo assim diferença no impacto de uso da memória.&lt;/p&gt;
+
+&lt;p&gt;Sabendo disse é considerado por convenção uma boa prática definir métodos no &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;
+e propriedades no &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt;, dentro da função.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta(nome, cor) {
+    // propriedades dentro da função, usando o this
+    this.nome = nome;
+    this.cor = cor;
+}
+
+// e métodos no prototype
+Fruta.prototype.toString = function() {
+    console.log(this.nome + &quot;, &quot; + this.cor);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;encapsulamento-mtodos-estticos-e-propriedades-estticas&quot;&gt;Encapsulamento, métodos estáticos e propriedades estáticas&lt;/h2&gt;
+
+&lt;p&gt;No código abaixo temos uma abordagem de como podemos encapsular uma variável privada, criar
+métodos privados e estáticos assim como valores estáticos como é o caso de um contador de 
+instâncias da classe.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Fruta(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+
+    // incrementa quantidade de objetos instanciados
+    // executado toda vez que uma instância é criada
+    Fruta.incrementaQntInstancia();
+
+    // propriedade privada, é acessada somente dentro da classe
+    var _variavelPrivada = 0;
+
+    // método privado, é acessado somente dentro da classe
+    function metodoPrivado() {
+        _variavelPrivada++;
+    }
+
+    // métodos privilegiados, é público e tem acesso a variáveis privadas,
+    // é único pra cada instância
+    this.incrementaVariavelPrivada = function() {
+        metodoPrivado();
+    }
+
+    // encapsulando a variável privada
+    this.getVariavelPrivada = function() {
+        return _variavelPrivada;
+    }
+
+    this.setVariavelPrivada = function(valor) {
+        _variavelPrivada = valor;
+    }
+}
+
+// adicionando o método toString à nossa classe via prototype
+// ficando assim compartilhado entre as instância e extensível
+Fruta.prototype.toString = function() {
+    console.log(this.nome + &quot;, &quot; + this.cor);
+}
+
+// propriedade estática, instâncias não tem acesso 
+Fruta.qntInstancias = 0;
+
+// método estático, instâncias não tem acesso 
+Fruta.incrementaQntInstancia = function() {
+    Fruta.qntInstancias++;
+};
+
+var banana = new Fruta(&quot;banana&quot;, &quot;amarelo&quot;);
+var pera = new Fruta(&quot;pêra&quot;, &quot;verde&quot;);
+var laranja = new Fruta(&quot;laranja&quot;, &quot;laranja&quot;);
+var morango = new Fruta(&quot;morango&quot;, &quot;vermelho&quot;);
+
+// imprime propriedade estática da classe Fruta
+console.log(&quot;Quantidade de instâncias de Fruta: &quot; + Fruta.qntInstancias); // 4
+
+banana.setVariavelPrivada(1);
+pera.setVariavelPrivada(2);
+laranja.setVariavelPrivada(3);
+morango.setVariavelPrivada(4);
+
+banana.incrementaVariavelPrivada();
+
+console.log(&quot;Variável privada de banana: &quot; + banana.getVariavelPrivada()); // 2
+console.log(&quot;Variável privada de pera: &quot; + pera.getVariavelPrivada()); // 2
+console.log(&quot;Variável privada de laranja: &quot; + laranja.getVariavelPrivada()); // 3
+console.log(&quot;Variável privada de morango: &quot; + morango.getVariavelPrivada()); // 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;funesobjetosarrays&quot;&gt;Funções/Objetos/Arrays&lt;/h2&gt;
+
+&lt;p&gt;Uma coisa legal de entender em JavaScript é que funções são objetos de primeira classe e
+objetos, em seu nível mais baixo, são arrays associativos de chave e valor. Então funções
+também são arrays.&lt;/p&gt;
+
+&lt;p&gt;Cada propriedade e método de um objeto é definido como um item de array.&lt;/p&gt;
+
+&lt;p&gt;Podemos comprovar isso acessando propriedades e métodos em &lt;em&gt;array style&lt;/em&gt; e percorrendo
+os itens desse array:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var banana = new Fruta(&quot;banana&quot;, &quot;amarelo&quot;);
+
+// acessando propriedades
+console.log(banana.nome); // &quot;banana&quot;
+// ou
+console.log(banana[&quot;nome&quot;]); // &quot;banana&quot;
+
+// executando o método toString()
+banana.toString(); // &quot;banana, amarelo&quot;
+// ou
+banana[&quot;toString&quot;](); // &quot;banana, amarelo&quot;
+
+// percorrendo os itens do array
+for(item in banana) {
+    console.log(item); // &quot;nome&quot;, &quot;cor&quot;, &quot;toString&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Podemos também definir métodos estáticos para nossa função/classe e acessá-los depois
+estaticamente também em &lt;em&gt;array style&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var Fruta = function(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+}
+
+// definindo uma propriedade estática
+Fruta[&#39;qntInstancias&#39;] = 0;
+
+// definindo um método estático que incrementa a propriedade estática
+Fruta[&#39;incrementaQntInstancia&#39;] = function() {
+    Fruta[&#39;qntInstancias&#39;]++;
+};
+
+// executanto o método estático
+Fruta[&#39;incrementaQntInstancia&#39;]();
+
+// imprimindo o novo valor da propriedade estática
+console.log(Fruta[&#39;qntInstancias&#39;]);  // 1
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;prototypal-inheritance&quot;&gt;Prototypal Inheritance&lt;/h2&gt;
+
+&lt;p&gt;Podemos fazer uma herança prototípica e extender a classe Fruta adicionando novas funcionalidades
+a ela.&lt;/p&gt;
+
+&lt;p&gt;Isso é conhecido como &lt;a href=&quot;https://en.wikipedia.org/wiki/Prototype-based_programming&quot;&gt;Prototypal Inheritance&lt;/a&gt;.
+O JavaScript não tem um sistema de herança devido a sua natureza prototípica e funcional.
+Porém podemos combinar funções através de seus protótipo.&lt;/p&gt;
+
+&lt;p&gt;Podemos tabém sobrescrever métodos da superclasse em nossa subclasse chamando nossa
+classe/função através do método &lt;code class=&quot;inline&quot;&gt;.call()&lt;/code&gt; existente em toda função
+Javascript.&lt;/p&gt;
+
+&lt;p&gt;Vamos supor que queremos que Fruta herde as funcionalidades de uma classe chamada Natureza com
+os métodos nascer, crescer e morrer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// criando a superclasse Natureza
+function Natureza(nome, cor) {
+    this.nome = nome;
+    this.cor = cor;
+};
+
+// Adicionando comportamentos em seu objeto prototype
+Natureza.prototype.nascer = function () {
+    console.log(this.nome + &#39; &#39; + this.cor + &#39; nascendo...&#39;);
+}
+
+Natureza.prototype.crescer = function () {
+    console.log(this.nome + &#39; &#39; + this.cor + &#39; crescendo...&#39;);
+}
+
+Natureza.prototype.morrer = function () {
+    console.log(this.nome + &#39; &#39; + this.cor + &#39; morrendo...&#39;);
+}
+
+// checando o protótipo de Natureza
+console.log(&#39;Protótipo de Natureza&#39;, Natureza.prototype);
+
+/* &quot;Protótipo de Natureza&quot;
+[object Object] { -&amp;gt; Percebe-se que Natureza herda todos métodos de Object adicionando
+seus próprios métodos abaixo:
+crescer: function () {
+    window.runnerWindow.proxyConsole.log(this.nome + &#39; &#39; + this.cor + &#39; crescendo...&#39;);
+},
+morrer: function () {
+    window.runnerWindow.proxyConsole.log(this.nome + &#39; &#39; + this.cor + &#39; morrendo...&#39;);
+},
+nascer: function () {
+    window.runnerWindow.proxyConsole.log(this.nome + &#39; &#39; + this.cor + &#39; nascendo...&#39;);
+}
+}*/
+
+// criando a subclasse Fruta
+function Fruta(nome, cor, temSemente) {
+    // chamando o construtor da superclasse e passando
+    // o objeto atual como contexto
+    Natureza.call(this, nome, cor);
+
+    this.temSemente = temSemente;
+};
+
+// checando o protótipo de Fruta
+console.log(&#39;Protótipo de Fruta&#39;, Fruta.prototype);
+
+// como esperado o protótipo de Fruta é Object
+// &quot;Protótipo de Fruta&quot; [object Object] {
+
+// extendendo Fruta (herança prototípica)
+Fruta.prototype = Natureza.prototype;
+
+// adicionando um método específico para frutas
+Fruta.prototype.temSemente = function() {
+    console.log(this.temSemente);
+}
+
+// checando novamente o protótipo de Fruta
+console.log(&#39;Novo Protótipo de Fruta&#39;, Fruta.prototype);
+
+/* Fruta agora tem todos os métodos de Object, todos os métodos de Natureza
+e o seu método especializado temSemente()
+&quot;Novo Protótipo de Fruta&quot;
+[object Object] {
+crescer: function () {
+    window.runnerWindow.proxyConsole.log(this.nome + &#39; &#39; + this.cor + &#39; crescendo...&#39;);
+},
+morrer: function () {
+    window.runnerWindow.proxyConsole.log(this.nome + &#39; &#39; + this.cor + &#39; morrendo...&#39;);
+},
+nascer: function () {
+    window.runnerWindow.proxyConsole.log(this.nome + &#39; &#39; + this.cor + &#39; nascendo...&#39;);
+},
+temSemente: function () {
+    window.runnerWindow.proxyConsole.log(this.temSemente);
+}
+} */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora podemos utilizar nossa classe Fruta da seguinte maneira:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var uva = new Fruta(&quot;uva&quot;, &quot;roxa&quot;, true);
+var morango = new Fruta(&quot;morango&quot;, &quot;vermelho&quot;, false);
+
+uva.nascer(); // &quot;uva roxa nascendo...&quot;
+morango.nascer(); // &quot;morango vermelho nascendo...&quot;
+
+uva.crescer(); // &quot;uva roxa crescendo...&quot;
+morango.crescer(); // &quot;morango vermelho crescendo...&quot;
+
+uva.morrer(); // &quot;uva roxa morrendo...&quot;
+morango.morrer(); // &quot;morango vermelho morrendo...&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Herança prototípica é mais potente que a herança tradicional encontrada em muitas linguagens
+tradicionais, pois com protótipos é possível herdar várias classes e criar uma nova classe.
+Com isso podemos herdar comportamentos de duas ou mais
+classes na nossa classe Fruta. Por exemplo, Fruta tem comportamentos da classe Natureza e pode
+ter comportamento de uma nova classe chamada FrutasDoPoloNorte com um método chamado seProtegerDoFrio.&lt;/p&gt;
+
+&lt;h1 id=&quot;objectcreate&quot;&gt;Object.create()&lt;/h1&gt;
+
+&lt;p&gt;O ECMAScript 5 introduziu o método estático &lt;code class=&quot;inline&quot;&gt;create&lt;/code&gt; no objeto
+&lt;code class=&quot;inline&quot;&gt;Object&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/create&quot;&gt;Object.create()&lt;/a&gt;
+permite-nos construir objetos de uma maneira muito simples com os parâmetros opcionais
+&lt;code class=&quot;inline&quot;&gt;proto&lt;/code&gt; que especifica o protótipo no qual o novo objeto será baseado e
+&lt;code class=&quot;inline&quot;&gt;propertiesObject&lt;/code&gt; que especifica propriedades e descritores dessas
+propriedades que serão atachadas no novo objeto criado. Sua sintaxe é a seguinte:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Object.create(proto, [, propertiesObject])&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Como os objetos literais criados em tempo de execução, &lt;code class=&quot;inline&quot;&gt;Object.create()&lt;/code&gt;
+não é muito usual em programação orientada a objetos, porém é muito útil em programação
+funcional.&lt;/p&gt;
+
+&lt;p&gt;Esse método é apenas uma maneira mais fácil de criarmos objetos literais e únicos,
+mencionados no começo desse artigo.&lt;/p&gt;
+
+&lt;p&gt;Ao invés de fazermos isso:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// cria um objeto herdando o protótipo de Object  
+var obj = {};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora podemos definir explicitamente qual o protótipo queremos herdar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// cria um objeto herdando o protótipo de Object 
+var obj = Object.create(Object.prototype);
+
+// o mesmo resultado acima é obtido com:
+var obj = Object.create({});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Por exemplo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function MyClass() {}
+
+// cria um objeto herdando o protótipo de MyClass 
+var obj = Object.create(MyClass.prototype);
+
+console.log(obj.constructor); // function MyClass() {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Temos também a possibilidade de definir propriedades do objeto com os descritores 
+&lt;code class=&quot;inline&quot;&gt;writable&lt;/code&gt; que indica se o campo é apenas leitura ou não,
+&lt;code class=&quot;inline&quot;&gt;enumerable&lt;/code&gt; indicando se essa propriedade pode ser listada em um laço,
+&lt;code class=&quot;inline&quot;&gt;configurable&lt;/code&gt; que define se o tipo da propridade pode mudar e se
+ela pode ser deletada do objeto correspondente e &lt;code class=&quot;inline&quot;&gt;value&lt;/code&gt; definindo
+o valor da propriedade.&lt;/p&gt;
+
+&lt;p&gt;Isso é bem comum em &lt;em&gt;Factory Functions&lt;/em&gt; (funções que constróem objetos pra nós) em diversos frameworks
+e bibliotecas que usamos no dia-a-dia. O &lt;a href=&quot;https://jquery.com/&quot;&gt;JQuery&lt;/a&gt; por exemplo
+usa muito &lt;code class=&quot;inline&quot;&gt;Object.create()&lt;/code&gt; debaixo dos panos pra nos entregar
+objetos prontos para nosso uso.&lt;/p&gt;
+
+&lt;p&gt;Abaixo temos uma &lt;em&gt;Factory Function&lt;/em&gt; chamada &lt;code class=&quot;inline&quot;&gt;objFactory&lt;/code&gt; que constrói
+e nos retorna um objeto com uma propriedade &lt;code class=&quot;inline&quot;&gt;p&lt;/code&gt; somente leitura e que não pode
+ser excluída.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var MyClass = function() {};
+
+function objFactory(p) {
+    // cria um objeto herdando o protótipo de MyClass e com propriedas definidas 
+    return Object.create(MyClass.prototype, { p: {
+                value: p,
+                writable: false,
+                enumerable: true,
+                configurable: false
+            }
+        }); 
+}
+
+// pede para o factory construir o objeto com o valor de p igual a 42 
+var obj = objFactory(42)
+
+console.log(obj.p); // 42
+
+// alterando o valor da propriedade p
+obj.p = 1000;
+
+// p continua 42 pois o writable dele está como false
+console.log(obj.p); // 42
+
+// deletando a propriedade p
+delete obj.p;
+
+// p continua existindo pois configurable foi definida como false
+console.log(obj.p); // 42
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sempre que você tiver uma função construtora e você estiver instanciando apenas um
+objeto com ela usando &lt;code class=&quot;inline&quot;&gt;new&lt;/code&gt;, talvez fique mais elegante você
+substituir isso por &lt;code class=&quot;inline&quot;&gt;Object.create()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Podemos aplicar isso também ao fazer a herança prototípica da nossa classe Fruta:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;Fruta.prototype = Object.create(Natureza.prototype);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;as-palavras-chaves-class-e-extends&quot;&gt;As Palavras-Chaves &lt;em&gt;class&lt;/em&gt; e &lt;em&gt;extends&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;O ECMAScript 2015 implementou as palavras-chaves &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; e 
+&lt;code class=&quot;inline&quot;&gt;extends&lt;/code&gt; que são nada mais que açúcares sintáticos para
+&lt;em&gt;Funções Construtoras&lt;/em&gt; e herança usando &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para chegarmos no mesmo resultado da nossa classe Fruta anterior, fazemos:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class MinhaClasseFruta {
+    constructor(nome, cor) {
+        this.nome = nome;
+        this.cor = cor;
+    }
+        
+    toString () {
+        // aqui podemos chamar o método toString() da classe mãe Object
+        super.toString();
+
+        // e/ou colocar nosso código especializado 
+        console.log(this.nome + &quot;, &quot; + this.cor);
+    }
+}
+
+var banana = new MinhaClasseFruta(&#39;banana&#39;, &#39;amarelo&#39;);
+var uva = new MinhaClasseFruta(&#39;uva&#39;, &#39;roxa&#39;);
+
+// comprovando que, assim como prototype, os métodos de class são compartilhado
+// entre suas instâncias
+console.log(banana.toString === uva.toString); // true
+
+banana.toString(); // &#39;banana, amarelo&#39;
+uva.toString(); // &#39;uva, roxa&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A classe &lt;code class=&quot;inline&quot;&gt;Fruta&lt;/code&gt; criada no primeiro exemplo e a classe
+criada com a nova implementação de &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; ambas são &lt;em&gt;Funções
+Construtoras&lt;/em&gt;, por isso &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; também herda de &lt;em&gt;Objects&lt;/em&gt;
+implicitamente e são usadas do mesmo jeito: executando-as com a palavra-chave
+&lt;code class=&quot;inline&quot;&gt;new&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Então, classes também são funções no JavaScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// retornam uma nova instância de objeto
+var banana = new MinhaClasseFruta(&#39;banana&#39;, &#39;amarelo&#39;);
+
+console.log(banana); // [object Object] {
+  // cor: &quot;amarelo&quot;,
+  // nome: &quot;banana&quot;
+// }
+
+// classes continuam sendo função
+console.log(MinhaClasseFruta); // function () { ... }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; retornam uma nova instância de objeto e também é baseada
+em &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Agora herdando da superclasse Natureza:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// criando a superclasse Natureza
+class Natureza {
+    constructor(nome) {
+        this.nome = nome;
+    }
+    
+    toString() {
+        return this.nome;
+    }
+};
+
+// criando a subclasse Fruta
+class Fruta extends Natureza {
+    constructor(nome, cor, temSemente) {
+        // chamando o construtor da superclasse
+        super(nome);
+
+        this.cor = cor;
+        this.temSemente = temSemente;    
+    }
+      
+    toString() {
+        let comOuSem = this.temSemente ? &quot;com&quot; : &quot;sem&quot;; 
+        return super.toString() + &#39; &#39; + this.cor + &#39; &#39; + comOuSem + &quot; semente&quot;;
+    }
+};
+
+var banana = new Fruta(&quot;banana&quot;, &quot;amarela&quot;, false);
+var uva = new Fruta(&quot;uva&quot;, &quot;roxa&quot;, true);
+
+console.log(banana.toString()); // &quot;banana amarela sem semente&quot;
+console.log(uva.toString()); // &quot;uva roxa com semente&quot;
+
+// verificando o protótipo usado para construir o objeto uva
+console.log(uva.constructor);
+
+/* function Fruta(nome, cor, temSemente) {
+      _classCallCheck(this, Fruta);
+
+      // chamando o construtor da superclasse
+      _get(Object.getPrototypeOf(Fruta.prototype), &quot;constructor&quot;, this).call(this, nome);
+      this.cor = cor;
+      this.temSemente = temSemente;
+  } */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;O JavaScript, apesar de ser potente em orientação a objetos, é por natureza uma
+linguagem funcional. Por isso ele não tem um sistema de herança apropriado,
+porém ele tem &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Todo objeto em JavaScript, quando criado, tem sua definição herdada de um protótipo
+(&lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt;). Aliás esse protótipo também é um objeto que
+por sua vez também tem um protótipo. Exceto pelo objeto &lt;em&gt;Object&lt;/em&gt;, que é o último protótipo
+da cadeia de protótipos (&lt;a href=&quot;https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain&quot;&gt;Prototype Chain&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Protótipos são definições de funções e objetos (métodos e propriedades) e neles podemos
+“atachar” métodos, que também são funções. Atachando funções em protótipos nos dá a vantagem de
+compartilhar a mesma referência de funções entre os objetos criados a partir desse
+protótipo.&lt;/p&gt;
+
+&lt;p&gt;O que é mais legal em JavaScript, na minha opnião, é que ele não nos obriga a programar de uma
+maneira engessada, seguindo um padrão definido por alguém, como
+outras linguagens orientadas a objetos tradicionais fazem. Eu particularmete gostei
+da adição do açucar sintático &lt;code class=&quot;inline&quot;&gt;class&lt;/code&gt; mesmo eu não o usando muito,
+acho que fica fácil para aqueles vindos de linguagens como Java e C# iniciar com e entender
+JavaScript. Eu prefiro a programação funcional do javascript, mas o que eu mais gosto no JavaScript é
+a liberdade que ele nos dá pra escolher o paradigma que preferirmos usar. Podemos fazer
+a mesma coisa usando toda a potência da programação orientada a objetos ou apenas programação
+funcional ou reativa.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 30 Oct 2016 17:29:18 -0300</pubDate>
+        <link>http://blini.io/classes-e-objetos-em-javascript</link>
+        <guid isPermaLink="true">http://blini.io/classes-e-objetos-em-javascript</guid>
+        
+        <category>javascript</category>
+        
+        <category>poo</category>
+        
+        
+        <category>javascript</category>
+        
+        <category>poo</category>
+        
+      </item>
     
       <item>
         <title>O Que não é Permitido no ‘Strict Mode’ do Javascript?</title>
