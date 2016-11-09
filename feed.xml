@@ -6,8 +6,8 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Nov 2016 03:26:56 -0300</pubDate>
-    <lastBuildDate>Fri, 04 Nov 2016 03:26:56 -0300</lastBuildDate>
+    <pubDate>Wed, 09 Nov 2016 00:57:06 -0300</pubDate>
+    <lastBuildDate>Wed, 09 Nov 2016 00:57:06 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -133,7 +133,7 @@ classes são &lt;em&gt;Funções Construtoras&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;funes-construtoras&quot;&gt;Funções Construtoras&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Toda classe em JavaScript é uma função construtora&lt;/strong&gt;. Como qualquer classe em orientação a objetos, elas possuem
+&lt;p&gt;&lt;strong&gt;Classes em JavaScript são funções construtoras&lt;/strong&gt; de objetos. Como qualquer classe em orientação a objetos, elas possuem
 estado (locais para armazenamento de dados) e comportamento (funcionalidades e métodos públicos e privados).&lt;/p&gt;
 
 &lt;p&gt;O estado do objeto são variáveis e os métodos, além das classes, também são funções.
@@ -203,7 +203,8 @@ tem uma propriedade extra chamada &lt;code class=&quot;inline&quot;&gt;construct
 para a função construtora usada para construí-lo. Podemos checar isso da seguinte forma:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;console.log(banana.constructor);
-/*function Fruta(nome, cor) {
+
+/* imprime: function Fruta(nome, cor) {
   this.nome = nome;
   this.cor = cor;
   this.toString = function () {
@@ -215,9 +216,9 @@ para a função construtora usada para construí-lo. Podemos checar isso da segu
 &lt;p&gt;Podemos até criar novas instâncias da classe com a propriedade &lt;code class=&quot;inline&quot;&gt;constructor&lt;/code&gt;
 através de qualquer instância da classe:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var pera = new banana.constructor(&quot;pera&quot;, &quot;verde&quot;);
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;var pera = new banana.constructor(&quot;pêra&quot;, &quot;verde&quot;);
 
-pera.toString(); // &quot;pera, verde&quot;
+pera.toString(); // &quot;pêra, verde&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Nos exemplos acima estamos usando, além de classes e objetos, um conceito muito básico
@@ -337,7 +338,7 @@ podemos adicionar nossas próprias propriedades e métodos nesse objeto.&lt;/p&g
 &lt;p&gt;Vamos criar a mesma classe Fruta usando &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; e entender
 como que com prototype instânciamos objetos de maneira mais eficiente.&lt;/p&gt;
 
-&lt;h4 id=&quot;mtodos-no-prototype&quot;&gt;Métodos no Prototype&lt;/h4&gt;
+&lt;h3 id=&quot;mtodos-no-prototype&quot;&gt;Métodos no Prototype&lt;/h3&gt;
 
 &lt;p&gt;Nesse exemplo mostro como adicionar métodos no &lt;code class=&quot;inline&quot;&gt;prototype&lt;/code&gt; ao
 invés de colocar direto no &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt; e qual é a diferença.&lt;/p&gt;
@@ -352,9 +353,8 @@ do &lt;code class=&quot;inline&quot;&gt;this&lt;/code&gt;.&lt;/p&gt;
     // variável acessível apenas dentro da classe
     var _variavelPrivada;
   
-
     this.metodoPrivilegiado = function () { 
-        // não é acessível externamente e acessa variáveis privadas
+        // privilegiado pois acessa variáveis privadas e é acessível externamente 
         _variavelPrivada = 0;
         console.log(_variavelPrivada);
     };
