@@ -127,7 +127,7 @@ classes são *Funções Construtoras*.
 
 ##Funções Construtoras
 
-**Toda classe em JavaScript é uma função construtora**. Como qualquer classe em orientação a objetos, elas possuem
+**Classes em JavaScript são funções construtoras** de objetos. Como qualquer classe em orientação a objetos, elas possuem
 estado (locais para armazenamento de dados) e comportamento (funcionalidades e métodos públicos e privados).
 
 O estado do objeto são variáveis e os métodos, além das classes, também são funções.
@@ -197,7 +197,8 @@ tem uma propriedade extra chamada <code class="inline">constructor</code> que ap
 para a função construtora usada para construí-lo. Podemos checar isso da seguinte forma:
 
 <pre><code class="language-js">console.log(banana.constructor);
-/*function Fruta(nome, cor) {
+
+/* imprime: function Fruta(nome, cor) {
   this.nome = nome;
   this.cor = cor;
   this.toString = function () {
@@ -209,9 +210,9 @@ para a função construtora usada para construí-lo. Podemos checar isso da segu
 Podemos até criar novas instâncias da classe com a propriedade <code class="inline">constructor</code>
 através de qualquer instância da classe:
 
-<pre><code class="language-js">var pera = new banana.constructor("pera", "verde");
+<pre><code class="language-js">var pera = new banana.constructor("pêra", "verde");
 
-pera.toString(); // "pera, verde"
+pera.toString(); // "pêra, verde"
 </code></pre>
 
 Nos exemplos acima estamos usando, além de classes e objetos, um conceito muito básico
@@ -331,7 +332,7 @@ podemos adicionar nossas próprias propriedades e métodos nesse objeto.
 Vamos criar a mesma classe Fruta usando <code class="inline">prototype</code> e entender
 como que com prototype instânciamos objetos de maneira mais eficiente.
 
-####Métodos no Prototype
+###Métodos no Prototype
 
 Nesse exemplo mostro como adicionar métodos no <code class="inline">prototype</code> ao
 invés de colocar direto no <code class="inline">this</code> e qual é a diferença.
@@ -346,9 +347,8 @@ do <code class="inline">this</code>.
     // variável acessível apenas dentro da classe
     var _variavelPrivada;
   
-
     this.metodoPrivilegiado = function () { 
-        // não é acessível externamente e acessa variáveis privadas
+        // privilegiado pois acessa variáveis privadas e é acessível externamente 
         _variavelPrivada = 0;
         console.log(_variavelPrivada);
     };
