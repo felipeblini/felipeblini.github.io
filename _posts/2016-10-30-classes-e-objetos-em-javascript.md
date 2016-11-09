@@ -19,7 +19,7 @@ porém isso não trouxe a capacidade de orientação a objetos ao JavaScript. Es
 as primórdios da linguagem, tanto é que <code class="inline">class</code> sempre foi
 uma palavra-chave reservada, mesmo não tendo nenhuma utilidade no passado. Isso também não alterou o sistema
 de orientação a objetos do JavaScript. A palavra-chave <code class="inline">class</code> é apenas um açucar
-sintático pra fazermos exatamente o que já fazíamos antes: *funções construtoras de objetos*.
+sintático para fazermos exatamente o que já fazíamos antes: *funções construtoras de objetos*.
 
 Por isso estudar e entender o jeito antigo de criar classes, objetos e heranças é essencial para um bom
 programador JavaScript pois debaixo dos panos tudo ainda acontece do mesmo jeito.
@@ -117,8 +117,8 @@ Ok, criamos nossos primeiros objetos. Agora vamos criar novas frutas.
 
 <pre><code class="language-js">var banana = new fruta(); // TypeError: fruta is not a constructor</code></pre>
 
-Ops, deu erro. Os códigos acima criam apenas objetos literais pra uso imediato, para serem passados
-por parâmetro, pra encapsularem dados e/ou funções, entre outos usos, muito útil em programação
+Ops, deu erro. Os códigos acima criam apenas objetos literais para uso imediato, para serem passados
+por parâmetro, para encapsularem dados e/ou funções, entre outos usos, muito útil em programação
 funcional, mas não muito usual em programação orientada a objetos.
 
 Para criarmos novas instâncias do nosso objeto <code class="inline">fruta</code>,
@@ -382,7 +382,7 @@ pera.toString(); // "arêp"
 laranja.toString(); // "ajnaral"
 
 // podemos redefinir dinamicamente um método de uma única instância
-// o JavaScript vai criar uma função separada somente pra ele
+// o JavaScript vai criar uma função separada somente para ele
 pera.toString = function() {
     console.log("");
 }
@@ -485,7 +485,7 @@ instâncias da classe.
     }
 
     // métodos privilegiados, é público e tem acesso a variáveis privadas,
-    // é único pra cada instância
+    // é único para cada instância
     this.incrementaVariavelPrivada = function() {
         metodoPrivado();
     }
@@ -758,9 +758,9 @@ Temos também a possibilidade de definir propriedades do objeto com os descritor
 ela pode ser deletada do objeto correspondente e <code class="inline">value</code> definindo
 o valor da propriedade.
 
-Isso é bem comum em _Factory Functions_ (funções que constróem objetos pra nós) em diversos frameworks
+Isso é bem comum em _Factory Functions_ (funções que constróem objetos para nós) em diversos frameworks
 e bibliotecas que usamos no dia-a-dia. O [JQuery](https://jquery.com/) por exemplo
-usa muito <code class="inline">Object.create()</code> debaixo dos panos pra nos entregar
+usa muito <code class="inline">Object.create()</code> debaixo dos panos para nos entregar
 objetos prontos para nosso uso.
 
 Abaixo temos uma _Factory Function_ chamada <code class="inline">objFactory</code> que constrói
@@ -933,7 +933,7 @@ outras linguagens orientadas a objetos tradicionais fazem. Eu particularmete gos
 da adição do açucar sintático <code class="inline">class</code> mesmo eu não o usando muito,
 acho que fica fácil para aqueles vindos de linguagens como Java e C# iniciar com e entender
 JavaScript. Eu prefiro a programação funcional do javascript, mas o que eu mais gosto no JavaScript é
-a liberdade que ele nos dá pra escolher o paradigma que preferirmos usar. Podemos fazer
+a liberdade que ele nos dá para escolher o paradigma que preferirmos usar. Podemos fazer
 a mesma coisa usando toda a potência da programação orientada a objetos ou apenas programação
 funcional ou reativa.
 
