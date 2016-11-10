@@ -1,83 +1,88 @@
 <footer class="site-footer">
-    <div>
-        <p>
-            {{ site.resources[page.lang].made_with }} <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank" href="https://pages.github.com/">GitHub Pages</a> {{ site.resources[page.lang].and }} ❤
-            <br />{{ site.resources[page.lang].source_code }} <a target="_blank" href="https://github.com/felipeblini/blog-src">github.com/felipeblini/blog-src</a>
-        </p>
-    </div>
-
-    {% include icons/svg/svg-source.html %}
-
-    <div class="social-icons-wrapper">
-        <div class="social-icons">
-            <!--<a target="_blank" href="http://twitter.com/blini3" class="share twitter">
-                <svg role="presentation" class="svg--icon">
-                    <use xlink:href="#svg--twitter" />
-                </svg>
-                <span class="clip">TWITTER</span>
-            </a>-->
-
-            <a target="_blank" href="http://fb.com/blini.io" class="share facebook">
-                <svg role="presentation" class="svg--icon">
-                    <use xlink:href="#svg--facebook" />
-                    <span class="clip">FACEBOOK</span>
-                </svg>
-            </a>
-
-            <a target="_blank" href="http://github.com/felipeblini" class="share github">
-                <svg role="presentation" class="svg--icon">
-                    <use xlink:href="#svg--github" />
-                    <span class="clip">GITHUB</span>
-                </svg>
-            </a>
-
-            <!--<a target="_blank" href="" class="share youtube">
-                <svg role="presentation" class="svg--icon">
-                    <use xlink:href="#svg--youtube" />
-                    <span class="clip">YOUTUBE</span>
-                </svg>
-            </a>-->
-
-            <!--<a target="_blank" href="" class="share stackoverflow">
-                <svg role="presentation" class="svg--icon svg--icon-smaller svg--icon-st">
-                    <use xlink:href="#svg--stackoverflow" />
-                    <span class="clip">STACK OVERFLOW</span>
-                </svg>
-            </a>-->
-
-            <!--<a target="_blank" href="http://flickr.com/felipeblini" class="share flickr">
-                <svg role="presentation" class="svg--icon svg--icon-smaller">
-                    <use xlink:href="#svg--flickr" />
-                    <span class="clip">FLICKR</span>
-                </svg>
-            </a>-->
-            
-            <a target="_blank" href="http://br.linkedin.com/in/felipeblini" class="share linkedin">
-                <svg role="presentation" class="svg--icon svg--icon-smaller">
-                    <use xlink:href="#svg--linkedin" />
-                    <span class="clip">LINKEDIN</span>
-                </svg>
-            </a>
-
-            <a target="_blank" href="http://codepen.io/felipeblini" class="share codepen">
-                <!-- hover color changing via javascript -->
-                <svg role="presentation" class="svg--icon svg--icon-smaller">
-                    <use xlink:href="#svg--codepen" />
-                    <span class="clip">CODEPEN</span>
-                </svg>
-            </a>
-
-            <a target="_blank" href="/feed.xml" class="share rss">
-                <!-- hover color changing via javascript -->
-                <svg role="presentation" class="svg--icon svg--icon-smaller">
-                    <use xlink:href="#svg--rss" />
-                    <span class="clip">RSS</span>
-                </svg>
-            </a>
+    {% include newsletters-form.html %}
+    
+    <div class="footer">
+        <div>
+            <p>
+                {{ site.resources[page.lang].made_with }} <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>, <a target="_blank" href="https://pages.github.com/">GitHub Pages</a> {{ site.resources[page.lang].and }}
+                <span style="color: red">❤</span>
+                <br />{{ site.resources[page.lang].source_code }} <a target="_blank" href="https://github.com/felipeblini/blog-src">github.com/felipeblini/blog-src</a>
+            </p>
         </div>
-    </div>
-    <div class="msg-after-social-icons">
-        <small>{{ site.resources[page.lang].footer_text_below_icons }} <a target="_blank" href="http://codepen.io/felipeblini/pen/JXpopW">Codepen</a></small>
+
+        {% include icons/svg/svg-source.html %}
+
+        <div class="social-icons-wrapper">
+            <div class="social-icons">
+                <!--<a target="_blank" href="http://twitter.com/blini3" class="share twitter">
+                    <svg role="presentation" class="svg--icon">
+                        <use xlink:href="#svg--twitter" />
+                    </svg>
+                    <span class="clip">TWITTER</span>
+                </a>-->
+
+                <a target="_blank" href="http://fb.com/blini.io" class="share facebook">
+                    <svg role="presentation" class="svg--icon">
+                        <use xlink:href="#svg--facebook" />
+                        <span class="clip">FACEBOOK</span>
+                    </svg>
+                </a>
+
+                <a target="_blank" href="http://github.com/felipeblini" class="share github">
+                    <svg role="presentation" class="svg--icon">
+                        <use xlink:href="#svg--github" />
+                        <span class="clip">GITHUB</span>
+                    </svg>
+                </a>
+
+                <!--<a target="_blank" href="" class="share youtube">
+                    <svg role="presentation" class="svg--icon">
+                        <use xlink:href="#svg--youtube" />
+                        <span class="clip">YOUTUBE</span>
+                    </svg>
+                </a>-->
+
+                <!--<a target="_blank" href="" class="share stackoverflow">
+                    <svg role="presentation" class="svg--icon svg--icon-smaller svg--icon-st">
+                        <use xlink:href="#svg--stackoverflow" />
+                        <span class="clip">STACK OVERFLOW</span>
+                    </svg>
+                </a>-->
+
+                <!--<a target="_blank" href="http://flickr.com/felipeblini" class="share flickr">
+                    <svg role="presentation" class="svg--icon svg--icon-smaller">
+                        <use xlink:href="#svg--flickr" />
+                        <span class="clip">FLICKR</span>
+                    </svg>
+                </a>-->
+                
+                <a target="_blank" href="http://br.linkedin.com/in/felipeblini" class="share linkedin">
+                    <svg role="presentation" class="svg--icon svg--icon-smaller">
+                        <use xlink:href="#svg--linkedin" />
+                        <span class="clip">LINKEDIN</span>
+                    </svg>
+                </a>
+
+                <a target="_blank" href="http://codepen.io/felipeblini" class="share codepen">
+                    <!-- hover color changing via javascript -->
+                    <svg role="presentation" class="svg--icon svg--icon-smaller">
+                        <use xlink:href="#svg--codepen" />
+                        <span class="clip">CODEPEN</span>
+                    </svg>
+                </a>
+
+                <a target="_blank" href="/feed.xml" class="share rss">
+                    <!-- hover color changing via javascript -->
+                    <svg role="presentation" class="svg--icon svg--icon-smaller">
+                        <use xlink:href="#svg--rss" />
+                        <span class="clip">RSS</span>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="msg-after-social-icons">
+            <small>{{ site.resources[page.lang].footer_text_below_icons }} <a target="_blank" href="http://codepen.io/felipeblini/pen/JXpopW">Codepen</a></small>
+        </div>
     </div>
 </footer>
 

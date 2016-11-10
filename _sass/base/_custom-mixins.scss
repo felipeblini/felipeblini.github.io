@@ -28,7 +28,7 @@
 //   text-decoration: none;
 // }
 %link-hover {
-  color: darken($link-color, 15%);
+  color: $link-color-hover;
   text-decoration: none;
   border-bottom: 0;
 }
