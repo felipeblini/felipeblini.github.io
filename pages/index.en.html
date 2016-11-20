@@ -3,54 +3,53 @@ layout: default
 ref: home
 lang: en
 country: us
-title:  "Home"
+title:  "JavaScript, AngularJS, React, Ionic, PWA, Node, Express, .NET e tudo sobre web"
 permalink: /en/
 ---
 
 <div class="call-out">
     <div class="row">
         <div class="col-sm-12">
-            <h1>{}</h1>
+            <h1>{...}</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
-            JavaScript, AngularJS, React, Ionic, PWA, Node, Express, .NET and all about web
+        <div class="col-sm-12 site-description">
+            JavaScript, AngularJS, React, Ionic, PWA, Node, Express, .NET e tudo sobre web
         </div>
     </div>
 </div>
 
 {% assign posts=site.posts | where:"lang", page.lang %}
 
-<p style="padding: 30px">No articles available yet.. <a href="/en/about">Find out more about this blog</a> or <a href="/en/about#contact-me">contact me</a></p>
+<div class="posts container-fluid">
+    {% if posts.size == 0 %}
+        <div class="post-teaser">
+            <p style="padding: 30px">No articles available yet.. <a href="/en/about">Find out more about this blog</a> or <a href="/en/about#contact-me">contact me</a></p>
+       </div>
+    {% else %}
+        {% for post in posts %}
+        <div class="post-teaser">
+            <header>
+                <h1>
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+                        {{ post.title }}
+                    </a>
+                </h1>
+                <p class="meta">
+                    {% include post-date.html date=post.date %}
+                    {% include post-minutes-to-read.html %}
+                </p>
+            </header>
+            
+            <div class="excerpt">
+                <p>{{ post.excerpt }}</p>
 
-<!--{% if posts.size == 0 %}
-    <p style="padding: 30px">No articles available yet.. <a href="/en/about">Find out more about this blog</a> or <a href="/en/about#contact-me">contact me</a></p>
-{% else %}-->
-
-<!--<div class="posts container-fluid">
-    {% for post in posts %}
-    <div class="post-teaser">
-        <header>
-            <h1>
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-                    {{ post.title }}
+                <a class="button" href="{{ post.url | prepend: site.baseurl }}">
+                    Continue lendo
                 </a>
-            </h1>
-            <p class="meta">
-                {% include post-date.html date=post.date %}
-            </p>
-        </header>
-        
-        <div class="excerpt">
-            <p>{{ post.excerpt }}</p>
-
-            <a class="button" href="{{ post.url | prepend: site.baseurl }}">
-                Continue lendo
-            </a>
+            </div>
         </div>
-    </div>
-    {% endfor %}
-</div>-->
-
-{% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

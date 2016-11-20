@@ -38,12 +38,30 @@ resources:
         and: "e"
         made_with: "feito com"
         minutes_to_read: "minuto(s) de leitura"
+        forms:
+            newsletters:
+                title: 'Fique ligado'
+            placeholders:
+                name: nome
+                email: seu@email.com
+                surname: sobrenome
+            labels:
+                submit: Enviar
     en:
-        footer_text_below_icons: "See how this icons was made in"
+        footer_text_below_icons: "See how these icons has been made at"
         source_code: "source code:"
         and: "and"
         made_with: "made with"
         minutes_to_read: "minute(s) to read"
+        forms:
+            newsletters:
+                title: 'Newsletters'
+            placeholders:
+                name: name
+                email: your@email.com
+                surname: surname
+            labels:
+                submit: Send
 
 theme:
     # Scripts

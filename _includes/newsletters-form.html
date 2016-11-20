@@ -1,5 +1,5 @@
 <!-- Begin MailChimp Signup Form -->
-<div class="container-fluid" style="text-align: left"><h3>Fique por dentro:</h3></div>
+<div class="container-fluid" style="text-align: left"><h3>{{ site.resources[page.lang].forms.newsletters.title }}:</h3></div>
 <div class="container-fluid newsletter-form">
 	<div id="mc_embed_signup">
 		<form action="//blini.us14.list-manage.com/subscribe/post?u=5d95c9a442ffa1d9c06684340&amp;id=c06a0cc0de" method="post" id="mc-embedded-subscribe-form"
@@ -9,21 +9,21 @@
 				<div class="row">
 					<div class="col-sm-12 col-md-5">
 						<div class="mc-field-group">
-							<input type="email" value="" name="EMAIL" required id="mce-EMAIL" placeholder="seu@email.com" autocomplete="false">
+							<input type="email" value="" name="EMAIL" required id="mce-EMAIL" placeholder="{{ site.resources[page.lang].forms.placeholders.email }}" autocomplete="false">
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-3">
 						<div class="mc-field-group">
-							<input type="text" value="" name="FNAME" required id="mce-FNAME" placeholder="Nome" autocomplete="false">
+							<input type="text" value="" name="FNAME" required id="mce-FNAME" placeholder="{{ site.resources[page.lang].forms.placeholders.name }}" autocomplete="false">
 						</div>
 					</div>
 					<div class="col col-sm-12 col-md-4">
 						<div class="col-xs-8">
-							<input type="text" value="" name="LNAME" required id="mce-LNAME" placeholder="Sobrenome" autocomplete="false">
+							<input type="text" value="" name="LNAME" required id="mce-LNAME" placeholder="{{ site.resources[page.lang].forms.placeholders.surname }}" autocomplete="false">
 						</div>
 						<div class="col col-xs-4">
 							<button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default">
-								Enviar
+								{{ site.resources[page.lang].forms.labels.submit }}
 							</button>
 						</div>
 					</div>
