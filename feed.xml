@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Felipe Blini - JavaScript Developer, Teacher and Consultant</title>
-    <description>blini.io - Desenvolvimento Web e Mobile com Javascript
+    <title>blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web</title>
+    <description>blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Nov 2016 16:26:07 -0300</pubDate>
-    <lastBuildDate>Sun, 20 Nov 2016 16:26:07 -0300</lastBuildDate>
+    <pubDate>Sun, 20 Nov 2016 19:36:38 -0300</pubDate>
+    <lastBuildDate>Sun, 20 Nov 2016 19:36:38 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
