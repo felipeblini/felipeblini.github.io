@@ -9,9 +9,9 @@
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://blini.io" # the base hostname & protocol for your site
 
-title:  "Felipe Blini - JavaScript Developer, Teacher and Consultant"
+title:  "blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web"
 description: > # this means to ignore newlines until "baseurl:"
-  blini.io - Desenvolvimento Web e Mobile com Javascript
+  blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web
 
   
 # for build the multilanguage menu
