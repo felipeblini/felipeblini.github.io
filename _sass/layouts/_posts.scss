@@ -6,7 +6,7 @@ article h4,
 article h5,
 article h6,
 article ul {
- @extend %padding-small-p;
+ @extend %padding-small;
 }
 
 .comments {
@@ -91,7 +91,7 @@ article {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     background-size: $feature-image-size;
     margin-bottom: 0;
-    padding: $padding-large/2.5 $padding-large;
+    padding: $padding-small/2.5 $padding-small;
     .meta {
       color: rgba($feature-image-text-color, .7);
     }

@@ -28,7 +28,18 @@ li.language-control .btn:first-child:hover {
 }
 
 .navbar-brand {
-    margin-left: 20px !important;
+
+    @media (min-width: 190px) {
+        margin-left: 20px !important;
+    }
+}
+
+a.navbar-brand {
+    display: none;
+    
+    @media (min-width: 400px) {
+        display: block;
+    }
 }
 
 button.navbar-toggle {
@@ -39,13 +50,30 @@ button.navbar-toggle {
     width: 100px;
 }
 
+img.vertical {
+    display: block;
+    width: 30px;
+    margin-top: 19px;
+    margin-left: 9px;
+
+    @media (min-width: 240px) {
+        width: 40px;
+        margin-top: 12px;
+        margin-left: 9px;
+    }
+
+    @media (min-width: 400px) {
+        display: none;
+    }
+}
+
 .menu-icon {
     margin-right: 25px !important;
 }
 
 @media (min-width: 267px) { 
     .navbar-brand > img {
-        width: 175px;
+        width: 200px;
     }
 }
 
@@ -56,7 +84,8 @@ button.navbar-toggle {
     }
     
     .navbar-brand > img {
-        width: 245px
+        margin-top: 5px;
+        width: 245px;
     }
 }
 
