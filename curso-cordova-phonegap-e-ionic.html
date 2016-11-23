@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Iniciando com Ionic</title>
-    <meta name="description" content="O Ionic é um framework front-end e open-source para desenvolvimento de aplicativos móveis híbridos Cross-Platform escritos em HTM, CSS e JavaScript.">
+    <title>Aplicativos Híbridos com PhoneGap/Cordova, e Ionic</title>
+    <meta name="description" content="blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web
+">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://blini.io/iniciando-com-ionic">
+    <link rel="canonical" href="http://blini.io/curso-cordova-phonegap-e-ionic">
     <link rel="alternate" type="application/rss+xml" title="blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web" href="http://blini.io /feed.xml
     ">
 
@@ -27,7 +28,7 @@
     <!-- KaTeX -->
 	
 
-    <meta property="og:title" content="Iniciando com Ionic" />
+    <meta property="og:title" content="Aplicativos Híbridos com PhoneGap/Cordova, e Ionic" />
     <meta property="og:image" content="http://blini.io/img/blini.io-share.png">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="200">
@@ -123,280 +124,19 @@
 
         <!-- content -->
         <div class="content">
-            <article  class="feature-image" >
-  <header style="background-image: url('/img/seo-1616306_1280.jpg')">
-    <h1 class="title">Iniciando com Ionic</h1>
-    <p class="meta">
-        
-            
+            <article class="feature-image">
 
-
-
-<img src="img/calendar2.png">
-22 de
-Junho
-     de 
-2016
-        
-        
-        
-
-
-
-<img src="img/time.png">
-8
-minuto(s) de leitura
-        
-        
-    </p>
+  <header style="background-image: url('/img/hero-smaller.jpg')">
+    <h1 class="post-title">Aplicativos Híbridos com PhoneGap/Cordova, e Ionic</h1>
   </header>
-  <section class="post-content container"><p>O Ionic é um framework front-end e open-source para desenvolvimento de aplicativos móveis híbridos <em>Cross-Platform</em> escritos em HTM, CSS e JavaScript.</p>
 
-<p>Com o Ionic é possível escrever código uma única vez e ter um aplicativo que roda ‘nativamente’ (entre aspas pois não é
-100% nativo) no iPhone, Android e Windows Phone. Isso é possível pois estes Sistemas Operacionais Móveis possuem APIs
-(<em>Application Program Interface</em>) usadas para que seus programadores desenvolvam aplicativos nativos para a plataforma.
-O que o Ionic faz é, através do <a href="https://cordova.apache.org/"><em>Apache Cordova</em></a>, ajudar-nos a comunicarmos com estas APIs que,
-por sua vez, comunicam-se com um componente chamado Web View, usado por aplicativos nativos para visualização de páginas web
-dentro do contexto dos aplicativos móveis (como um Browser qualquer). O Ionic permite que nosso aplicativo rode embarcado
-dentro dessa <em>Web View</em>, que interpreta e renderiza nosso código HTML, CSS e JavaScript, como qualquer outro navegador moderno.
-O Ionic basicamente estiliza nossos componentes HTML para se parecer com os componentes nativos de cada plataforma móvel alvo,
-simulando a experiência nativa do usuário final (o que seria um trabalhão fazermos na mão) e usa esse ‘navegador’ para rodar os
-aplicativos e disponibiliza bibliotecas JavaScript para acessarmos o hardware e tecnologias nativas do device como câmera, GPS,
-Bluetooth, etc (o que também seria um trabalhão pra fazer na mão).</p>
+  <div class="post-content container-fluid">
+    <h1>Em breve</h1>
 
-<p>Como o nome sugere o aplicativo não será nativo, e sim híbrido. O Ionic empacota a aplicação em arquivos instaláveis para cada
-plataformas móvel que então pode ser publicado nas principais lojas de aplicativos móveis e ser distribuída para o público-alvo.
-Ele também nos oferece excelente produtividade e serviços como o <em>Ionic Platform</em> que ajuda em tudo que uma aplicação precisa ter
-(push notifications, autenticação, etc), Planos Empresariais, e um CLI (<em>Command-line Interface</em>) que te dá muita produtividade
-através de linhas de comando.</p>
+Veja os slides do cuso <a href="http://www.slideshare.net/FelipeBlini/curso-de-desenvolvimento-de-aplicativos-hbridos-com-phonegapcordova-e-ionic" target="_blank">aqui</a>.
+  </div>
 
-<p>E é claro que, como o código que você vai escrever é puramente HTML, CSS e JavaScript, você poderá rodar e visualizar a aplicação
-no seu navegador web preferido. E pra fecharmos o assunto ‘aplicativos híbridos’, com esse mesmo código, excluindo a parte do
-Cordova, pode-se criar uma aplicação Desktop <em>Cross-Platform</em>, com ajuda de tecnologias como o <a href="http://electron.atom.io/">Electron</a>,
-que empacota código Web para rodar em Mac, Windows e Linux. O Ionic nos ajuda no mundo Mobile e o Electron no mundo Desktop, e
-juntando as duas tecnologias você pode ter uma aplicação 100% híbrida e <em>Cross-Platform</em> Mobile e Desktop.</p>
-
-<p>Eu pessoalmente não recomendaria uma abordagem tão híbrida dessa, já que cada plataforma tem suas peculiaridades e algumas vezes
-exige nossa atenção especial para criar códigos personalizados. Lembre-se, experiência do usuário em primeiro lugar! Isso foi
-apenas para ilustrar o que realmente é uma aplicação híbrida. Entretanto, no mundo Mobile, o Ionic faz o serviço muito bem feito.</p>
-
-<p>O Ionic é baseado no AngularJs e por isso você irá escrever directivas do Angular no seu HTML e usar os seus módulo: <em>services,
-controllers, factories, routes</em>, etc. No Angular 2 muita coisa mudará e o Ionic 2 está sendo construído em cima dele, porém até
-o momento da escrita desse artigo, o Ionic 2 ainda está em fase beta e o Angular 2 em um RC (<em>Release Candidate</em>) que ainda está
-muito instável, por isso a versão 2 será assunto de futuros artigos.</p>
-
-<h2 id="preparando-o-ambiente">Preparando o Ambiente</h2>
-
-<p>Os softwares e tecnologias necessários para criar aplicativos com o Ionic são os seguintes:</p>
-
-<ul>
-  <li><strong>Node.js</strong> - Requerido pelo Ionic para uso do CLI e em tarefas de build</li>
-  <li><strong>NPM</strong> (instalado junto com o Node.js) - Para gerenciarmos nossas dependências</li>
-  <li><strong>Git</strong> - Para o Ionic fazer o scaffolding dos templates iniciais, e também usado pelo Bower</li>
-  <li><strong>Bower</strong> - Para gerenciar nossas dependências no front-end</li>
-  <li><strong>Cordova e Ionic CLI</strong></li>
-</ul>
-
-<p>Você também vai precisar de um editor de texto. Eu uso e recomendo o VS Code (https://code.visualstudio.com) que é um excelente fork do Atom com fantático suporte ao JavaScript.
-Eu também recomendaria o <a href="https://www.sublimetext.com/">Sublime Text</a>, porém você pode usar qualquer um de sua preferência.</p>
-
-<h3 id="instalando-o-nodejs-e-npm">Instalando o Node.js e npm</h3>
-
-<ol>
-  <li>Acesse o site do Node.js em http://nodejs.org</li>
-  <li>Clique no botão de download para baixar a versão específica para o seu SO</li>
-  <li>Instale o Node.js clicando no instalador baixado</li>
-</ol>
-
-<p>Isso irá instalar a versão escolhida do Node.js e o NPM.</p>
-
-<p>Para verificar a instalação, abra o terminal do seu computador e digite:</p>
-
-<p><code class="inline">node -v</code> e <code class="inline">npm -v</code></p>
-
-<p>Se a instalação foi um sucesso isso retornará a versão instalada de cada um:</p>
-
-<p><img src="img/node-npm-version-check.jpg" alt="Verificando a instalação do Node.js e do npm" /></p>
-
-<h3 id="instalando-o-git">Instalando o Git</h3>
-
-<ol>
-  <li>Acesse a página do Git no site: https://git-scm.com/download</li>
-  <li>Clique no botão de download compatível com o SO da sua máquina</li>
-  <li>Instale o Git clicando no instalador baixado</li>
-</ol>
-
-<p>Para verificar a instalação do Git, digite no terminal:</p>
-
-<p><code class="inline">git --version</code></p>
-
-<p>Isso retornará a versão instalada caso o Git tenha sindo instalado com sucesso.</p>
-
-<p><img src="img/git-version-check.jpg" alt="Verificando a versão do Git instalado" /></p>
-
-<h3 id="instalando-o-bower">Instalando o Bower</h3>
-
-<p>O Bower é instaldo através do NPM (<em>Node Package Manager</em>), o gerenciador de pacotes do Node.js, aquele que é instalado junto com o Node.js.</p>
-
-<p>Para isso precisamos abrir novamente o terminal e digitar o seguinte comando:</p>
-
-<p><code class="inline">npm install -g bower</code></p>
-
-<p>Esse comando instala o módulo do Node chamado Bower globalmente (<em>-g</em>). No linux você deve instalar digitando:</p>
-
-<p><code class="inline">sudo npm install bower</code></p>
-
-<p>Mais uma vez, verificando a instalação:</p>
-
-<p><code class="inline">bower -v</code></p>
-
-<p><img src="img/bower-version-check.jpg" alt="Verificando a instalação do Bower no terminal" /></p>
-
-<h3 id="instalando-o-cordova-e-o-ionic-cli">Instalando o Cordova e o Ionic CLI</h3>
-
-<p>O Ionic CLI engloba o Cordova CLI com comandos adicionais, e para isso precisamos também instalar o Cordova globalmente, usaremos
-o npm mais uma vez.</p>
-
-<p>Novamente, nada complicado, abra o terminal e digite:</p>
-
-<p><code class="inline">npm install -g cordova ionic</code></p>
-
-<p>Isso baixará e instalará globalmente em sua máquina o Cordova e o Ionic CLI no mesmo comando. Pode demorar um pouco
-dependendo da sua conexão.</p>
-
-<p><img src="img/instalando-cordova-e-ionic-cli.jpg" alt="Instalando Cordova e Ionic CLI" /></p>
-
-<p>Verifique a instalação digitando no terminal</p>
-
-<p><code class="inline">cordova -v</code> e <code class="inline">ionic -v</code></p>
-
-<p><img src="img/cordova-e-ionic-cli-version-check.jpg" alt="Verificando a instalação do Cordova e Ionic CLI" /></p>
-
-<p>Pronto, o Ionic CLI está instalado. Agora podemos digitar ionic no terminal e visualizar os comandos disponíveis para ter uma ideia do que podemos fazer via de linha de comando:</p>
-
-<p><code class="inline">ionic</code></p>
-
-<p><img src="img/ionic-cli-commands.jpg" alt="Visualizando os comandos disponíveis no Ionic CLI" /></p>
-
-<p>Agora estamos prontos pra continuar!</p>
-
-<hr />
-
-<h2 id="iniciando-a-aplicao">Iniciando a Aplicação</h2>
-
-<p>O Ionic possui 5 templates disponíveis no GitHub para você iniciar uma aplicação:</p>
-
-<ul>
-  <li>
-    <p><strong>Blank</strong>: Template vazio com apenas uma página.</p>
-  </li>
-  <li>
-    <p><strong>Tabs</strong>: Aplicação de exemplo usando o sistema de navegação em abas do Ionic.</p>
-  </li>
-  <li>
-    <p><strong>Side Menu</strong>: Mesma aplicação de exemplo do Tabs porém, ao invés de abas, um sistema de navegação em menu lateral deslizante.</p>
-  </li>
-  <li>
-    <p><strong>Maps</strong>: Template com apenas uma página com um mapa renderizado e Geo Localização codificada.</p>
-  </li>
-  <li>
-    <p><strong>Sales Force</strong>: Template com com código integrado à API do CRM da <em>Sales Force</em>.</p>
-  </li>
-</ul>
-
-<p>Para fazer o scaffolding da sua primeira app e rodá-la é muito simples, abra o terminal e digite:</p>
-
-<p><code class="inline">ionic start -a "Minha App" -i minhaapp minha-app blank</code></p>
-
-<h4 id="onde">Onde:</h4>
-
-<ul>
-  <li>
-    <p><code class="inline">-a "Minha App"</code> é o nome amigável do seu aplicativo</p>
-  </li>
-  <li>
-    <p><code class="inline">-i minhaapp</code> é o ID aplicativo</p>
-  </li>
-  <li>
-    <p><code class="inline">minha-app</code> é o nome da pasta ou o local onde o aplicativo com o template escolhido será gerado</p>
-  </li>
-  <li>
-    <p><code class="inline">blank</code> é o template escolhido entre as opções <em>blank</em>, <em>tabs</em>, <em>sidemenu</em>, <em>maps</em> e <em>salesforce</em></p>
-  </li>
-</ul>
-
-<p>Ou use a forma reduzida: <code class="inline">ionic start minha-app blank</code></p>
-
-<h4 id="onde-1">Onde:</h4>
-
-<ul>
-  <li>
-    <p><code class="inline">minha-app</code> é o ID aplicativo</p>
-  </li>
-  <li>
-    <p><code class="inline">blank</code> é o template escolhido entre as opções <em>blank</em>, <em>tabs</em>, <em>sidemenu</em>, <em>maps</em> e <em>salesforce</em></p>
-  </li>
-</ul>
-
-<p><img src="img/initializing-cordova-project.jpg" alt="Inicializando a aplicação sidemenu do Ionic" /></p>
-
-<p>Aguarde um pouquinho, o Ionic irá baixar os arquivos hospedados no GitHub para a sua máquina. Depois da aplicação inicializada e o <em>scaffold</em> do template feito, acesse a pasta onde o app foi gerado digitando no terminnal:</p>
-
-<p><code class="inline">cd minha-app</code></p>
-
-<p><img src="img/acessando-a-pasta.jpg" alt="Acessando a pasta onde reside o aplicativo" /></p>
-
-<p>Para visualizar o aplicativo é muito simples, lembra que o aplicativo desenvolvido com o Ionic roda embarcado em um navegador?
-Pois é, basta levantar um servidor <em>http</em> e acessar pelo navegador. O Ionic faz isso pra gente automaticamente, basta digitar no terminal:</p>
-
-<p><code class="inline">ionic serve</code></p>
-
-<p>Com esse comando o Ionic irá levanta um servidor <em>http</em> na porta 8100 e abrir o navegador padrão do sua máquina com o app rodando.</p>
-
-<p>Ele ainda mostra alguns comandos úteis no terminal:</p>
-
-<p><img src="img/servidor-rodando.jpg" alt="Servidor rodando na porta 8100 e alguns comandos úteis" /></p>
-
-<p>Caso ocorra algum erro, tente rodar em uma porta mais alta, colocando o número da porta no final do comando, assim:</p>
-
-<p><code class="inline">ionic serve -p 9000</code></p>
-
-<p><img src="img/ezgif-1287516005-3.gif" alt="Aplicativo rodando no navegador web" /></p>
-
-<p>Para destruir o servidor e destravar o terminal digite:</p>
-
-<p><code class="inline">crtl + c</code></p>
-
-<p>No próximo artigo vamos ver um pouco sobre a estrutura dos arquivos e arquitetura do projeto gerado pelo <em>scaffolding</em> do Ionic
-e como personalizar o aplicativo. Assim como configurar as plataformas iOS e Android pra emular nosso aplicativo, rodar o
-aplicativo diretamente no celular e usar o <em>Ionic View</em> para mostrar o aplicativo para os seus clientes e amigos e receber <em>feedbacks</em>.</p>
-</section>
 </article>
-
-<div class="signature">
-  <img src="img/avatar3.jpg?v=0.0.0" class="img-responsive img-circle img-avatar">
-    <div class="col-sm-4 col-sm-offset-4 text-center">
-      <h3>Felipe Blini</h3>
-      <span>Full Stack JavaScript Developer</span>
-    </div>
-</div>
-
-<!-- Disqus -->
-
-
-<div class="comments">
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-	var disqus_shortname = 'felipeblini';
-	(function() {
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-
 
         </div>
         <!-- ./content -->
