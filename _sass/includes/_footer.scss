@@ -6,11 +6,21 @@ $icon-width-s: 51px;
 $icon-width-m: 61px;
 $icon-width-b: auto;
 
+.footer-container {
+    bottom: -240px;
+    position: absolute;
+    width: 100%;
+    height: 478px;
+
+    @media (min-width: 274px) {
+        bottom: -140px;
+        height: 274px;
+    }
+}
+
+
 .site-footer {
     background-color: $background-color;
-    
-    position: absolute;
-    bottom: 0 !important;
     
     width: 100%;
     color: #fff;

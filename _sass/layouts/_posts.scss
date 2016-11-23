@@ -1,4 +1,3 @@
-article p,
 article h1,
 article h2,
 article h3,
@@ -7,6 +6,16 @@ article h5,
 article h6,
 article ul {
  @extend %padding-small;
+}
+
+article p {
+  @extend %padding-small;
+
+  @media(min-width: 440px) {
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+
 }
 
 .comments {

@@ -5,7 +5,6 @@
 @import "base/custom-variables";
 
 /* External libs*/
-@import "external/bootstrap/custom-bootstrap";
 /* Code Highlights alternative of default jekyll highlighters*/
 @import "external/prism";
 @import "external/syntax-highlighting.scss";
@@ -22,6 +21,10 @@
 @import "base/global";
 
 
+/* Hacks */
+@import "hacks/ie10-viewport-bug-workaround";
+
+
 /* Includes */
 @import "includes/navbar";
 @import "includes/footer";
@@ -31,6 +34,9 @@
 /*Layouts*/
 @import "layouts/posts";
 @import 'layouts/index'; 
+
+// Pages
+@import "pages/about"
   
 
 

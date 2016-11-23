@@ -4,10 +4,10 @@
     padding: 0;
 }
 
-.navbar {
+.navbar, .navbar-inverse {
     border-radius: 0 !important;
-    border-bottom: none;
-    margin-bottom: 0;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
 }
 
 li.language-control {
