@@ -20,6 +20,9 @@ t:
     country: br
     lang: pt
     pages:
+        ourses:
+            name: "Cursos"
+            url: "/cursos/"
         about:
             name: "Sobre"
             url: "/about/"
@@ -27,6 +30,9 @@ t:
     country: us
     lang: en
     pages:
+        courses:
+            name: "Courses"
+            url: "/cursos/"
         about:
             name: "About"
             url: "/en/about/"
