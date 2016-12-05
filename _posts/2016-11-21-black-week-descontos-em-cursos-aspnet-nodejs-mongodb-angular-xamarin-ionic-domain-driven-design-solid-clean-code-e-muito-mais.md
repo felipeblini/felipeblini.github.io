@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Black Week, Descontos em Cursos Asp.net, Nodejs, Mongodb, Angular, Xamarin, Ionic, Domain Driven Design, Solid, Clean Code e Muito Mais
+title: Parceria Black Week balta.io, Descontos em Cursos Asp.net, Nodejs, Mongodb, Angular, Xamarin, Ionic, Domain Driven Design, Solid, Clean Code e Muito Mais
 date: 2016-11-21 22:49:54
 ref: post-006
 lang: pt
@@ -37,7 +37,7 @@ E ele ainda tem um [grupo específico para alunos no Facebook](https://www.faceb
 
 ### Corra porque esta promoção vai até a meia noite desta sexta!! (25/11/2016).
 
-Acesse o link abaixo e comece agora mesmo o seu processo de transformação ninja
+**Acesse o link abaixo** e comece agora mesmo o seu processo de transformação ninja
 com um desconto especial de Black Friday!
 
 <span style="font-size: 30px">[http://bit.ly/2g88cL6](http://bit.ly/2g88cL6)</span>

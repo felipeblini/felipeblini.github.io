@@ -46,7 +46,7 @@ resources:
         minutes_to_read: "minuto(s) de leitura"
         forms:
             newsletters:
-                title: 'Fique ligado'
+                title: 'Assine a newsletters'
             placeholders:
                 name: nome
                 email: seu@email.com
@@ -54,7 +54,7 @@ resources:
             labels:
                 submit: Enviar
     en:
-        footer_text_below_icons: "See how these icons has been made at"
+        footer_text_below_icons: "See how these icons at"
         source_code: "source code:"
         and: "and"
         made_with: "made with"
