@@ -6,9 +6,541 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Dec 2016 19:06:07 -0300</pubDate>
-    <lastBuildDate>Mon, 05 Dec 2016 19:06:07 -0300</lastBuildDate>
+    <pubDate>Fri, 03 Feb 2017 03:28:33 -0300</pubDate>
+    <lastBuildDate>Fri, 03 Feb 2017 03:28:33 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Criando um Chat Realtime com CEAN Stack (Couchbase, Express, Angular2 e Node) e Socket.io - Part 1</title>
+        <description>&lt;p&gt;Construir um chat há alguns anos costumava ser algo muito difícil de se fazer. Exigia-nos
+construir uma arquitetura complexa. Tínhamos que consultar o servidor a todo momento
+em busca de novas mensagens e isso era pouco performático. Como não tínhamos
+bancos NoSql usávamos bancos de dados relacionais para persistir mensagens.
+Era bastante trabalhoso e o resultado final muitas vezes era péssimo. Não era
+qualquer um que encarava esse desafio. Hoje temos tecnologias que facilitam muito nossa
+vida. Nesse tutorial/artigo vou mostrar como criar um chat &lt;em&gt;real-time&lt;/em&gt; de maneira muito
+simples com Couchbase, Node.js, Express e Angular 2 (CEAN Stack ou CANE Stack) e Socket.io.&lt;/p&gt;
+
+&lt;h1 id=&quot;construindo-o-backend&quot;&gt;Construindo o Backend&lt;/h1&gt;
+
+&lt;p&gt;Primeiro vamos construir o backend. Uma &lt;strong&gt;API em Node.js&lt;/strong&gt; com um endpoint que vai nos
+retornar todas as mensagens que estão no banco. Mas por enquanto essas mensagens serão &lt;em&gt;fakes&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Assumindo que você já tenha o Node instalado na sua máquina, crie uma nova pasta, abra-a
+no Terminal/Prompt de Comando e &lt;strong&gt;inicie um novo projeto Node&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ echo {} &amp;gt; package.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso vai criar o arquivo &lt;code&gt;package.json&lt;/code&gt; com um objeto &lt;code&gt;JSON&lt;/code&gt; vazio onde as depêndencias do
+projeto serão registradas. Não vamos usar o &lt;code&gt;npm init&lt;/code&gt; aqui pois ele gera campos que não
+precisaremos nesse projeto.&lt;/p&gt;
+
+&lt;p&gt;Vamos passar por um conteúdo bem básico, que é especificamente &lt;strong&gt;instalar o Express&lt;/strong&gt;
+e &lt;strong&gt;subir o servidor Node&lt;/strong&gt;. Caso você já se sinta confortável em como se faz isso pode
+pular para a &lt;a href=&quot;#criando-a-rota&quot;&gt;seção onde criamos a rota.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Siga em frente e instale a primeira dependência: o &lt;strong&gt;Express&lt;/strong&gt;, o framework que nos ajuda a
+criar Middlewares e configurar o servidor Node.
+Coloque a &lt;em&gt;flag&lt;/em&gt; &lt;code&gt;--save&lt;/code&gt; no final pra registrar isso no &lt;code&gt;package.json&lt;/code&gt; como uma dependência de
+produção.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install --save express&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora sim, podemos abrir a pasta em um editor de texto e começar a codar e criar
+mais um app lindo que mudará o mundo para sempre. #SQN é apenas mais um chat mesmo!&lt;/p&gt;
+
+&lt;p&gt;Eu gosto de usar o &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VS Code&lt;/a&gt;, então ainda no terminal eu
+digito &lt;code&gt;$ code .&lt;/code&gt; e ele abre pra mim este editor de texto com a minha pasta aberta.
+Se caso você usa o &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime&lt;/a&gt; você pode
+tentar digitar &lt;code&gt;$ subl .&lt;/code&gt; se ele não abrir sinto muito mas você vai ter que 
+&lt;a href=&quot;http://bfy.tw/9dMx&quot;&gt;configurar a variável de ambiente para o Sublime&lt;/a&gt; para abrir-lo pelo
+terminal. Você pode usar qualquer editor de texto de sua preferência.&lt;/p&gt;
+
+&lt;p&gt;Com a pasta aberta no editor de texto, você vai ver que temos a pasta &lt;code&gt;node_modules&lt;/code&gt;
+e no arquivo &lt;code&gt;package.json&lt;/code&gt; o Express registrado na propriedade &lt;code&gt;dependencies&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;4.14.0&quot;
+  },
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bora começar a mudar o mundo então, crie o arquivo &lt;code&gt;app.js&lt;/code&gt; que carregará a nossa API e
+onde vamos configurar o nosso servidor com ajuda do Express. Para isso precisamos
+&lt;strong&gt;importar o módulo Express&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando o módulo do express
+const express = require(&#39;express&#39;);
+
+// criando uma instância do express
+const app = express();
+
+// criando o servidor http para a nossa app
+const server = require(&quot;http&quot;).Server(app);
+
+// disponibilizando o app  na porta 3000 do servidor
+server.listen(3000, () =&amp;gt;
+    console.log(&quot;Listening on port %s...&quot;, server.address().port));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No código acima nós &lt;strong&gt;importamos o express&lt;/strong&gt;, criamos uma &lt;strong&gt;instância dele dentro de uma
+constante&lt;/strong&gt; chamada &lt;code&gt;app&lt;/code&gt;, &lt;strong&gt;criamos um servidor HTTP&lt;/strong&gt; para a nossa app e mandamos ele
+&lt;strong&gt;ouvir requisições na porta 3000&lt;/strong&gt; subindo assim o servidor HTTP.&lt;/p&gt;
+
+&lt;p&gt;Usar &lt;code&gt;const&lt;/code&gt; ao invés de &lt;code&gt;var&lt;/code&gt; aqui é
+uma boa prática porque tanto o módulo quanto a instância do Express e o função
+&lt;code&gt;Server()&lt;/code&gt; do módulo &lt;code&gt;http&lt;/code&gt; nunca vão mudar durante toda a
+nossa aplicação. O valor deles será o mesmo durante todo o ciclo de vida da aplicação 
+assim como a maioria dos módulos que importamos.&lt;/p&gt;
+
+&lt;p&gt;Já temos um servidor rodando. Para verificar basta executar o nosso Javascript 
+&lt;code&gt;app.js&lt;/code&gt; com o Node.&lt;/p&gt;
+
+&lt;p&gt;No terminal digite &lt;code&gt;$ node app&lt;/code&gt; (não precisa colocar .js):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/node-listening.jpg&quot; alt=&quot;Node.js rodando&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Se você abrir no navegador em &lt;code&gt;http://localhost:3000&lt;/code&gt; você vai ver que funcionou, porém
+vimos uma mensagem que não é possível achar a rota &lt;code&gt;/&lt;/code&gt; (Cannot GET /). Precisamos criar
+uma rota para a nossa API.&lt;a id=&quot;criando-a-rota&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;criando-a-rota&quot;&gt;Criando a rota&lt;/h1&gt;
+
+&lt;p&gt;A idéia é ter uma endpoint que irá retornar todas as mensagens do chat.
+Como vamos construir o front-end e a API no mesmo aplicativo, rodando na mesma porta, vamos
+deixar a rota padrão &lt;code&gt;/&lt;/code&gt; para o front-end (a sala de chat) que vamos criar mais pra frente,
+e a rota &lt;code&gt;/mensagens&lt;/code&gt; para o endpoint da API que vai nos retornar todas as mensagens do chat.&lt;/p&gt;
+
+&lt;p&gt;Para isso crie a pasta &lt;code&gt;routes&lt;/code&gt; na raiz do projeto.&lt;/p&gt;
+
+&lt;p&gt;Na pasta &lt;code&gt;routes&lt;/code&gt; crie o arquivo &lt;code&gt;routes.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;module.exports = function (app) {
+    app.get(&#39;/mensagens&#39;, (req, res) =&amp;gt; {
+        res.send({mensagem: &#39;oi&#39;});
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora precisamos informar ao Express que temos uma rota configurada, fazemos isso
+&lt;strong&gt;importando o código acima dentro do código onde configuramos o nosso servidor&lt;/strong&gt;,
+no arquivo &lt;code&gt;app.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Perceba que a função acima, exportada com &lt;code&gt;module.exports&lt;/code&gt;, depende de um parâmetro que
+nomeamos de &lt;code&gt;app&lt;/code&gt;, neste parâmetro deve conter a instância do Express que criamos. Porquê?
+Porque o método &lt;code&gt;.get&lt;/code&gt; pertence à instância do Express. Esse método cria um Middleware que
+avalia, em toda requisção, o recurso que foi solicitado pelo navegador e, nesse caso
+específico, se o recurso for igual
+a &lt;code&gt;/mensagens&lt;/code&gt; ele executa a arrow function que definimos como callback passando os objetos
+de requisição (&lt;code&gt;req&lt;/code&gt;) e resposta (&lt;code&gt;res&lt;/code&gt;) permitindo-nos manipular a requisição feita
+pelo usuário e a resposta que vamos enviar pra ele, esse é um conceito bem básico de
+Middlewares.&lt;/p&gt;
+
+&lt;p&gt;Beleza, chega de conceito e vamos importr nossa rota recém criada no servidor, abra o
+arquivo &lt;code&gt;app.js&lt;/code&gt; e antes de subir o servidor (função &lt;code&gt;listen()&lt;/code&gt;) vamos informar a ele
+que nós temos uma rota para um recurso, bora então importar o código da rota. Anova linha 
+no arquivo &lt;code&gt;app.js&lt;/code&gt; está destacada com flechas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando o módulo express
+const express = require(&#39;express&#39;);
+
+// criando uma instância do express
+const app = express();
+
+// criando o servidor http para a nossa app
+const server = require(&quot;http&quot;).Server(app);
+
+// ----&amp;gt; importando nosso arquivo de rotas
+const routes = require(&quot;./routes/routes.js&quot;); // &amp;lt;-----
+
+server.listen(3000, () =&amp;gt;
+    console.log(&quot;Listening on port %s...&quot;, server.address().port));
+ &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Se você executar o código e abrir o navegador vai ver que não vai funcionar, isso porque
+no código acima nós apenas importamos a função. Nenhum Middleware foi e registrado
+no servidor. Para registrá-lo precisamos executar a função imediatamente após a importarmos.
+Fazemos isso, em JavaScript, colocando parênteses no final da chamada da função.
+Além disso, para registrar o Middleware nossa módulo de rotas precisa da nossa instância
+do Express. Nós temos essa instância dentro da constante app, então é só passar ela por
+parâmetro que o nosso módulo de rotas se encarregará de registrar o middleware,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando nosso arquivo de rotas e executando-o imediatamente 
+// depois com a instância do Express sendo passada por parâmetro
+const routes = require(&quot;./routes/routes.js&quot;)(app);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora sim, executando o código no console (&lt;code&gt;$ node app&lt;/code&gt;) e abrindo o navegador na url 
+&lt;code&gt;http://localhost:3000/mensagens&lt;/code&gt; você vai ver a mensagem retornada pelo nosso backend.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/message-oi.jpg&quot; alt=&quot;Express route, Node.js rodando&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Quando formos integrar nosso chat com o &lt;strong&gt;Couchbase&lt;/strong&gt; precisaremos escrever um pouco mais
+de código criando funções para persistir e recuperar mensagens. Precisamos de um cara
+responsável por isso, e esse cara é o modelo!&lt;/p&gt;
+
+&lt;h1 id=&quot;criando-o-modelo&quot;&gt;Criando o modelo&lt;/h1&gt;
+
+&lt;p&gt;A idéia inicial aqui é passar a lógica definida no arquivo de rota para um &lt;strong&gt;Model&lt;/strong&gt; e
+depois, quando formos integrar com o &lt;strong&gt;Couchbase&lt;/strong&gt;, escrevermos mais funcionalidades.&lt;/p&gt;
+
+&lt;p&gt;Para isso, crie uma pasta &lt;code&gt;models&lt;/code&gt; na raíz do projeto e dentro dela crie o arquivo
+&lt;code&gt;chatmodel.js&lt;/code&gt; definindo uma função construtora nomeada &lt;strong&gt;ChatModel&lt;/strong&gt; (com C maiúsculo,
+por convenção):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function ChatModel() {}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No artigo &lt;a href=&quot;http://blini.io/classes-e-objetos-em-javascript&quot;&gt;Classes e Objetos em Javascript&lt;/a&gt;
+eu explico &lt;del&gt;tudo&lt;/del&gt; bastante coisa sobre funções construtoras&lt;/p&gt;
+
+&lt;p&gt;Vamos criar o primeiro método do nosso modelo e definir que esse método espera um função
+de callback que será executada assim que os dados estiverem prontos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function ChatModel() {}
+
+ChatModel.getAll = function(callback) {
+    let error = null;
+    let result = {message: &#39;oi&#39;};
+    callback(result, error);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Os dados serão enviados à função de callback por parâmetro (última linha dentro da função) e se ocorrer
+algum erro será enviado um objeto de erro no segundo parâmetro. Usamos esse padrão pois
+no Node consultas de dados são assíncronas e não bloqueantes, isso quer dizer que o
+Express não vai esperar os dados ficarem prontos, ele vai prosseguir com o processamento
+e só depois que os dados chegarem do banco ele vai disponibilizar isso para o &lt;em&gt;callback&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Perceba que ainda não estamos consultando dados, apenas retornando a mesma mensagem de antes.
+Quando estivermos buscando as mensagens no banco de dados isso fará mais sentido.&lt;/p&gt;
+
+&lt;p&gt;Agora vamos substituir a lógica no arquivo &lt;code&gt;route.js&lt;/code&gt; transferindo a responsabilidade de
+recuperar as mensagens para a classe &lt;strong&gt;ChatModel&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando a classe ChatModel
+const ChatModel = require(&#39;../models/chatmodel&#39;);
+
+module.exports = function (app) {
+    app.get(&#39;/mensagens&#39;, (req, res) =&amp;gt; {
+        ChatModel.gelAll((result, error) =&amp;gt; {
+            if(error) {
+                console.log(&#39;error:&#39;, error);
+                return res.status(400).send(error);
+            }
+            
+            return res.send(result);
+        });
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No código acima, ao invés de enviarmos direto a mensagem como resposta para o &lt;code&gt;res.send()&lt;/code&gt;,
+como estava antes, chamamos o método &lt;code&gt;getAll()&lt;/code&gt; da classe &lt;strong&gt;ChatModel&lt;/strong&gt; que recebe como
+parâmetro a arror function de callback que engloba o &lt;code&gt;res.send()&lt;/code&gt;
+e que será executada assim que os dados estiverem disponíveis.&lt;/p&gt;
+
+&lt;p&gt;Se você rodar o servidor de novo e testar no navegador vai perceber que ainda
+funciona como o esperado. Nada mudou, porém agora temos o modelo responsável pela
+nossa lógica por trás do chat.&lt;/p&gt;
+
+&lt;p&gt;Vamos preparar agora nossa aplicação para usar &lt;strong&gt;&lt;em&gt;sockets&lt;/em&gt;&lt;/strong&gt;, que nos permite criar conexões
+bidirecionais entre o servidor e os usuários (&lt;em&gt;clients&lt;/em&gt;) da aplicação, montando assim
+links de comunicação em tempo real entre os dois. Vamos fazer isso utilizando a
+biblioteca &lt;a href=&quot;http://socket.io/&quot;&gt;Socket.io&lt;/a&gt; no back-end (Socket.io Server) e no front-end
+(Socket.io Client).&lt;/p&gt;
+
+&lt;h1 id=&quot;integrando-socketio-no-backend&quot;&gt;Integrando Socket.io no Backend&lt;/h1&gt;
+
+&lt;p&gt;O nosso servidor, configurado acima, ficará responsável por gerenciar conexões sockets e
+notificar os clientes conectados com novas mensagens de chat.&lt;/p&gt;
+
+&lt;p&gt;Para utilizarmos o &lt;strong&gt;Socket.io&lt;/strong&gt; no servidor precisamos do &lt;strong&gt;Socket.io Server&lt;/strong&gt; que
+instalamos via &lt;code&gt;npm&lt;/code&gt; &lt;strong&gt;savando como uma dependêcia&lt;/strong&gt; do nosso projeto:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install --save socket.io&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Se você abrir o arquivo &lt;code&gt;package.json&lt;/code&gt; verá que agora além do Express temos também o Socket.io
+registrado como uma dependência, e isso significa que ele também está disponível na
+pasta &lt;code&gt;node_modules&lt;/code&gt; onde reside todos os módulos do &lt;code&gt;npm&lt;/code&gt; e nossas dependências.&lt;/p&gt;
+
+&lt;p&gt;Então chega de perder tempo e bora &lt;strong&gt;importá-lo e configurá-lo em nossa aplicação&lt;/strong&gt;. Abra o arquivo app.js e crie mais uma constante que armazenará o resultado da execução deste módulo. O Socket.io ouve mudanças em nosso servidor então precisamos passar o nosso server como parâmetro para ele, então faça isso logo abaixo da &lt;code&gt;const&lt;/code&gt; server.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando o Socket.io e executando-o passando nosso server
+// como parâmetro
+const io = require(&quot;socket.io&quot;).listen(server)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Depois disso, logo abaixo, vamos criar um socket para cada novo usuário que se conectar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// ouvindo o evento &#39;connection&#39; no servidor e criando um novo
+// socket para cada nova conexão
+io.on(&quot;connection&quot;, socket =&amp;gt; {
+    socket.on(&quot;mensagem_mano&quot;, msg =&amp;gt; {
+        io.emit(&quot;mensagem_mano&quot;, msg);
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Entendendo o que fizemos no código acima: A constante &lt;code&gt;io&lt;/code&gt; é o nosso &lt;strong&gt;socket que ouve
+mudançascno servidor&lt;/strong&gt;, então &lt;strong&gt;a cada novo usuário&lt;/strong&gt; que entrar na nossa aplicação o
+Socket.io vai &lt;strong&gt;executar a função de &lt;em&gt;callback&lt;/em&gt;&lt;/strong&gt; associada ao evento chamado &lt;code&gt;connection&lt;/code&gt;
+passando por parâmetro o novo socket criado &lt;strong&gt;especificamente&lt;/strong&gt; para o novo usuário
+conectado. A função de &lt;em&gt;callback&lt;/em&gt;, por sua vez,
+&lt;strong&gt;através desse socket&lt;/strong&gt;, &lt;strong&gt;criar um novo ouvinte&lt;/strong&gt;, agora para o evento chamado &lt;code&gt;mensagem_mano&lt;/code&gt;, com uma
+função de callback que espera um parâmetro que foi denominado, em seu contexto, como &lt;code&gt;msg&lt;/code&gt;.
+Quando este evento ocorrer, este ouvinte solicita para &lt;strong&gt;o Socket.io reemitir o mesmo evento&lt;/strong&gt;
+fazendo um &lt;em&gt;broadcasting&lt;/em&gt; da mensagem pra &lt;strong&gt;todos os sockets &lt;em&gt;clients&lt;/em&gt; conectados&lt;/strong&gt; no momento,
+&lt;strong&gt;inclusive para o usuário que o emitiu&lt;/strong&gt;.
+Resumindo, o servidor faz um &lt;em&gt;push&lt;/em&gt; da mensagem para todos os front-end conectados.&lt;/p&gt;
+
+&lt;p&gt;O código final do arquivo app.js então ficaria assim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando o módulo express
+const express = require(&#39;express&#39;);
+
+// criando uma instância do express
+const app = express();
+
+// criando o servidor http para a nossa app
+const server = require(&quot;http&quot;).Server(app);
+
+// importando o Socket.io e executando-o passando nosso server
+// como parâmetro
+const io = require(&quot;socket.io&quot;).listen(server);
+
+// ouvindo o evento &#39;connection&#39; no servidor que quando executado, cria um novo
+// socket para a conexção recém aberta
+io.on(&quot;connection&quot;, socket =&amp;gt; {
+    // com o novo socket criado é ciado também um novo ouvinte
+    // para o nosso evento
+    socket.on(&quot;mensagem_mano&quot;, msg =&amp;gt; {
+        // e o Socket.io reenvia pra todos que estão conectados
+        io.emit(&quot;mensagem_mano&quot;, msg);
+    });
+});
+
+// importando nosso arquivo de rotas e executando-o imediatamente 
+// depois com a instância do Express sendo passada como parâmetro
+const routes = require(&quot;./routes/routes.js&quot;)(app);
+
+server.listen(3000, () =&amp;gt;
+    console.log(&quot;Listening on port %s...&quot;, server.address().port));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Por hora não temos como testar. No máximo podemos executar &lt;code&gt;$ node app&lt;/code&gt; no terminal e se 
+nenhuma mensagem de erro aparecer está tudo ok.&lt;/p&gt;
+
+&lt;p&gt;Precisamos de um jeito para emitir o evento, que definimos acima, com a mensagem do usuário.
+Faremos isso no front-end. Vamos criar então um arquivo HTML e um JavaScript bem básicos
+apenas para testar o Socket.io.&lt;/p&gt;
+
+&lt;p&gt;Mas antes precisamos definir um local para o nosso front-end. Precisamos de uma pasta
+estática onde ficará o nosso front-end e onde, mais adiante, vamos implementar o Angular 2.&lt;/p&gt;
+
+&lt;p&gt;O Node executa todo arquivo JavaScript do lado do servidor. Uma pasta estática em um projeto
+Node significa que os arquivos JavaScript contidos nela não serão executados pelo Node e
+sim pelo navegador, no lado do cliente. É o que nós precisamos, então vamos seguir e
+configurar essa pasta.&lt;/p&gt;
+
+&lt;p&gt;Crie uma pasta chamada &lt;code&gt;public&lt;/code&gt; na raiz do projeto e no arquivo &lt;code&gt;app.js&lt;/code&gt; configure-a como
+estática. As novas linhas adicionadas estão destacada com setas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// importando o módulo path do node
+const path = require(&#39;path&#39;);
+
+// definindo a pasta public como o local onde o front-end reside
+app.use(express.static(path.join(__dirname, &quot;public&quot;)));
+
+Novamente o arquivo app.js na íntegra:
+
+// importando o módulo express
+const express = require(&#39;express&#39;);
+
+// criando uma instância do express
+const app = express();
+
+// criando o servidor http para a nossa app
+const server = require(&quot;http&quot;).Server(app);
+
+// importando o Socket.io e executando-o passando nosso server
+// como parâmetro
+const io = require(&quot;socket.io&quot;).listen(server);
+
+// ----&amp;gt; importando o módulo path do node
+const path = require(&#39;path&#39;); // &amp;lt;----
+
+// ----&amp;gt; definindo a pasta public como o local onde o front-end reside
+app.use(express.static(path.join(__dirname, &quot;public&quot;))); // &amp;lt;----
+
+// ouvindo o evento &#39;connection&#39; no servidor e criando um novo
+// socket para cada nova conexão
+io.on(&quot;connection&quot;, socket =&amp;gt; {
+    socket.on(&quot;mensagem_mano&quot;, msg =&amp;gt; {
+        io.emit(&quot;mensagem_mano&quot;, msg);
+    });
+});
+
+// importando nosso arquivo de rotas e executando-o imediatamente 
+// depois com a instância do Express sendo passada por parâmetro
+const routes = require(&quot;./routes/routes.js&quot;)(app);
+
+server.listen(3000, () =&amp;gt;
+    console.log(&quot;Listening on port %s...&quot;, server.address().port));
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No códigio acima &lt;strong&gt;importamos o módulo &lt;code&gt;path&lt;/code&gt;&lt;/strong&gt; para nos auxiliar na manipulação de caminhos
+de arquivos do servidor e &lt;strong&gt;criamos um Middleware&lt;/strong&gt; com &lt;code&gt;use&lt;/code&gt; avisando ao servidor que a pasta
+&lt;code&gt;public&lt;/code&gt; é estática.&lt;/p&gt;
+
+&lt;p&gt;Agora que temos uma pasta estática, &lt;strong&gt;crie os arquivos HTML e JS&lt;/strong&gt; dentro dela, para emitirmos
+eventos com o Socket.io precisamos usar a biblioteca &lt;strong&gt;Socket.io Client&lt;/strong&gt; que vamos importar no HTML.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Index.html&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&quot;en&quot;&amp;gt;
+
+    &amp;lt;head&amp;gt;
+        &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+        &amp;lt;title&amp;gt;Socket.io&amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+
+    &amp;lt;body&amp;gt;
+        &amp;lt;ul class=&quot;messages&quot;&amp;gt;&amp;lt;/ul&amp;gt;
+        &amp;lt;input class=&quot;chatBox&quot; placeholder=&quot;Digite aqui...&quot; /&amp;gt;
+
+        &amp;lt;script src=&quot;https://cdn.socket.io/socket.io-1.4.5.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+        &amp;lt;script src=&quot;/index.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No código acima &lt;strong&gt;criamos uma lista onde as mensagens serão listadas&lt;/strong&gt;, &lt;strong&gt;um &lt;code&gt;input&lt;/code&gt; do tipo
+&lt;code&gt;text&lt;/code&gt; para enviar mensagens&lt;/strong&gt; e &lt;strong&gt;adicionamos 2 arquivos JavaScript&lt;/strong&gt;: o primeiro é o &lt;strong&gt;Socket.io Client&lt;/strong&gt; que importamos via &lt;code&gt;CDN&lt;/code&gt; e o &lt;strong&gt;JavaScript da nossa aplicação&lt;/strong&gt; que criaremos abaixo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Index.js&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Selecionando os elementos do HTML
+var $messages = document.querySelector(&#39;.messages&#39;); // área de mensagens
+var $inputMessage = document.querySelector(&#39;.chatBox&#39;); // caixa de texto
+
+// Instanciando o Socket.io
+var socket = io();
+
+// sempre que o usuário apertar qualquer tecla do teclado em
+// qualquer lugar da tela
+window.addEventListener(&#39;keydown&#39;, function (event) {
+    // Se caso a tecla for enter chama a função que envia
+    // a mensagem digitada no input e limpa o input
+    if (event.which === 13) {
+        sendMessage();
+        cleanInput();
+    }
+});
+
+function cleanInput() {
+    $inputMessage.value = &#39;&#39;;
+}
+
+function sendMessage() {
+    var message = $inputMessage.value;
+    console.log(&#39;enviando mensagem&#39;, message);
+
+    // Se a mensagem não for vazia
+    if (message) {
+        // pede ao servidor para executar o evento &#39;mensagem_mano&#39;
+        // e transmitir 1 parâmetro que vai para todos os usuários
+        // conectados, inclusive para quem enviou
+        socket.emit(&#39;mensagem_mano&#39;, message);
+    }
+}
+
+// Sempre que o servidor emitir o evento &#39;mensagem_mano&#39;, o socket do
+// usuário conectado vai capturar esse evento e chamar a função de callback
+// que atualiza a área de mensagem com a nova mensagem recebida
+socket.on(&#39;mensagem_mano&#39;, function (msg) {
+    console.log(&#39;recebendo a mensagem&#39;, msg);
+    var node = document.createElement(&quot;li&quot;);
+    var textNode = document.createTextNode(msg);
+    node.appendChild(textNode);
+    $messages.appendChild(node);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O código acima dispensa explicações. Ele se auto explica em tudo o que está sendo feito.&lt;/p&gt;
+
+&lt;p&gt;Se você rodar o servidor agora vai ver que está tudo funcionando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ node app&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abra a aplicação em 2 navegadores e faça o teste!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/ezgif.com-video-to-gif.gif&quot; alt=&quot;Ezgif.com-video-to-gif.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nosso Back-end está pronto. Por hora!&lt;/p&gt;
+
+&lt;h1 id=&quot;concluso&quot;&gt;Conclusão&lt;/h1&gt;
+
+&lt;p&gt;Neste artigo/tutorial &lt;strong&gt;configuramos o servidor&lt;/strong&gt; Node com ajuda do Express e
+&lt;strong&gt;instalamos o Socket.io Server fizemos a integração&lt;/strong&gt; para criar sockets com usuários e transmitir mensagens em
+&lt;em&gt;broadcasting&lt;/em&gt;. A parte do Socket está 100%.]&lt;/p&gt;
+
+&lt;p&gt;Além disso &lt;strong&gt;configuramos a pasta &lt;code&gt;public&lt;/code&gt; como estática&lt;/strong&gt; no servidor para o Node ignorar os arquivos
+&lt;code&gt;.js&lt;/code&gt; que pertencem ao front-end.&lt;/p&gt;
+
+&lt;p&gt;Voltaremos ao backend quando formos persistir as mensagens no Couchbase, vou também
+explicar as diferenças entre o Couchbase e o MongoDB.&lt;/p&gt;
+
+&lt;p&gt;Do lado do cliente &lt;strong&gt;criamos o Front-end puramente com HTML5 e JavaScript&lt;/strong&gt; e &lt;strong&gt;integramos
+com o Socket.io Client&lt;/strong&gt;. Na segunda
+parte desse artigo vou mostrar como migrar nosso Front-end para Angular 2, fazer o request
+no servidor para buscar as mensagens no end-point que criamos e como integrar o Socket.io-client no
+Angular 2 usando observables. Em um próximo artigo, também vou mostrar como fazer tudo isso
+com Ionic 2 e Firebase ;)&lt;/p&gt;
+
+&lt;p&gt;O código fonte dessa parte do artigo está disponível em
+https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1.&lt;/p&gt;
+
+&lt;p&gt;Deixe o seu comentário, dúvidas, xingamentos e etc… Nos vemos no próximo artigo!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Feb 2017 22:04:27 -0300</pubDate>
+        <link>http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1</link>
+        <guid isPermaLink="true">http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1</guid>
+        
+        <category>Socket.io</category>
+        
+        <category>Websockets</category>
+        
+        <category>Couchbase</category>
+        
+        <category>Node</category>
+        
+        <category>Express</category>
+        
+        <category>Angular</category>
+        
+        <category>JavaScript</category>
+        
+        
+        <category>Socket.io</category>
+        
+        <category>Websockets</category>
+        
+        <category>Couchbase</category>
+        
+        <category>Node</category>
+        
+        <category>Express</category>
+        
+        <category>Angular</category>
+        
+        <category>JavaScript</category>
+        
+      </item>
     
       <item>
         <title>Parceria Black Week balta.io, Descontos em Cursos Asp.net, Nodejs, Mongodb, Angular, Xamarin, Ionic, Domain Driven Design, Solid, Clean Code e Muito Mais</title>
