@@ -23,9 +23,6 @@ t:
         courses:
             name: "Cursos"
             url: "/cursos/"
-        lab:
-            name: "Lab"
-            url: "/lab/"
         about:
             name: "Sobre"
             url: "/about/"
@@ -36,9 +33,6 @@ t:
         courses:
             name: "Courses"
             url: "/cursos/"
-        lab:
-            name: "Lab"
-            url: "/lab/"
         about:
             name: "About"
             url: "/en/about/"

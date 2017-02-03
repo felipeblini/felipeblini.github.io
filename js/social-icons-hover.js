@@ -1,8 +1,8 @@
 var svgColor = "#828282";
 
-var flickr = document.querySelector(".flickr");
-flickr.addEventListener("mouseover", flickrMouseOver);
-flickr.addEventListener("mouseout", flickeMouseOut);
+// var flickr = document.querySelector(".flickr");
+// flickr.addEventListener("mouseover", flickrMouseOver);
+// flickr.addEventListener("mouseout", flickeMouseOut);
 
 var codepen = document.querySelector(".codepen");
 codepen.addEventListener("mouseover", codepenMouseOver);
