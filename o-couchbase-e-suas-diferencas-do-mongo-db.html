@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Aplicativos Híbridos com PhoneGap/Cordova e Ionic</title>
-    <meta name="description" content="blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web
-">
+    <title>O Couchbase e suas Diferenças do MongoDB</title>
+    <meta name="description" content="O MongoDB e o Couchbase fazem parte do mundo NoSql (Not only SQL) que é compostopor uma vasta gama de bancos de dados, cada com sua especialidade. Temos banc...">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://blini.io/curso-cordova-phonegap-e-ionic">
+    <link rel="canonical" href="http://blini.io/o-couchbase-e-suas-diferencas-do-mongo-db">
     <link rel="alternate" type="application/rss+xml" title="blini.io - JavaScript, AngularJS, Ionic, PWA, Node, Express, .NET e tudo sobre web" href="http://blini.io /feed.xml
     ">
 
@@ -28,7 +27,7 @@
     <!-- KaTeX -->
 	
 
-    <meta property="og:title" content="Aplicativos Híbridos com PhoneGap/Cordova e Ionic" />
+    <meta property="og:title" content="O Couchbase e suas Diferenças do MongoDB" />
     <meta property="og:image" content="http://blini.io/img/blini.io-share.png">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="200">
@@ -124,19 +123,120 @@
 
         <!-- content -->
         <div class="content">
-            <article class="feature-image">
+            <article  class="feature-image" >
+  <header style="background-image: url('/img/couchbase-mongodb.jpg')">
+    <h1 class="title">O Couchbase e suas Diferenças do MongoDB</h1>
+    <p class="meta">
+        
+            
 
-  <header style="background-image: url('/img/hero-smaller.jpg')">
-    <h1 class="post-title">Aplicativos Híbridos com PhoneGap/Cordova e Ionic</h1>
+
+
+<img src="img/calendar2.png">
+18 de
+Abril
+     de 
+2017
+        
+        
+        
+
+
+
+<img src="img/time.png">
+3
+minuto(s) de leitura
+        
+        
+    </p>
   </header>
+  <section class="post-content container"><p>O <strong>MongoDB</strong> e o <strong>Couchbase</strong> fazem parte do mundo <strong>NoSql (Not only SQL)</strong> que é composto
+por uma vasta gama de bancos de dados, cada com sua especialidade. Temos bancos
+especializados em documentos, especialistas em chave-valor, especialistas em grafos,
+temos os que armazenam dados em colunas e por aí vai. Todos com algo em comum: <strong>garantir escalabilidade!</strong></p>
 
-  <div class="post-content container-fluid">
-    <h1>Em breve</h1>
+<p>O <strong>Couchbase</strong> se garante muito bem sendo um dos líderes do segmento e é usado por apps e
+sites como <strong>Viber</strong>, <strong>PayPal</strong>, <strong>LinkedIn</strong> e <strong>eBay</strong>, servindo facilmente <em>terabytes</em> e <em>petabytes</em> de
+dados.</p>
 
-Veja os slides do cuso <a href="http://www.slideshare.net/FelipeBlini/curso-de-desenvolvimento-de-aplicativos-hbridos-com-phonegapcordova-e-ionic" target="_blank">aqui</a>.
-  </div>
+<p>O Couchbase, assim como o <strong>MongoDB</strong>, é famoso por ser potente pois tem grande escalabilidade entre máquinas, o que
+é perfeito para startup e grandes companhias que precisam distribuir suas enormes
+base de dados entre vários <em>cores</em> garantindo desempenho para seus sistemas.</p>
 
+<p>O que difere os dois é que o MongoDB armazena dados em documentos <code>JSON</code>. O Coubase
+também tem um potente sistema de documentos armazenados em <code>JSON</code> porém podemos dizer que ele
+é híbrido pois também armazena dados em <strong>chave-valor</strong> (<em>key/value</em>). Diferente do MongoDB que tem
+a capacidade de armazenar dados apenas em documentos, o que não é ideal para aplicações que
+armazenam dados simples em quantidades extremas, como é o caso de um <strong>chat</strong>.</p>
+
+<p>Armazenar dados em documentos pode causar armazenamento extra de <em>bytes</em> que podemos
+facilmente virar <em>petabytes</em> de dados desnecessários para
+um aplicativo que não precisa desse tipo de armazenamento. Para esses casos é preferível
+utilizar armazenamento do tipo chave-valor.</p>
+
+<h2 id="um-pouco-da-histria-do-couchbase">Um pouco da História do Couchbase</h2>
+
+<p>Muito antes do termo <strong>NoSQL</strong> os bancos de dados relacionais tinham a ajuda de uma tecnologia
+chamada <strong>Memcached</strong> para atenderem a demanda de escalabilidade de aplicações modernas. 
+O Memcached, usado muito hoje em dia ainda, é um sistema de armazenamento distribuído de
+chave-valor usado para camada de cache distribuído de aplicações.</p>
+
+<p>Os desenvolvedores do Memcached viram uma grande oportunidade de entregar mais além de cache
+e entregaram novas funcionalidades como protocolos binário, melhor gerenciamento de cluster,
+e o mais importante: persistência.</p>
+
+<p>Esse novo produto ficou conhecido como <strong>Membase</strong>. Uma tecnologia disruptiva que mudou o
+jeito que aplicações armazenavam dados e que rapidamente ganhou popularidade entre os
+desenvolvedores que precisavam de enorme escalabilidade.</p>
+
+<p>E então, paralelamente, no mundo do NoSQL, surgiu o <strong>CouchDB</strong> que, assim como o MongoDB, armazena documentos
+em <code>JSON</code> e é potente e amigável.</p>
+
+<p>O <strong>CouchDB</strong> e o <strong>Membase</strong> cresceram, ficaram maduros e os desenvolvedores dos dois
+produtos se juntaram e criaram o <strong>Couchbase</strong>. Um novo banco de dados criado do zero e otimizado
+com as melhores tecnologias dos dois produtos anteriores.</p>
+
+<p>O resultado é um banco de dados NoSQL, open-source, com potente escalabilidade, extremamente
+rápido, que nos dá a opção de armazenar dados em <code>JSON</code> através de documentos e em chave/valor.
+E ainda nos dá a possibilidade de escalar de maneira muito fácil entre vários <em>cores</em> devido
+ao seu passado com Memcached.</p>
+
+<p>Assim podemos usar suas características de chave/valor e escalabilidade para armazenar e
+recuperar, por exemplo, o enorme número de mensagens que um aplicativo de <em>chat</em> tem de maneira mais rápida
+e usar sua característica de documentos para armazenar as informações de cada usuário por exemplo.</p>
+
+<p>O Couchbase ainda nos dá a possibilidade de sincronizarmos nossos dados locais e <em>online</em>,
+possibilitando que nosso app também funcione <em>offline</em>, sincronizando os dados quando o usuário
+fica <em>online</em> de novo.</p>
+
+<p>O Couchbase pode ser baixado em <a href="http://www.couchbase.com">http://www.couchbase.com</a>.</p>
+</section>
 </article>
+
+<div class="signature">
+  <img src="img/avatar3.jpg?v=0.0.0" class="img-responsive img-circle img-avatar">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+      <h3>Felipe Blini</h3>
+      <span>Full Stack JavaScript Developer</span>
+    </div>
+</div>
+
+<!-- Disqus -->
+
+
+<div class="comments">
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+	var disqus_shortname = 'felipeblini';
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
 
         </div>
         <!-- ./content -->

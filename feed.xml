@@ -6,12 +6,600 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 03 Feb 2017 03:28:33 -0300</pubDate>
-    <lastBuildDate>Fri, 03 Feb 2017 03:28:33 -0300</lastBuildDate>
+    <pubDate>Tue, 18 Apr 2017 23:46:55 -0300</pubDate>
+    <lastBuildDate>Tue, 18 Apr 2017 23:46:55 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
-        <title>Criando um Chat Realtime com CEAN Stack (Couchbase, Express, Angular2 e Node) e Socket.io - Part 1</title>
+        <title>O Couchbase e suas Diferenças do MongoDB</title>
+        <description>&lt;p&gt;O &lt;strong&gt;MongoDB&lt;/strong&gt; e o &lt;strong&gt;Couchbase&lt;/strong&gt; fazem parte do mundo &lt;strong&gt;NoSql (Not only SQL)&lt;/strong&gt; que é composto
+por uma vasta gama de bancos de dados, cada com sua especialidade. Temos bancos
+especializados em documentos, especialistas em chave-valor, especialistas em grafos,
+temos os que armazenam dados em colunas e por aí vai. Todos com algo em comum: &lt;strong&gt;garantir escalabilidade!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O &lt;strong&gt;Couchbase&lt;/strong&gt; se garante muito bem sendo um dos líderes do segmento e é usado por apps e
+sites como &lt;strong&gt;Viber&lt;/strong&gt;, &lt;strong&gt;PayPal&lt;/strong&gt;, &lt;strong&gt;LinkedIn&lt;/strong&gt; e &lt;strong&gt;eBay&lt;/strong&gt;, servindo facilmente &lt;em&gt;terabytes&lt;/em&gt; e &lt;em&gt;petabytes&lt;/em&gt; de
+dados.&lt;/p&gt;
+
+&lt;p&gt;O Couchbase, assim como o &lt;strong&gt;MongoDB&lt;/strong&gt;, é famoso por ser potente pois tem grande escalabilidade entre máquinas, o que
+é perfeito para startup e grandes companhias que precisam distribuir suas enormes
+base de dados entre vários &lt;em&gt;cores&lt;/em&gt; garantindo desempenho para seus sistemas.&lt;/p&gt;
+
+&lt;p&gt;O que difere os dois é que o MongoDB armazena dados em documentos &lt;code&gt;JSON&lt;/code&gt;. O Coubase
+também tem um potente sistema de documentos armazenados em &lt;code&gt;JSON&lt;/code&gt; porém podemos dizer que ele
+é híbrido pois também armazena dados em &lt;strong&gt;chave-valor&lt;/strong&gt; (&lt;em&gt;key/value&lt;/em&gt;). Diferente do MongoDB que tem
+a capacidade de armazenar dados apenas em documentos, o que não é ideal para aplicações que
+armazenam dados simples em quantidades extremas, como é o caso de um &lt;strong&gt;chat&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Armazenar dados em documentos pode causar armazenamento extra de &lt;em&gt;bytes&lt;/em&gt; que podemos
+facilmente virar &lt;em&gt;petabytes&lt;/em&gt; de dados desnecessários para
+um aplicativo que não precisa desse tipo de armazenamento. Para esses casos é preferível
+utilizar armazenamento do tipo chave-valor.&lt;/p&gt;
+
+&lt;h2 id=&quot;um-pouco-da-histria-do-couchbase&quot;&gt;Um pouco da História do Couchbase&lt;/h2&gt;
+
+&lt;p&gt;Muito antes do termo &lt;strong&gt;NoSQL&lt;/strong&gt; os bancos de dados relacionais tinham a ajuda de uma tecnologia
+chamada &lt;strong&gt;Memcached&lt;/strong&gt; para atenderem a demanda de escalabilidade de aplicações modernas. 
+O Memcached, usado muito hoje em dia ainda, é um sistema de armazenamento distribuído de
+chave-valor usado para camada de cache distribuído de aplicações.&lt;/p&gt;
+
+&lt;p&gt;Os desenvolvedores do Memcached viram uma grande oportunidade de entregar mais além de cache
+e entregaram novas funcionalidades como protocolos binário, melhor gerenciamento de cluster,
+e o mais importante: persistência.&lt;/p&gt;
+
+&lt;p&gt;Esse novo produto ficou conhecido como &lt;strong&gt;Membase&lt;/strong&gt;. Uma tecnologia disruptiva que mudou o
+jeito que aplicações armazenavam dados e que rapidamente ganhou popularidade entre os
+desenvolvedores que precisavam de enorme escalabilidade.&lt;/p&gt;
+
+&lt;p&gt;E então, paralelamente, no mundo do NoSQL, surgiu o &lt;strong&gt;CouchDB&lt;/strong&gt; que, assim como o MongoDB, armazena documentos
+em &lt;code&gt;JSON&lt;/code&gt; e é potente e amigável.&lt;/p&gt;
+
+&lt;p&gt;O &lt;strong&gt;CouchDB&lt;/strong&gt; e o &lt;strong&gt;Membase&lt;/strong&gt; cresceram, ficaram maduros e os desenvolvedores dos dois
+produtos se juntaram e criaram o &lt;strong&gt;Couchbase&lt;/strong&gt;. Um novo banco de dados criado do zero e otimizado
+com as melhores tecnologias dos dois produtos anteriores.&lt;/p&gt;
+
+&lt;p&gt;O resultado é um banco de dados NoSQL, open-source, com potente escalabilidade, extremamente
+rápido, que nos dá a opção de armazenar dados em &lt;code&gt;JSON&lt;/code&gt; através de documentos e em chave/valor.
+E ainda nos dá a possibilidade de escalar de maneira muito fácil entre vários &lt;em&gt;cores&lt;/em&gt; devido
+ao seu passado com Memcached.&lt;/p&gt;
+
+&lt;p&gt;Assim podemos usar suas características de chave/valor e escalabilidade para armazenar e
+recuperar, por exemplo, o enorme número de mensagens que um aplicativo de &lt;em&gt;chat&lt;/em&gt; tem de maneira mais rápida
+e usar sua característica de documentos para armazenar as informações de cada usuário por exemplo.&lt;/p&gt;
+
+&lt;p&gt;O Couchbase ainda nos dá a possibilidade de sincronizarmos nossos dados locais e &lt;em&gt;online&lt;/em&gt;,
+possibilitando que nosso app também funcione &lt;em&gt;offline&lt;/em&gt;, sincronizando os dados quando o usuário
+fica &lt;em&gt;online&lt;/em&gt; de novo.&lt;/p&gt;
+
+&lt;p&gt;O Couchbase pode ser baixado em &lt;a href=&quot;http://www.couchbase.com&quot;&gt;http://www.couchbase.com&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 18 Apr 2017 19:38:20 -0300</pubDate>
+        <link>http://blini.io/o-couchbase-e-suas-diferencas-do-mongo-db</link>
+        <guid isPermaLink="true">http://blini.io/o-couchbase-e-suas-diferencas-do-mongo-db</guid>
+        
+        <category>Couchbase</category>
+        
+        <category>NoSQL</category>
+        
+        <category>MongoDB</category>
+        
+        <category>Databases</category>
+        
+        <category>Comparações</category>
+        
+        
+        <category>Couchbase</category>
+        
+        <category>NoSQL</category>
+        
+        <category>MongoDB</category>
+        
+        <category>Databases</category>
+        
+      </item>
+    
+      <item>
+        <title>Criando um Chat Realtime com CEAN Stack (Couchbase, Express, Angular2 e Node) e Socket.io - Parte 2 - Front-end</title>
+        <description>&lt;p&gt;Esse artigo é a segunda parte do artigo anterior, quando criamos o &lt;em&gt;Back-end&lt;/em&gt;, configuramos
+o &lt;strong&gt;Socket.io&lt;/strong&gt; no servidor e criamos um &lt;em&gt;Front-end&lt;/em&gt; bem simples usando nenhum &lt;em&gt;framework&lt;/em&gt; e
+configuramos o &lt;strong&gt;Socket.io&lt;/strong&gt; no cliente através da biblioteca &lt;strong&gt;socket.io-client.js&lt;/strong&gt;.
+Nesse artigo veremos como criar o mesmo &lt;em&gt;Front-end&lt;/em&gt; bem simples mas agora com &lt;strong&gt;Angular 2&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Existem diversas maneiras de inicializar um projeto em Angular 2, nesse artigo vamos usar
+o &lt;a href=&quot;https://cli.angular.io/&quot;&gt;Angular CLI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;O  Angular CLI deve ser instalado globalmente na sua máquina através do &lt;strong&gt;NPM&lt;/strong&gt; como é
+mostrado no site oficial: &lt;a href=&quot;https://cli.angular.io/&quot;&gt;https://cli.angular.io/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install -g angular-cli&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Como já definimos e configuramos na &lt;a href=&quot;http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1&quot;&gt;primeira parte desse artigo&lt;/a&gt;
+a pasta &lt;code&gt;public&lt;/code&gt; como o local onde nosso Front-end residirá, vamos abrir a pasta &lt;code&gt;public&lt;/code&gt;
+no terminal e inicializar um novo projeto &lt;strong&gt;Angular&lt;/strong&gt; com ajuda do seu &lt;strong&gt;CLI&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Se você não acompanhou o artigo anterior, você pode acessar o código que criamos lá
+&lt;a href=&quot;https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1&quot;&gt;neste repositório do GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Abra a pasta do projeto no terminal e navegue para a pasta &lt;code&gt;public&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ cd public&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Aqui vamos inicializar um novo projeto Angular 2. Para simplificar esse exemplo não vamos
+gerar arquivos de teste e nem configurar o &lt;code&gt;git&lt;/code&gt;. Eu costumo pular o instalação dos pacotes
+&lt;strong&gt;NPM&lt;/strong&gt; também pois eu prefiro usar o &lt;a href=&quot;https://yarn.com&quot;&gt;yarn&lt;/a&gt;.
+Vamos também dar o nome de &lt;code&gt;cean-frontend&lt;/code&gt; para a nossa
+aplicação Angular. O CLI do Angular nós dá 2 comandos para iniciar um novo projeto:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;ng init&lt;/code&gt;: cria um novo projeto na pasta atual.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;ng new&lt;/code&gt;: cria uma nova pasta com o nome da aplicação e roda o &lt;code&gt;ng init&lt;/code&gt; dentro dela.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vamos usar o &lt;code&gt;ng init&lt;/code&gt; já que não queremos que o Angular gere uma nova pasta para nós. Mas
+antes de rodar esse comando precisamos renomear o arquivo &lt;code&gt;package.json&lt;/code&gt; que temos na raiz 
+do projeto Express, pois o Angular CLI, antes de gerar o código, verifica a existência de 
+qualquer arquivo &lt;code&gt;package.json&lt;/code&gt; na estrutura de pastas, e se caso houver ele usa este como 
+sendo o seu arquivo de pacotes padrão, tenta sobrescrevê-lo e cria o projeto na mesma pasta dele.
+Então, para contornar isso, vamos renomear temporariamente esse arquivo para &lt;code&gt;_package.json&lt;/code&gt;.
+Outra coisa que devemos fazer é apagar o &lt;code&gt;html&lt;/code&gt; e o &lt;code&gt;js&lt;/code&gt; que criamos no artigo anterior dentro
+da pasta &lt;code&gt;public&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A estrutura do projeto até agora está assim:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/cean-stack-structure.jpg&quot; alt=&quot;img cean-stack-structure.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A pasta &lt;code&gt;public&lt;/code&gt; está vazia e o &lt;code&gt;package.json&lt;/code&gt; renomeado. Agora sim podemos rodar o &lt;code&gt;ng-init&lt;/code&gt;
+no terminal:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ ng init -n cean-frontend --skip-test --skip-git --skip-npm&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso vai gerar todo o código inicial do Angular que precisamos. Pode excluir a pasta &lt;code&gt;e2e&lt;/code&gt;
+e os arquivos &lt;code&gt;karma.conf.js&lt;/code&gt; e &lt;code&gt;protractor.conf.js&lt;/code&gt; já que não vamos trabalhar testes aqui.
+Agora também devemos renomear de volta &lt;code&gt;package.json&lt;/code&gt; da raiz do nosso projeto,
+retirando o &lt;em&gt;underline&lt;/em&gt; que colocamos anteriormente.&lt;/p&gt;
+
+&lt;p&gt;Se você usou a &lt;em&gt;flag&lt;/em&gt; &lt;code&gt;--skip-npm&lt;/code&gt; agora você deve instalar os pacotes, eu uso o &lt;code&gt;yarn&lt;/code&gt; para isso:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ yarn&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;O yarn roda em cima do npm. Caso você não o tenha instalado na sua máquina você pode
+instalá-lo globalmente através do próprio npm.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install -g yarn&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Se você prefere usar o NPM direto use &lt;code&gt;$ npm install&lt;/code&gt; ou não use a &lt;em&gt;flag&lt;/em&gt; &lt;code&gt;--skip-npm&lt;/code&gt; no momento
+do &lt;em&gt;scaffolding&lt;/em&gt; do projeto que o CLI instala todos os pacotes automaticamente.&lt;/p&gt;
+
+&lt;p&gt;Com as dependências instaladas podemos rodar nosso front, também utilizando o CLI para isso,
+na pasta &lt;code&gt;public&lt;/code&gt; rode o comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ ng serve -o&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso vai acionar o &lt;strong&gt;Webpack&lt;/strong&gt; que está embutido dentro do Angular CLI, que vai compilar
+todo o código &lt;strong&gt;TypeScript&lt;/strong&gt; em &lt;strong&gt;ES5&lt;/strong&gt; e carregar todos os módulos que estão sendo
+importados a partir do arquivo &lt;code&gt;main.ts&lt;/code&gt; por diante, vai minificar e agrupar todos os
+arquivos em &lt;em&gt;bundles&lt;/em&gt; e os servir pra nós em memória no nosso ambiente de &lt;code&gt;dev&lt;/code&gt;. A &lt;em&gt;flag&lt;/em&gt; &lt;code&gt;-o&lt;/code&gt;
+faz com que o CLI abra o navegador com a aplicação rodando, e ainda qualquer alteralçao no
+código será refetida no navegador sem a necessidade de dar um &lt;em&gt;refresh&lt;/em&gt;:&lt;/p&gt;
+
+&lt;h4 id=&quot;app-works&quot;&gt;app works!&lt;/h4&gt;
+
+&lt;p&gt;É claro que precisaremos de um processo de &lt;em&gt;build&lt;/em&gt; para produção, fique tranquilo(a),
+vamos ver isso mais adiante.&lt;/p&gt;
+
+&lt;p&gt;Agora com o front rodando vamos customizá-lo.&lt;/p&gt;
+
+&lt;h2 id=&quot;componentes-em-angular&quot;&gt;Componentes em Angular&lt;/h2&gt;
+
+&lt;p&gt;O Angular 2 é totalmente baseado em &lt;a href=&quot;https://www.w3.org/wiki/WebComponents/&quot;&gt;Web Components&lt;/a&gt;.
+Web Component é a &lt;strong&gt;“combinação”&lt;/strong&gt; de um &lt;strong&gt;template HTML&lt;/strong&gt; com um &lt;strong&gt;JS&lt;/strong&gt;
+e &lt;strong&gt;opcionalmente&lt;/strong&gt; um ou mais &lt;strong&gt;estilos CSS&lt;/strong&gt; e que podem ser facilmente testados, usados
+e reusados por toda a aplicação. No caso do Angular 2, os componentes são
+escrito por default em &lt;strong&gt;TypeScript&lt;/strong&gt;, tendo a opção também de escrever em JavaScript puro.
+Cada arquivo &lt;code&gt;.ts&lt;/code&gt; de um componente em Angular pode ter seu template e um estilo css definidos
+inline através das propriedades &lt;code&gt;template&lt;/code&gt; e &lt;code&gt;style&lt;/code&gt; definidas no &lt;em&gt;decorator&lt;/em&gt; &lt;code&gt;@Componet&lt;/code&gt;
+ou podem estar em arquivos separados referenciados nas propriedades &lt;code&gt;templateUrl&lt;/code&gt; e o &lt;em&gt;array&lt;/em&gt;
+&lt;code&gt;styleUrls&lt;/code&gt;. Também é passado como propriedade o &lt;strong&gt;seletor html&lt;/strong&gt; desse
+componente. E é assim que criamos um componente em Angular 2.&lt;/p&gt;
+
+&lt;p&gt;O &lt;em&gt;boilerplate&lt;/em&gt; que o CLI nos gerou vem com o componente principal da aplicação, pois como já
+dito anteriormente tudo é componente em Angular 2, inclusive a nossa aplicação também é um
+componente, pai de todos os outros componentes e também tem o seu seletor. Se você abrir
+o arquivo &lt;code&gt;app.component.ts&lt;/code&gt; vai ver que o seletor está definido como &lt;code&gt;app-root&lt;/code&gt;. E se você for
+adiante e abrir o &lt;code&gt;index.html&lt;/code&gt; vai ver que o &lt;code&gt;app-root&lt;/code&gt; está sendo invocado lá, e é lá que
+nossa aplicação inteira vai rodar.&lt;/p&gt;
+
+&lt;p&gt;Vamos criar o component &lt;code&gt;Chat&lt;/code&gt; com ajuda do CLI. No terminal, pare o servidor com &lt;code&gt;ctrl + c&lt;/code&gt;
+e ainda na pasta &lt;code&gt;public&lt;/code&gt;, use o seguinte comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ ng generate component chat&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso vai criar um componente com o nome &lt;code&gt;Chat&lt;/code&gt; no lugar certo na estrutura da nossa aplicação e
+seguindo a nomenclatura e convenção do Angular: dentro da pasta &lt;code&gt;app&lt;/code&gt; e dentro de uma pasta
+nova chamada &lt;code&gt;chat&lt;/code&gt;. Como mostrado abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/chat-component.jpg&quot; alt=&quot;img chat-component.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Se você abrir o arquivo &lt;code&gt;chat.component.ts&lt;/code&gt; vai notar que o seletor desse component é &lt;code&gt;app-chat&lt;/code&gt;.
+Então vamos abrir o template do nosso componente principal, &lt;code&gt;app.component.html&lt;/code&gt;, e
+substituir:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;h1&amp;gt;
+  &amp;#123;&amp;#123;title}}
+&amp;lt;/h1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Por:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;app-chat&amp;gt;&amp;lt;/app-chat&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;E em &lt;code&gt;chat.component.css&lt;/code&gt;, estilize o elemento &lt;code&gt;p&lt;/code&gt; do nosso novo componente:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;p {
+    font-size: 36px;
+    font-weight: bold;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Rode o servidor denovo &lt;code&gt;$ ng server -o&lt;/code&gt; e se tudo estiver certo você vai ver no navegador
+o texto:&lt;/p&gt;
+
+&lt;h4 id=&quot;chat-works&quot;&gt;chat works!&lt;/h4&gt;
+
+&lt;p&gt;Pronto, nosso componente filho está sendo renderizado na tela. Agora vamos customizá-lo
+e deixá-lo com a mesma cara do &lt;em&gt;Front-end&lt;/em&gt; anterior.&lt;/p&gt;
+
+&lt;h2 id=&quot;customizando-o-componente&quot;&gt;Customizando o Componente&lt;/h2&gt;
+
+&lt;p&gt;Em &lt;code&gt;app.component.html&lt;/code&gt; substitua o código por:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;ul id=&quot;messages&quot;&amp;gt;
+    &amp;lt;li *ngFor=&quot;let msg of messages&quot;&amp;gt;&amp;#123;&amp;#123; msg }}&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;form action=&quot;&quot;&amp;gt;
+    &amp;lt;input [(ngModel)]=&quot;chatBox&quot; name=&quot;chatBox&quot; autocomplete=&quot;off&quot; /&amp;gt;
+    &amp;lt;button (click)=&quot;send()&quot;&amp;gt;Enviar&amp;lt;/button&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O que está sendo feito no código acima é a criação de uma lista &lt;code&gt;ul&lt;/code&gt; de mensagens sendo que o 
+&lt;code&gt;li&lt;/code&gt; está sendo repetido para cada mensagem dentro do &lt;em&gt;array&lt;/em&gt; chamado &lt;code&gt;messages&lt;/code&gt; que será
+definido e populado no JavaScript deste componente, criando assim o &lt;em&gt;data binding&lt;/em&gt; entre o template
+e o código JavaScript. Utilizamos a diretiva *ngFor do Angular 2 para fazer essa “cola” (bind)
+e percorrer o &lt;em&gt;array&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;O segundo elemento html é um formulário com um &lt;code&gt;input&lt;/code&gt; do tipo texto chamado &lt;code&gt;chatBox&lt;/code&gt; também
+“colado” ao JavaScript através do &lt;code&gt;ngModel&lt;/code&gt;. Esta “cola” é do tipo &lt;em&gt;two-way-databind&lt;/em&gt;
+pois englobamos o &lt;code&gt;ngModel&lt;/code&gt; entre colchetes e parênteses &lt;code&gt;[()]&lt;/code&gt;, assim toda vez que o valor
+dessa propriedade mudar, em qualquer lugar, será refletido tanto no HTML quanto no JS.&lt;/p&gt;
+
+&lt;p&gt;Também criamos um botão “Enviar” com o seu evento &lt;code&gt;click&lt;/code&gt; “colado” a um manipulador chamado
+&lt;code&gt;send&lt;/code&gt; que é uma função que recebe o valor atual do &lt;code&gt;input&lt;/code&gt; &lt;code&gt;chatBox&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Em &lt;code&gt;app.component.css&lt;/code&gt;, estilize nosso componente da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;#messages,* { margin:0;padding:0 }
+* { box-sizing:border-box }
+body { font:13px Helvetica, Arial }
+form { background:#000; padding:3px; position:fixed; bottom:0; width:100% }
+form input { border:0; padding:10px; width:90%; margin-right:.5% }
+form button{ width:9%; background:#82e0ff; border:none; padding:10px } 
+#messages { list-style-type:none }
+#messages li { padding:5px 10px}
+#messages li:nth-child(odd) { background:#eee }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Estes html e css foram retirados da &lt;a href=&quot;http://socket.io/docs/&quot;&gt;documentação do Socket.io&lt;/a&gt; e
+adaptados para esse artigo.&lt;/p&gt;
+
+&lt;p&gt;As diretivas de formulário do Angular (&lt;code&gt;ngModel&lt;/code&gt;, &lt;code&gt;click&lt;/code&gt;, &lt;code&gt;*ngFor&lt;/code&gt;, etc) usadas acima
+dependem de &lt;strong&gt;módulos do Angular&lt;/strong&gt; que devem ser importados no módulo pai do componente
+que os está usando. O módulo pai do nosso componente é o módulo principal da aplicação - a
+classe &lt;code&gt;AppModule&lt;/code&gt; - definida em &lt;code&gt;app.module.ts&lt;/code&gt;.
+O comando do CLI usado para gerar o componente já faz essa importação
+para a gente. Se você abrir o arquivo &lt;code&gt;app.module.ts&lt;/code&gt; vai ver que o &lt;strong&gt;ChatComponent&lt;/strong&gt;
+está sendo importado lá e inserido no &lt;em&gt;array&lt;/em&gt; &lt;strong&gt;declarations&lt;/strong&gt; assim como o módulo
+&lt;strong&gt;FormsModule&lt;/strong&gt;, responsável pelas direticas em questão, também está sendo importado e
+declarado em &lt;code&gt;imports&lt;/code&gt;. O &lt;strong&gt;HttpModule&lt;/strong&gt; também está presente, vamos usá-lo mais pra frente.&lt;/p&gt;
+
+&lt;p&gt;No nosso template o botão “Enviar” invoca uma função chamada &lt;code&gt;send&lt;/code&gt; e a nossa lista &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;
+repete um &lt;em&gt;array&lt;/em&gt; chamado &lt;code&gt;messages&lt;/code&gt;. Bora alterar a classe do nosso componente para atender
+esses requisitos então. Abra o arquivo &lt;code&gt;chat.component.ts&lt;/code&gt; e deixe-o assim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;import { Component, OnInit } from &#39;@angular/core&#39;;
+
+@Component({
+  selector: &#39;app-chat&#39;,
+  templateUrl: &#39;./chat.component.html&#39;,
+  styleUrls: [&#39;./chat.component.css&#39;]
+})
+export class ChatComponent implements OnInit {
+
+  // propriedades do view model
+  messages: Array&amp;lt;String&amp;gt;;
+  chatBox: String;
+
+  constructor() {
+    // valores iniciais para as propriedades
+    this.messages = [];
+    this.chatBox = &quot;&quot;;
+  }
+
+  // function send()
+  send() {
+    if(!this.chatBox)
+      return;
+      
+    console.log(&#39;sending message:&#39;, this.chatBox);
+    this.messages.push(this.chatBox);
+    this.chatBox = &quot;&quot;;
+  }
+
+  ngOnInit() {
+    console.log(&#39;chat.component initialized&#39;);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No código acima primeiro &lt;strong&gt;criamos as propriedades&lt;/strong&gt; &lt;code&gt;messages&lt;/code&gt; do tipo &lt;em&gt;array&lt;/em&gt; de &lt;code&gt;Strings&lt;/code&gt; e a
+&lt;code&gt;chatBox&lt;/code&gt; do tipo &lt;code&gt;String&lt;/code&gt;. Atribuímos &lt;strong&gt;valores iniciais&lt;/strong&gt; a elas no Construtor da classe e
+criamos o método &lt;code&gt;send&lt;/code&gt; que checa se a propriedade &lt;code&gt;chatBox&lt;/code&gt; tem um valor, se esta condição
+for verdadeira, &lt;strong&gt;inclui o valor no array&lt;/strong&gt; &lt;code&gt;messages&lt;/code&gt;, e a propriedade &lt;code&gt;chatBox&lt;/code&gt; é
+&lt;strong&gt;reinicializada com um valor vazio&lt;/strong&gt;. Como o array &lt;code&gt;messages&lt;/code&gt; está vinculado ao elemento
+&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; do template através do &lt;code&gt;*ng-for&lt;/code&gt; e a propriedade &lt;code&gt;chatBox&lt;/code&gt; vinculada ao &lt;code&gt;input&lt;/code&gt; no
+template através do &lt;code&gt;ngModel&lt;/code&gt;, &lt;strong&gt;essas mudanças se refletirão na tela&lt;/strong&gt; e tudo funcionará
+como esperado.&lt;/p&gt;
+
+&lt;p&gt;Se você abrir o &lt;em&gt;Front-end&lt;/em&gt; agora, tudo deverá estar funcionando, porém agora em Angular 2.
+Digite um texto no campo e clique no botão “Enviar”. As mensagens enviadas irão aparecer
+na tela uma após a outra com cores de linha alternadas.&lt;/p&gt;
+
+&lt;p&gt;Agora precisamo fazer a parte do Socket.io funcionar como antes, como pode ser visto
+&lt;a href=&quot;criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1#funcionar-como-antes&quot;&gt;
+no final do último post&lt;/a&gt;, para sermos capazes de enviar e receber mensagens de e para outros &lt;em&gt;sockets&lt;/em&gt;
+conectados, só que agora no Angular 2 também.&lt;/p&gt;
+
+&lt;h2 id=&quot;criando-um-cliente-do-socketio-no-angular-2&quot;&gt;Criando um cliente do Socket.io no Angular 2&lt;/h2&gt;
+
+&lt;p&gt;Nosso front-end tá quase pronto, agora precisamos usar o Socket.io no método &lt;code&gt;send&lt;/code&gt; para enviar a mensagem
+em &lt;em&gt;broadcast&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Então pra finalizar nosso Front-end vamos instalar e configurar o &lt;strong&gt;&lt;em&gt;client&lt;/em&gt; do Socket.io&lt;/strong&gt;
+nos moldes do Angular 2.&lt;/p&gt;
+
+&lt;p&gt;O &lt;code&gt;socket.io-client&lt;/code&gt; é uma biblioteca e também está disponível como um módulo no repositório
+do npm.&lt;/p&gt;
+
+&lt;p&gt;Se você abrir a pasta &lt;code&gt;node_modules&lt;/code&gt; dentro da pasta &lt;code&gt;public&lt;/code&gt; vai encontrar a pasta &lt;strong&gt;socket.io-client&lt;/strong&gt;,
+isso significa que ele já está instalado, pois ele &lt;strong&gt;já vem no projeto criado pelo CLI&lt;/strong&gt;.
+Caso não encontre basta instalá-lo através do npm:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install --save socket.io-client&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Para utilizarmos essa biblioteca precisamos importá-la em nosso código.&lt;/p&gt;
+
+&lt;p&gt;Abra novamente o arquivo &lt;code&gt;chat.component.ts&lt;/code&gt; e inclua a seguinte linha após o &lt;code&gt;@angular/core&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;import * as io from &#39;socket.io-client&#39;;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Isso vai &lt;strong&gt;importar todos os métodos e propriedades públicas do módulo&lt;/strong&gt;
+&lt;code&gt;socket.io-client&lt;/code&gt; dentro de uma variável chamada &lt;code&gt;io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Se você rodar o &lt;code&gt;Front-end&lt;/code&gt; agora vai deparar com o erro:
+*&lt;em&gt;Cannot find module ‘socket.io-client’&lt;/em&gt;**.&lt;/p&gt;
+
+&lt;p&gt;Isso acontece pois o Angular, através do &lt;strong&gt;Webpack&lt;/strong&gt;, importa módulos em &lt;strong&gt;TypeScript&lt;/strong&gt;. No TypeScript nós
+temos tipos estático, no &lt;strong&gt;JavaScript&lt;/strong&gt; puro não. O socket.io-client é uma biblioteca escrita
+em JavaScript puro, então o &lt;strong&gt;Webpack&lt;/strong&gt;, que compila e carrega os módulos TypeScript para o
+Angular, não consegue fazer seu trabalho pois não encontra nenhum módulo &lt;code&gt;.ts&lt;/code&gt; com o nome
+&lt;em&gt;socket.io-client&lt;/em&gt; e então nenhum módulo com esse nome é encontrado.&lt;/p&gt;
+
+&lt;p&gt;Para resolver isso precisamos definir tipos para a biblioteca que queremos usar criando
+um arquivo &lt;code&gt;.ts&lt;/code&gt; para ela. Se você abrir o arquivo de configuração do TypeScript,
+&lt;code&gt;tsconfig.json&lt;/code&gt; vai ver a propriedade &lt;code&gt;typeRoots&lt;/code&gt; apontando para &lt;code&gt;../node_modules/@types&lt;/code&gt;.
+É alí que o compilador do TypeScript vai procurar por tipos para bibliotecas importadas
+em JavaScripts. Poderíamos criar um novo diretório alí com o nome &lt;strong&gt;socket.io-client&lt;/strong&gt; e
+um arquivo &lt;code&gt;index.d.ts&lt;/code&gt; definindo e exportando esses tipos e o TypeScript saberia o que
+compilar. Porém para nos ajudar com isso existe o repositório online &lt;strong&gt;Typings&lt;/strong&gt; com essas
+definições de tipos para diversas bibliotecas que não são escritas em TypeScript.&lt;/p&gt;
+
+&lt;p&gt;Se caso a biblioteca que você precisa não possuir um &lt;em&gt;typing&lt;/em&gt; disponível, basta criar um bem
+simples em uma pasta com o mesmo nome da biblioteca e um arquivo &lt;code&gt;index.d.ts&lt;/code&gt; dentro
+&lt;em&gt;fakeando&lt;/em&gt; isso.&lt;/p&gt;
+
+&lt;p&gt;O socket.io-client possui um &lt;em&gt;typing&lt;/em&gt;, então vamos instalá-lo. Na pasta public rode o comando:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install --save-dev @types/socket.io-client&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Usamos &lt;code&gt;--save-dev&lt;/code&gt; pois precisamos de Typings apenas no ambiente de desenvolvimento, &lt;strong&gt;nenhum
+arquivo de Typings e TypeScript vai para produção&lt;/strong&gt;, apenas JavaScript, assim não precisamos de Typings
+em produção.&lt;/p&gt;
+
+&lt;p&gt;Feito isso você pode verificar a instalação.&lt;/p&gt;
+
+&lt;p&gt;Abrindo a pasta &lt;code&gt;node_module/@types&lt;/code&gt; você verá a
+pasta &lt;code&gt;socket.io-client&lt;/code&gt; com o arquivo &lt;code&gt;index.d.ts&lt;/code&gt; exportando o módulo com todos os tipos.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/socket.io-client@types.jpg&quot; alt=&quot;img socket.io-client@types.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Se você rodar o front novamente verá que o erro sumiu.&lt;/p&gt;
+
+&lt;p&gt;Muito bem, agora vamos alterar nosso componente para que cada vez que o método &lt;code&gt;send()&lt;/code&gt;
+for invocado ele emita o evento &lt;code&gt;mensagem_mano&lt;/code&gt; junto com o valor da propriedade &lt;code&gt;chatBox&lt;/code&gt;
+para todos os sockets conectados.&lt;/p&gt;
+
+&lt;p&gt;Na classe do componente &lt;strong&gt;Chat&lt;/strong&gt; (&lt;code&gt;chat.component.ts&lt;/code&gt;) faça isso:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;import { Component, OnInit } from &#39;@angular/core&#39;;
+import * as io from &#39;socket.io-client&#39;;
+
+@Component({
+  selector: &#39;app-chat&#39;,
+  templateUrl: &#39;./chat.component.html&#39;,
+  styleUrls: [&#39;./chat.component.css&#39;]
+})
+export class ChatComponent implements OnInit {
+
+  // propriedades do view model
+  messages: Array&amp;lt;String&amp;gt;;
+  chatBox: String;
+
+  // -----&amp;gt; nova propriedade
+  socket: any; // &amp;lt;-------------
+
+  constructor() {
+    // valores iniciais para as propriedades
+    this.messages = [];
+    this.chatBox = &quot;&quot;;
+
+    // ------&amp;gt; Instanciando o Socket.io
+    this.socket = io();
+
+    // Sempre que o servidor emitir o evento &#39;mensagem_mano&#39;, o socket do
+    // usuário conectado vai capturar esse evento e executar a função callback
+    // que adiciona o valor recebido no array de messages
+    this.socket.on(&quot;mensagem_mano&quot;, (msg: string) =&amp;gt; {
+      console.log(&#39;receiving message:&#39;, msg)
+      this.messages.push(msg);
+    }); // &amp;lt;-----------------
+  }
+
+  // function send()
+  send() {
+    if(!this.chatBox)
+      return;
+
+    console.log(&#39;sending message:&#39;, this.chatBox);
+    
+    // -------&amp;gt; pede ao servidor para executar o evento &#39;mensagem_mano&#39;
+    // e transmitir 1 parâmetro que vai para todos os usuários
+    // conectados, inclusive para quem enviou
+    this.socket.emit(&quot;mensagem_mano&quot;, this.chatBox); // &amp;lt;------------
+
+    this.chatBox = &quot;&quot;;
+  }
+
+  ngOnInit() {
+    console.log(&#39;chat.component initialized&#39;);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;PS: os novos blocos de código incluídos estão entre &lt;code&gt;// -------&amp;gt;&lt;/code&gt; e  &lt;code&gt;// &amp;lt;------------&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Primeiro criamos uma &lt;strong&gt;nova propriedade do tipo&lt;/strong&gt; &lt;code&gt;any&lt;/code&gt; &lt;strong&gt;chamada&lt;/strong&gt; &lt;code&gt;socket&lt;/code&gt; e no construtor da
+classe &lt;strong&gt;definimos esta propriedade como uma instância de socket.io-client&lt;/strong&gt; que importamos
+anteriormente dentro da variável &lt;code&gt;io&lt;/code&gt;. Ainda no construtor da classe &lt;strong&gt;definimos um ouvinte
+para o evento&lt;/strong&gt; &lt;code&gt;mensagem_mano&lt;/code&gt; que irá capturar todas mensagens transmitidas pelo evento emitido
+por qualquer socket, inclusive as mensagens do próprio usuário que a enviou, do mesmo jeito
+que fizemos no último código da parte 1 desse artigo. E na função &lt;code&gt;send()&lt;/code&gt; ao invés de jogarmos
+o valor do &lt;code&gt;chatBox&lt;/code&gt; para dentro do array vamos passá-la pra frente e deixar a cargo dos
+ouvintes de todos os sockets adicioná-lo ao array.&lt;/p&gt;
+
+&lt;p&gt;Para testarmos precisamos do Back-end e do Front-end rodando. O servidor Back-end está
+configurado no &lt;strong&gt;Express&lt;/strong&gt; para rodar na porta &lt;code&gt;3000&lt;/code&gt; e o Angular está rodando “virtualmente”
+na porta &lt;code&gt;4200&lt;/code&gt;. “Virtualmente” pois o código JavaScript é servido em memória e não fisicamente.&lt;/p&gt;
+
+&lt;p&gt;Precisamos gerar fisicamente os arquivos do Angular em &lt;em&gt;bundles&lt;/em&gt; e serví-los também na porta
+&lt;code&gt;3000&lt;/code&gt; como arquivos estáticos através do &lt;strong&gt;Express&lt;/strong&gt;. Rodando assim &lt;strong&gt;tanto o Back-end quanto o
+Front-end na mesma porta&lt;/strong&gt;, o que é um requisito para esse exemplo em específico funcionar.&lt;/p&gt;
+
+&lt;p&gt;Para isso precisamos que o nosso Front-end passe por um &lt;strong&gt;processo de build para produção&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;fazendo-o-build-do-angular-para-produo&quot;&gt;Fazendo o Build do Angular para Produção&lt;/h3&gt;
+
+&lt;p&gt;O &lt;strong&gt;Webpack&lt;/strong&gt; é o cara responsável por fazer esse processo.&lt;/p&gt;
+
+&lt;p&gt;Se você abrir o arquivo &lt;code&gt;angular-cli.json&lt;/code&gt; vai perceber que já existe um processo de
+build configurado que será usado pelo Webpack. Analizando a propriedade &lt;code&gt;apps&lt;/code&gt; desse arquivo temos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;&quot;root&quot;: &quot;src&quot;&lt;/code&gt;: onde os arquivos de desenvolvimento estão&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&quot;outDir&quot;: &quot;dist&lt;/code&gt;”: em qual pasta os arquivos compilados e prontos para a produção serão gerados&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&quot;index&quot;: &quot;index.html&lt;/code&gt;: em qual arquivo html os &lt;em&gt;bundles&lt;/em&gt; com os códigos compilados devem ser injetados&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&quot;main&quot;: &quot;main.ts&quot;&lt;/code&gt;: a partir de qual arquivo o processo de carregamento de módulos e compilação deve iniciar&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Com essas 4 informações já temos uma idéia de o que o Webpack vai fazer. E para realizar
+esse processo de build utilizamos novamente o &lt;strong&gt;CLI do Angular&lt;/strong&gt; com o comando &lt;code&gt;ng build&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Então no terminal, dentro da pasta &lt;code&gt;public&lt;/code&gt; rodamos o comando com a &lt;em&gt;flag&lt;/em&gt; &lt;code&gt;-p&lt;/code&gt; informando
+que estamos fazendo um build para produção:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ ng build -p&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;rodando-a-aplicao&quot;&gt;Rodando a Aplicação&lt;/h3&gt;
+
+&lt;p&gt;Com o &lt;em&gt;build&lt;/em&gt; finalizado você verá que foram gerados vários &lt;em&gt;bundles&lt;/em&gt; para nossos códigos
+(&lt;strong&gt;componentes&lt;/strong&gt;), para os &lt;em&gt;vendors&lt;/em&gt; (&lt;strong&gt;Angular&lt;/strong&gt; e &lt;strong&gt;socket.io-client&lt;/strong&gt;) e para os estilos &lt;code&gt;css&lt;/code&gt;.
+E que esses arquivos todos foram gerados dentro de um &lt;strong&gt;nova pasta chamada&lt;/strong&gt; &lt;code&gt;dist&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;É essa pasta que devemos servir com estática dentro de nossa &lt;em&gt;stack&lt;/em&gt;. Então no arquivo &lt;code&gt;app.js&lt;/code&gt;
+onde configuramos o &lt;strong&gt;Express&lt;/strong&gt;, vamos configurar iss como já havíamos
+feito para a pasta &lt;code&gt;public&lt;/code&gt; colocando &lt;code&gt;/dist&lt;/code&gt; na frente&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;app.use(express.static(path.join(__dirname, &quot;public&quot;, &quot;dist&quot;)));&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora com a pasta configurada, no terminal navegue até a raiz do projeto e rode o servidor
+Express:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ node app&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E acesse &lt;code&gt;http://localhost:3000/&lt;/code&gt; em vários navegadores ou abas e envie mensagens de chat
+entre eles!&lt;/p&gt;
+
+&lt;p&gt;No artigo anterior nós configuramos um &lt;em&gt;end-point&lt;/em&gt; no nosso Back-end que nos retorna o
+histórico de mensagens do chat, se você acessar &lt;code&gt;http://localhost:3000/mensagens&lt;/code&gt; vai ver
+que também está funcionando. É nesse &lt;em&gt;end-point&lt;/em&gt; que vamos integrar nossa aplicação com o
+&lt;strong&gt;CouchBase&lt;/strong&gt; no próximo artigo!&lt;/p&gt;
+
+&lt;p&gt;Aí você me pergunta: porquê raios o &lt;strong&gt;Couchbase&lt;/strong&gt; e não &lt;strong&gt;MongoDB&lt;/strong&gt;? Porquê usar &lt;strong&gt;CEAN&lt;/strong&gt; e não &lt;strong&gt;MEAN&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;Eu preparei uma pequeno texto respondendo isso: &lt;a href=&quot;/o-couchbase-e-suas-diferencas-do-mongo-db&quot;&gt;O Couchbase e suas Diferenças do MongoDB&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;O código fonte dessa parte está &lt;a href=&quot;https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial/tree/part-2&quot;&gt;neste repositório do Github&lt;/a&gt;
+dentro da branch &lt;code&gt;part-2&lt;/code&gt;. Confere lá!&lt;/p&gt;
+
+&lt;p&gt;Deixe o seu comentário, dúvidas e etc… Nos vemos no próximo artigo!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Feb 2017 16:18:25 -0300</pubDate>
+        <link>http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-2</link>
+        <guid isPermaLink="true">http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-2</guid>
+        
+        <category>Socket.io</category>
+        
+        <category>Websockets</category>
+        
+        <category>Couchbase</category>
+        
+        <category>Node</category>
+        
+        <category>Express</category>
+        
+        <category>Angular</category>
+        
+        <category>JavaScript</category>
+        
+        
+        <category>Socket.io</category>
+        
+        <category>Websockets</category>
+        
+        <category>Couchbase</category>
+        
+        <category>Node</category>
+        
+        <category>Express</category>
+        
+        <category>Angular</category>
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Criando um Chat Realtime com CEAN Stack (Couchbase, Express, Angular2 e Node) e Socket.io - Parte 1 - Back-end</title>
         <description>&lt;p&gt;Construir um chat há alguns anos costumava ser algo muito difícil de se fazer. Exigia-nos
 construir uma arquitetura complexa. Tínhamos que consultar o servidor a todo momento
 em busca de novas mensagens e isso era pouco performático. Como não tínhamos
@@ -477,6 +1065,8 @@ socket.on(&#39;mensagem_mano&#39;, function (msg) {
 
 &lt;p&gt;&lt;code&gt;$ node app&lt;/code&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;a id=&quot;funcionar-como-antes&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Abra a aplicação em 2 navegadores e faça o teste!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/ezgif.com-video-to-gif.gif&quot; alt=&quot;Ezgif.com-video-to-gif.gif&quot; /&gt;&lt;/p&gt;
@@ -502,10 +1092,11 @@ no servidor para buscar as mensagens no end-point que criamos e como integrar o 
 Angular 2 usando observables. Em um próximo artigo, também vou mostrar como fazer tudo isso
 com Ionic 2 e Firebase ;)&lt;/p&gt;
 
-&lt;p&gt;O código fonte dessa parte do artigo está disponível em
-https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1.&lt;/p&gt;
+&lt;p&gt;O código fonte dessa parte do artigo está disponível no
+&lt;a href=&quot;https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial&quot;&gt;GithUB&lt;/a&gt;
+na &lt;em&gt;branch&lt;/em&gt; master.&lt;/p&gt;
 
-&lt;p&gt;Deixe o seu comentário, dúvidas, xingamentos e etc… Nos vemos no próximo artigo!&lt;/p&gt;
+&lt;p&gt;Deixe o seu comentário, dúvidas e etc… Nos vemos no próximo artigo!&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Feb 2017 22:04:27 -0300</pubDate>
         <link>http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1</link>
@@ -1677,7 +2268,7 @@ alert (x); // a variável &#39;x&#39; não existe aqui
       </item>
     
       <item>
-        <title>WordPress - Como diminuir o Page Load de 1 minuto para 15 segundos</title>
+        <title>Como eu diminui um Page Load de 1 minuto para 15 segundos em uma página feita com WordPress</title>
         <description>&lt;p&gt;Este foi um trabalho que eu fiz para um hostel em &lt;a href=&quot;https://www.lonelyplanet.com/hungary/budapest&quot;&gt;Budapeste - Hungria&lt;/a&gt;.
 O site do hostel foi feito com WordPress e apresentava extrema lentidão no carregamento da página,
 e discrepâncias e erros na responsividade do layout quando visitado em telas pequenas.&lt;/p&gt;

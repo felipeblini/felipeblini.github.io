@@ -1,10 +1,12 @@
+'use strict';
+
 (function () {
     $(document).ready(function() {
-        fillBars()
+        fillBars();
     });
     
     $(window).scroll(function() {
-        fillBars()
+        fillBars();
     });
     
     function fillBars() {
@@ -15,6 +17,6 @@
             if (pos < winTop + 750) {
                 $(this).css('width', $(this).data('percent') + '%');
             }
-        })
+        });
     }
 })();
