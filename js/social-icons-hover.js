@@ -1,47 +1,51 @@
-var svgColor = "#828282";
+'use strict';
 
-// var flickr = document.querySelector(".flickr");
-// flickr.addEventListener("mouseover", flickrMouseOver);
-// flickr.addEventListener("mouseout", flickeMouseOut);
+(function () {
+  var svgColor = "#828282";
 
-var codepen = document.querySelector(".codepen");
-codepen.addEventListener("mouseover", codepenMouseOver);
-codepen.addEventListener("mouseout", codepenMouseOut);
+  // var flickr = document.querySelector(".flickr");
+  // flickr.addEventListener("mouseover", flickrMouseOver);
+  // flickr.addEventListener("mouseout", flickeMouseOut);
 
-function flickrMouseOver() {
-  document.querySelector("#svg--flickr .red").setAttribute("fill", "red");
+  var codepen = document.querySelector(".codepen");
+  codepen.addEventListener("mouseover", codepenMouseOver);
+  codepen.addEventListener("mouseout", codepenMouseOut);
 
-  document.querySelector("#svg--flickr .blue").setAttribute("fill", "blue");
-}
+  function flickrMouseOver() {
+    document.querySelector("#svg--flickr .red").setAttribute("fill", "red");
 
-function flickeMouseOut() {
-  document.querySelector("#svg--flickr .red").removeAttribute("fill");
+    document.querySelector("#svg--flickr .blue").setAttribute("fill", "blue");
+  }
 
-  document.querySelector("#svg--flickr .blue").removeAttribute("fill");
-}
+  function flickeMouseOut() {
+    document.querySelector("#svg--flickr .red").removeAttribute("fill");
 
-function codepenMouseOver() {
-  var polygons = document.querySelectorAll("#svg--codepen polygon");
-  var lines = document.querySelectorAll("#svg--codepen line");
-  
-  [].forEach.call(polygons, function(p) {
-    p.setAttribute("stroke", "black");
-  });
-  
-  [].forEach.call(lines, function(l) {
-    l.setAttribute("stroke", "black");
-  });
-}
+    document.querySelector("#svg--flickr .blue").removeAttribute("fill");
+  }
 
-function codepenMouseOut() {
-  var polygons = document.querySelectorAll("#svg--codepen polygon");
-  var lines = document.querySelectorAll("#svg--codepen line");
-  
-  [].forEach.call(polygons, function(p) {
-    p.setAttribute("stroke", svgColor);
-  });
+  function codepenMouseOver() {
+    var polygons = document.querySelectorAll("#svg--codepen polygon");
+    var lines = document.querySelectorAll("#svg--codepen line");
 
-  [].forEach.call(lines, function(l) {
-    l.setAttribute("stroke", svgColor);
-  });
-}
+    [].forEach.call(polygons, function (p) {
+      p.setAttribute("stroke", "black");
+    });
+
+    [].forEach.call(lines, function (l) {
+      l.setAttribute("stroke", "black");
+    });
+  }
+
+  function codepenMouseOut() {
+    var polygons = document.querySelectorAll("#svg--codepen polygon");
+    var lines = document.querySelectorAll("#svg--codepen line");
+
+    [].forEach.call(polygons, function (p) {
+      p.setAttribute("stroke", svgColor);
+    });
+
+    [].forEach.call(lines, function (l) {
+      l.setAttribute("stroke", svgColor);
+    });
+  }
+})();

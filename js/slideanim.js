@@ -1,10 +1,12 @@
+'use strict';
+
 (function () {
     $(document).ready(function() {
-        slideanim()
+        slideanim();
     });
     
     $(window).scroll(function() {
-        slideanim()
+        slideanim();
     });
     
     function slideanim() {
@@ -16,6 +18,6 @@
             if (pos < winTop + 600) {
                 $(this).addClass("slide");
             }
-        })
+        });
     }
 })();

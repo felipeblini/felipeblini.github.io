@@ -2,13 +2,14 @@
 ---
 @charset "utf-8";
 
+/* Including from _sass folder */
 @import "base/custom-variables";
 
-/* External libs*/
+/* External libs */
 /* Code Highlights alternative of default jekyll highlighters*/
 @import "external/prism";
 @import "external/syntax-highlighting.scss";
-/* Flags for multilanguage stuff*/
+/* Flags for multilanguage stuff */
 @import "external/flag-icons/variables";
 @import "external/flag-icons/flag-icon-base";
 @import "external/flag-icons/flag-icon-list";

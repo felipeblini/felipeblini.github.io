@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "WordPress - Como diminuir o Page Load de 1 minuto para 15 segundos"
+title:  "Como eu diminui um Page Load de 1 minuto para 15 segundos em uma página feita com WordPress"
 ref: post-003
 lang: pt
 country: br

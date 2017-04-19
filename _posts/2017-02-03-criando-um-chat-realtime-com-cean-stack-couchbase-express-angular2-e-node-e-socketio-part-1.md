@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Criando um Chat Realtime com CEAN Stack (Couchbase, Express, Angular2 e Node) e Socket.io - Part 1
+title: Criando um Chat Realtime com CEAN Stack (Couchbase, Express, Angular2 e Node) e Socket.io - Parte 1 - Back-end
 date: 2017-02-03 01:04:27
 ref: post-007
 lang: pt
@@ -485,6 +485,8 @@ Se você rodar o servidor agora vai ver que está tudo funcionando:
 
 `$ node app`
 
+<a id="funcionar-como-antes"/>
+
 Abra a aplicação em 2 navegadores e faça o teste!
 
 ![Ezgif.com-video-to-gif.gif](img/ezgif.com-video-to-gif.gif)
@@ -510,7 +512,8 @@ no servidor para buscar as mensagens no end-point que criamos e como integrar o 
 Angular 2 usando observables. Em um próximo artigo, também vou mostrar como fazer tudo isso
 com Ionic 2 e Firebase ;)
 
-O código fonte dessa parte do artigo está disponível em
-https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1.
+O código fonte dessa parte do artigo está disponível no
+[GithUB](https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial)
+na _branch_ master.
 
-Deixe o seu comentário, dúvidas, xingamentos e etc… Nos vemos no próximo artigo!
+Deixe o seu comentário, dúvidas e etc… Nos vemos no próximo artigo!
