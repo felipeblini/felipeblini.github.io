@@ -22,7 +22,7 @@ tags:
 O **MongoDB** e o **Couchbase** fazem parte do mundo **NoSql (Not only SQL)** que é composto
 por uma vasta gama de bancos de dados, cada com sua especialidade. Temos bancos
 especializados em documentos, especialistas em chave-valor, especialistas em grafos,
-temos os que armazenam dados em colunas e por aí vai. Todos com algo em comum: **garantir escalabilidade!**
+temos os que armazenam dados em colunas e por aí vai. Todos com algo em comum: **melhorar a escalabilidade!**
 
 O **Couchbase** se garante muito bem sendo um dos líderes do segmento e é usado por apps e
 sites como **Viber**, **PayPal**, **LinkedIn** e **eBay**, servindo facilmente _terabytes_ e _petabytes_ de
