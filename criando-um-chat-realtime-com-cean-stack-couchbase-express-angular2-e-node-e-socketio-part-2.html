@@ -164,11 +164,11 @@ mostrado no site oficial: <a href="https://cli.angular.io/">https://cli.angular.
 <p><code>$ npm install -g angular-cli</code></p>
 
 <p>Como já definimos e configuramos na <a href="http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1">primeira parte desse artigo</a>
-a pasta <code>public</code> como o local onde nosso Front-end residirá, vamos abrir a pasta <code>public</code>
+a pasta <code>public</code> como o local onde nosso Front-end residirá, vamos abrir esta pasta
 no terminal e inicializar um novo projeto <strong>Angular</strong> com ajuda do seu <strong>CLI</strong>.</p>
 
-<p>Se você não acompanhou o artigo anterior, você pode acessar o código que criamos lá
-<a href="https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1">neste repositório do GitHub</a>.</p>
+<p>Se você não acompanhou o artigo anterior, você pode fazer o download do código que criamos lá
+através <a href="https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1">deste repositório do GitHub</a>.</p>
 
 <p>Abra a pasta do projeto no terminal e navegue para a pasta <code>public</code>:</p>
 
@@ -190,7 +190,7 @@ antes de rodar esse comando precisamos renomear o arquivo <code>package.json</co
 do projeto Express, pois o Angular CLI, antes de gerar o código, verifica a existência de 
 qualquer arquivo <code>package.json</code> na estrutura de pastas, e se caso houver ele usa este como 
 sendo o seu arquivo de pacotes padrão, tenta sobrescrevê-lo e cria o projeto na mesma pasta dele.
-Então, para contornar isso, vamos renomear temporariamente esse arquivo para <code>_package.json</code>.
+Então, para contornar isso, vamos renomear temporariamente este arquivo para <code>_package.json</code>.
 Outra coisa que devemos fazer é apagar o <code>html</code> e o <code>js</code> que criamos no artigo anterior dentro
 da pasta <code>public</code>.</p>
 
@@ -198,8 +198,8 @@ da pasta <code>public</code>.</p>
 
 <p><img src="img/cean-stack-structure.jpg" alt="img cean-stack-structure.jpg" /></p>
 
-<p>A pasta <code>public</code> está vazia e o <code>package.json</code> renomeado. Agora sim podemos rodar o <code>ng-init</code>
-no terminal:</p>
+<p>A pasta <code>public</code> está vazia e o <code>package.json</code> renomeado.
+Agora sim, dentro pasta <code>public</code> podemos rodar o <code>ng-init</code> no terminal:</p>
 
 <p><code>$ ng init -n cean-frontend --skip-test --skip-git --skip-npm</code></p>
 
@@ -458,7 +458,7 @@ definições de tipos para diversas bibliotecas que não são escritas em TypeSc
 simples em uma pasta com o mesmo nome da biblioteca e um arquivo <code>index.d.ts</code> dentro
 <em>fakeando</em> isso.</p>
 
-<p>O socket.io-client possui um <em>typing</em>, então vamos instalá-lo. Na pasta public rode o comando:</p>
+<p>O socket.io-client possui um <em>typing</em>, então vamos instalá-lo. Na pasta <code>public</code> rode o comando:</p>
 
 <p><code>$ npm install --save-dev @types/socket.io-client</code></p>
 

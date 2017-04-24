@@ -6,8 +6,8 @@
 </description>
     <link>http://blini.io/</link>
     <atom:link href="http://blini.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Apr 2017 23:39:38 -0300</pubDate>
-    <lastBuildDate>Sat, 22 Apr 2017 23:39:38 -0300</lastBuildDate>
+    <pubDate>Sun, 23 Apr 2017 23:42:35 -0300</pubDate>
+    <lastBuildDate>Sun, 23 Apr 2017 23:42:35 -0300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -15,7 +15,7 @@
         <description>&lt;p&gt;O &lt;strong&gt;MongoDB&lt;/strong&gt; e o &lt;strong&gt;Couchbase&lt;/strong&gt; fazem parte do mundo &lt;strong&gt;NoSql (Not only SQL)&lt;/strong&gt; que é composto
 por uma vasta gama de bancos de dados, cada com sua especialidade. Temos bancos
 especializados em documentos, especialistas em chave-valor, especialistas em grafos,
-temos os que armazenam dados em colunas e por aí vai. Todos com algo em comum: &lt;strong&gt;garantir escalabilidade!&lt;/strong&gt;&lt;/p&gt;
+temos os que armazenam dados em colunas e por aí vai. Todos com algo em comum: &lt;strong&gt;melhorar a escalabilidade!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;O &lt;strong&gt;Couchbase&lt;/strong&gt; se garante muito bem sendo um dos líderes do segmento e é usado por apps e
 sites como &lt;strong&gt;Viber&lt;/strong&gt;, &lt;strong&gt;PayPal&lt;/strong&gt;, &lt;strong&gt;LinkedIn&lt;/strong&gt; e &lt;strong&gt;eBay&lt;/strong&gt;, servindo facilmente &lt;em&gt;terabytes&lt;/em&gt; e &lt;em&gt;petabytes&lt;/em&gt; de
@@ -114,11 +114,11 @@ mostrado no site oficial: &lt;a href=&quot;https://cli.angular.io/&quot;&gt;http
 &lt;p&gt;&lt;code&gt;$ npm install -g angular-cli&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Como já definimos e configuramos na &lt;a href=&quot;http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1&quot;&gt;primeira parte desse artigo&lt;/a&gt;
-a pasta &lt;code&gt;public&lt;/code&gt; como o local onde nosso Front-end residirá, vamos abrir a pasta &lt;code&gt;public&lt;/code&gt;
+a pasta &lt;code&gt;public&lt;/code&gt; como o local onde nosso Front-end residirá, vamos abrir esta pasta
 no terminal e inicializar um novo projeto &lt;strong&gt;Angular&lt;/strong&gt; com ajuda do seu &lt;strong&gt;CLI&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Se você não acompanhou o artigo anterior, você pode acessar o código que criamos lá
-&lt;a href=&quot;https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1&quot;&gt;neste repositório do GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se você não acompanhou o artigo anterior, você pode fazer o download do código que criamos lá
+através &lt;a href=&quot;https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1&quot;&gt;deste repositório do GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Abra a pasta do projeto no terminal e navegue para a pasta &lt;code&gt;public&lt;/code&gt;:&lt;/p&gt;
 
@@ -140,7 +140,7 @@ antes de rodar esse comando precisamos renomear o arquivo &lt;code&gt;package.js
 do projeto Express, pois o Angular CLI, antes de gerar o código, verifica a existência de 
 qualquer arquivo &lt;code&gt;package.json&lt;/code&gt; na estrutura de pastas, e se caso houver ele usa este como 
 sendo o seu arquivo de pacotes padrão, tenta sobrescrevê-lo e cria o projeto na mesma pasta dele.
-Então, para contornar isso, vamos renomear temporariamente esse arquivo para &lt;code&gt;_package.json&lt;/code&gt;.
+Então, para contornar isso, vamos renomear temporariamente este arquivo para &lt;code&gt;_package.json&lt;/code&gt;.
 Outra coisa que devemos fazer é apagar o &lt;code&gt;html&lt;/code&gt; e o &lt;code&gt;js&lt;/code&gt; que criamos no artigo anterior dentro
 da pasta &lt;code&gt;public&lt;/code&gt;.&lt;/p&gt;
 
@@ -148,8 +148,8 @@ da pasta &lt;code&gt;public&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;img/cean-stack-structure.jpg&quot; alt=&quot;img cean-stack-structure.jpg&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;A pasta &lt;code&gt;public&lt;/code&gt; está vazia e o &lt;code&gt;package.json&lt;/code&gt; renomeado. Agora sim podemos rodar o &lt;code&gt;ng-init&lt;/code&gt;
-no terminal:&lt;/p&gt;
+&lt;p&gt;A pasta &lt;code&gt;public&lt;/code&gt; está vazia e o &lt;code&gt;package.json&lt;/code&gt; renomeado.
+Agora sim, dentro pasta &lt;code&gt;public&lt;/code&gt; podemos rodar o &lt;code&gt;ng-init&lt;/code&gt; no terminal:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;$ ng init -n cean-frontend --skip-test --skip-git --skip-npm&lt;/code&gt;&lt;/p&gt;
 
@@ -408,7 +408,7 @@ definições de tipos para diversas bibliotecas que não são escritas em TypeSc
 simples em uma pasta com o mesmo nome da biblioteca e um arquivo &lt;code&gt;index.d.ts&lt;/code&gt; dentro
 &lt;em&gt;fakeando&lt;/em&gt; isso.&lt;/p&gt;
 
-&lt;p&gt;O socket.io-client possui um &lt;em&gt;typing&lt;/em&gt;, então vamos instalá-lo. Na pasta public rode o comando:&lt;/p&gt;
+&lt;p&gt;O socket.io-client possui um &lt;em&gt;typing&lt;/em&gt;, então vamos instalá-lo. Na pasta &lt;code&gt;public&lt;/code&gt; rode o comando:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;$ npm install --save-dev @types/socket.io-client&lt;/code&gt;&lt;/p&gt;
 
