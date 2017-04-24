@@ -38,11 +38,11 @@ mostrado no site oficial: [https://cli.angular.io/](https://cli.angular.io/)
 `$ npm install -g angular-cli`
 
 Como já definimos e configuramos na [primeira parte desse artigo](http://blini.io/criando-um-chat-realtime-com-cean-stack-couchbase-express-angular2-e-node-e-socketio-part-1)
-a pasta `public` como o local onde nosso Front-end residirá, vamos abrir a pasta `public`
+a pasta `public` como o local onde nosso Front-end residirá, vamos abrir esta pasta
 no terminal e inicializar um novo projeto **Angular** com ajuda do seu **CLI**.
 
-Se você não acompanhou o artigo anterior, você pode acessar o código que criamos lá
-[neste repositório do GitHub](https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1).
+Se você não acompanhou o artigo anterior, você pode fazer o download do código que criamos lá
+através [deste repositório do GitHub](https://github.com/felipeblini/CEAN-Stack-and-Socket.io-chat-tutorial-part1).
 
 Abra a pasta do projeto no terminal e navegue para a pasta `public`:
 
@@ -62,7 +62,7 @@ antes de rodar esse comando precisamos renomear o arquivo `package.json` que tem
 do projeto Express, pois o Angular CLI, antes de gerar o código, verifica a existência de 
 qualquer arquivo `package.json` na estrutura de pastas, e se caso houver ele usa este como 
 sendo o seu arquivo de pacotes padrão, tenta sobrescrevê-lo e cria o projeto na mesma pasta dele.
-Então, para contornar isso, vamos renomear temporariamente esse arquivo para `_package.json`.
+Então, para contornar isso, vamos renomear temporariamente este arquivo para `_package.json`.
 Outra coisa que devemos fazer é apagar o `html` e o `js` que criamos no artigo anterior dentro
 da pasta `public`.
 
@@ -70,8 +70,8 @@ A estrutura do projeto até agora está assim:
 
 ![img cean-stack-structure.jpg](img/cean-stack-structure.jpg)
 
-A pasta `public` está vazia e o `package.json` renomeado. Agora sim podemos rodar o `ng-init`
-no terminal: 
+A pasta `public` está vazia e o `package.json` renomeado.
+Agora sim, dentro pasta `public` podemos rodar o `ng-init` no terminal: 
 
 `$ ng init -n cean-frontend --skip-test --skip-git --skip-npm`
 
@@ -330,7 +330,7 @@ Se caso a biblioteca que você precisa não possuir um _typing_ disponível, bas
 simples em uma pasta com o mesmo nome da biblioteca e um arquivo `index.d.ts` dentro
 _fakeando_ isso.
 
-O socket.io-client possui um _typing_, então vamos instalá-lo. Na pasta public rode o comando:
+O socket.io-client possui um _typing_, então vamos instalá-lo. Na pasta `public` rode o comando:
 
 `$ npm install --save-dev @types/socket.io-client`
 
